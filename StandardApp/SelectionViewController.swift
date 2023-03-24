@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ISelectionView: AnyObject {
-	func presentDist(_ dist: Distance)
+	
 }
 
 	//MARK: - SelectionViewController
@@ -18,38 +18,43 @@ class SelectionViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		createGradient()
+		setupView()
+	}
+}
+
+//MARK: - SelectionViewProtocol
+private extension SelectionViewController{
+	func setupView() {
+		view.addGradient()
 		presenter.presentDistance()
+		
+		addSubviews()
+		
+		addActions()
+		
+		setupLayout()
+	}
+}
+
+//MARK: - SelectionViewProtocol
+private extension SelectionViewController{
+	func addSubviews() {
+		
 	}
 	
-	func createGradient() {
+	func addActions() {
 		
-		let primaryColor = UIColor(
-			red: 210/255,
-			green: 109/255,
-			blue: 128/255,
-			alpha: 1
-		)
+	}
+}
+
+//MARK: - SelectionViewProtocol
+private extension SelectionViewController{
+	func setupLayout() {
 		
-		let secondaryColor = UIColor(
-			red: 107/255,
-			green: 148/255,
-			blue: 230/255,
-			alpha: 1
-		)
-		view.backgroundColor = .clear
-		let gradient = CAGradientLayer()
-		gradient.frame = view.bounds
-		gradient.colors = [primaryColor.cgColor, secondaryColor.cgColor]
-		gradient.startPoint = CGPoint(x: 0, y: 0)
-		gradient.endPoint = CGPoint(x: 0, y: 1)
-		view.layer.insertSublayer(gradient, at: 0)
 	}
 }
 
 	//MARK: - SelectionViewProtocol
 extension SelectionViewController: ISelectionView {
-	func presentDist(_ dist: Distance) {
-		print(dist.highway.fifteenKM.firstJunior.title)
-	}
+
 }
