@@ -18,6 +18,7 @@
 		061D0DC8293322AD001A9935 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 061D0DC7293322AD001A9935 /* data.json */; };
 		061D0DCA293322E0001A9935 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D0DC9293322E0001A9935 /* Standard.swift */; };
 		064C565329CE0B3200CA5D78 /* Extention + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C565229CE0B3200CA5D78 /* Extention + UIView.swift */; };
+		064C567529CE7B3500CA5D78 /* ChosenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567429CE7B3500CA5D78 /* ChosenButton.swift */; };
 		068AA0F8295A6681000616D9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F7295A6681000616D9 /* RegisterViewController.swift */; };
 		068AA0FA295A7627000616D9 /* RegisterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F9295A7627000616D9 /* RegisterAssembly.swift */; };
 		06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A444D8294C3A5200F738B9 /* GenderButton.swift */; };
@@ -44,6 +45,7 @@
 		061D0DC7293322AD001A9935 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		061D0DC9293322E0001A9935 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
 		064C565229CE0B3200CA5D78 /* Extention + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention + UIView.swift"; sourceTree = "<group>"; };
+		064C567429CE7B3500CA5D78 /* ChosenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenButton.swift; sourceTree = "<group>"; };
 		068AA0F7295A6681000616D9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		068AA0F9295A7627000616D9 /* RegisterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembly.swift; sourceTree = "<group>"; };
 		06A444D8294C3A5200F738B9 /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
@@ -131,12 +133,12 @@
 		061D0DB229332277001A9935 /* StandardApp */ = {
 			isa = PBXGroup;
 			children = (
-				064C565129CE0B1B00CA5D78 /* Estentions */,
-				06156B1E2936F38300CE05BA /* Default */,
-				06156B27293723E900CE05BA /* App */,
-				06156B28293723FC00CE05BA /* Common */,
 				061D0DF12934788E001A9935 /* Business Logic */,
+				06156B27293723E900CE05BA /* App */,
 				06156B1B2936F31000CE05BA /* Servicelayer */,
+				064C565129CE0B1B00CA5D78 /* Estentions */,
+				06156B28293723FC00CE05BA /* Common */,
+				06156B1E2936F38300CE05BA /* Default */,
 				061D0DBC29332278001A9935 /* Assets.xcassets */,
 				061D0DBE29332278001A9935 /* LaunchScreen.storyboard */,
 				061D0DC129332278001A9935 /* Info.plist */,
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				06A444D8294C3A5200F738B9 /* GenderButton.swift */,
+				064C567429CE7B3500CA5D78 /* ChosenButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06DF3B912939B55D0041A454 /* MainRouter.swift in Sources */,
+				064C567529CE7B3500CA5D78 /* ChosenButton.swift in Sources */,
 				06156B2229370C5100CE05BA /* MainPresenter.swift in Sources */,
 				06156B262937140300CE05BA /* Assemblying.swift in Sources */,
 				06156B2B2937333900CE05BA /* MainViewController.swift in Sources */,

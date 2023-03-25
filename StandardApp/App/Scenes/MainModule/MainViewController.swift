@@ -50,7 +50,7 @@ final class MainViewController: UIViewController {
 
 private extension MainViewController {
 	func setupView() {
-		view.backgroundColor = #colorLiteral(red: 0.2346754968, green: 0.2547710538, blue: 0.2673111558, alpha: 1)
+		view.backgroundColor = #colorLiteral(red: 0.1785757244, green: 0.1885581911, blue: 0.2097945511, alpha: 1)
 		addSubViews()
 		
 		setupNavigationController()

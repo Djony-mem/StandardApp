@@ -28,10 +28,6 @@ class GenderButton: UIButton {
         layer.cornerRadius = 15
         clipsToBounds = true
         
-        layer.shadowColor = UIColor.systemBlue.cgColor
-        layer.shadowOpacity = 0.4
-        layer.shadowOffset = CGSize(width: 0, height: 10)
-        
         createGradient()
     }
     
