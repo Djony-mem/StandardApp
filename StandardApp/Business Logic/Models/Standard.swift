@@ -12,10 +12,10 @@ enum Gender {
 	case fimale
 }
 
-enum Place {
-	case stadium
-	case highway
-}
+//enum Place {
+//	case stadium
+//	case highway
+//}
 
 // MARK: - Standard
 struct Standard: Codable {

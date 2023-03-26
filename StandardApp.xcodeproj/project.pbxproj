@@ -150,9 +150,8 @@
 		061D0DF12934788E001A9935 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				061D0DC9293322E0001A9935 /* Standard.swift */,
+				064C567629D0197A00CA5D78 /* Models */,
 				06A6A4F629CD464600EB2B10 /* StandartManager.swift */,
-				06A6A4F829CD4D4900EB2B10 /* Time.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -163,6 +162,15 @@
 				064C565229CE0B3200CA5D78 /* Extention + UIView.swift */,
 			);
 			path = Estentions;
+			sourceTree = "<group>";
+		};
+		064C567629D0197A00CA5D78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				061D0DC9293322E0001A9935 /* Standard.swift */,
+				06A6A4F829CD4D4900EB2B10 /* Time.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		068AA0F6295A664F000616D9 /* RegisterModule */ = {

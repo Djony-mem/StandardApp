@@ -24,7 +24,9 @@ final class ChosenButton: UIButton {
 		setTitleColor(bgColor, for: .normal)
 		setTitleColor(disabledColor, for: .disabled)
 		layer.cornerRadius = 10
-		backgroundColor = bgColor
+		layer.borderColor = bgColor.cgColor
+		layer.borderWidth = 2
+//		backgroundColor = bgColor
 	}
 }
 
