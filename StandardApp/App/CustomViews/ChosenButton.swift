@@ -26,7 +26,11 @@ final class ChosenButton: UIButton {
 		layer.cornerRadius = 10
 		layer.borderColor = bgColor.cgColor
 		layer.borderWidth = 2
-//		backgroundColor = bgColor
+		
+		showsMenuAsPrimaryAction = true
+		changesSelectionAsPrimaryAction = true
+		
+		titleLabel?.font = .boldSystemFont(ofSize: 20)
 	}
 }
 

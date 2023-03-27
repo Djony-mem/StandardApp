@@ -45,7 +45,7 @@ class SelectionViewController: UIViewController {
 	}
 }
 
-//MARK: - SelectionViewProtocol
+//MARK: - Settings View
 private extension SelectionViewController{
 	func setupView() {
 		presenter.presentDistance()
@@ -58,13 +58,15 @@ private extension SelectionViewController{
 		setupPlaceLabel()
 		setupPickerDistance()
 		setupPickerTime()
+		setupTimingButton()
+		setupCircleLengthButton()
 		setupResultButton()
 		
 		setupLayout()
 	}
 }
 
-//MARK: - SelectionViewProtocol
+//MARK: - Setting
 private extension SelectionViewController{
 	func addSubviews() {
 		[bgImageView, placeSwitch, placeLabel, pickerDistans, timingButton,
@@ -98,6 +100,20 @@ private extension SelectionViewController{
 		pickerTime.dataSource = self
 	}
 	
+	func setupTimingButton() {
+		timingButton.menu = UIMenu(children: [
+			UIAction(title: "Ручной", state: .on, handler: {_ in }),
+			UIAction(title: "Авто", handler: {_ in })
+		])
+	}
+	
+	func setupCircleLengthButton() {
+		circleLengthButton.menu = UIMenu(children: [
+			UIAction(title: "400 метров", state: .on, handler: {_ in }),
+			UIAction(title: "200 метров", handler: {_ in })
+		])
+	}
+	
 	func setupResultButton() {
 		resultButton.setTitle("Проверить результат", for: .normal)
 		resultButton.setTitleColor(
@@ -109,7 +125,7 @@ private extension SelectionViewController{
 	}
 }
 
-//MARK: - SelectionViewProtocol
+//MARK: - Layout
 private extension SelectionViewController{
 	func setupLayout() {
 		[bgImageView, placeSwitch, placeLabel, pickerDistans, timingButton,
