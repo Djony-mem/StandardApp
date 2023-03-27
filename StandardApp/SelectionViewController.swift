@@ -15,6 +15,12 @@ protocol ISelectionView: AnyObject {
 class SelectionViewController: UIViewController {
 	var presenter: ISelectionPresenter!
 	
+	private let distancesStadium = StadiumEnum.allCases
+	private let distancesHighway = HighwayEnum.allCases
+	
+	private let times = Array(0...59)
+	private let miliseconds = Array(0...99)
+	
 	private let bgImageView = UIImageView()
 	
 	private let placeSwitch = UISwitch()
@@ -22,6 +28,7 @@ class SelectionViewController: UIViewController {
 
 	private let pickerDistans = UIPickerView()
 	private let pickerTime = UIPickerView()
+	
 
 	private let timingButton = ChosenButton(
 		bgColor: UIColor(red: 185/255, green: 122/255, blue: 25/255, alpha: 1),
@@ -40,8 +47,43 @@ class SelectionViewController: UIViewController {
 	//MARK: - Actions
 	@objc
 	private func switchAction() {
-		let text = placeSwitch.isOn ? "Шоссе" : "Стадион"
-		placeLabel.text = text
+		placeLabel.text = placeSwitch.isOn ? "Шоссе" : "Стадион"
+		
+		timingButton.isEnabled = !placeSwitch.isOn
+		if !placeSwitch.isOn {
+			timingButton.layer.borderColor = UIColor(
+				red: 185/255,
+				green: 122/255,
+				blue: 25/255,
+				alpha: 1
+			).cgColor
+		} else {
+			timingButton.layer.borderColor = UIColor(
+				red: 81/255,
+				green: 87/255,
+				blue: 91/255,
+				alpha: 1
+			).cgColor
+		}
+		
+		circleLengthButton.isEnabled = !placeSwitch.isOn
+		if !placeSwitch.isOn {
+			circleLengthButton.layer.borderColor = UIColor(
+				red: 185/255,
+				green: 122/255,
+				blue: 25/255,
+				alpha: 1
+			).cgColor
+		} else {
+			circleLengthButton.layer.borderColor = UIColor(
+				red: 81/255,
+				green: 87/255,
+				blue: 91/255,
+				alpha: 1
+			).cgColor
+		}
+		
+		pickerDistans.reloadAllComponents()
 	}
 }
 
@@ -175,19 +217,103 @@ private extension SelectionViewController{
 extension SelectionViewController: UIPickerViewDelegate {
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		if pickerView == pickerDistans {
-			return "Дистанция"
+			if placeSwitch.isOn {
+
+				return distancesHighway[row].rawValue
+			} else {
+				circleLengthButton.isEnabled = distancesStadium[row].isEnebledCircleLength
+				
+				circleLengthButton.layer.borderColor = distancesStadium[row].isEnebledCircleLength
+				? UIColor(
+					red: 185/255,
+					green: 122/255,
+					blue: 25/255,
+					alpha: 1
+				).cgColor
+				: UIColor(
+					red: 81/255,
+					green: 87/255,
+					blue: 91/255,
+					alpha: 1
+				).cgColor
+				
+				if distancesStadium[row].isOnlyManual {
+					timingButton.menu = UIMenu(children: [
+						UIAction(title: "Ручной", state: .on, handler: {_ in }),
+						UIAction(title: "Авто", handler: {_ in })
+					])
+				} else {
+					timingButton.menu = UIMenu(children: [
+						UIAction(title: "Ручной", state: .on, handler: {_ in }),
+					])
+				}
+				
+				if distancesStadium[row].isCircleLengthOnly200 {
+					circleLengthButton.menu = UIMenu(children: [
+						UIAction(title: "400 метров", state: .on, handler: {_ in }),
+						UIAction(title: "200 метров", handler: {_ in })
+					])
+				} else {
+					circleLengthButton.menu = UIMenu(children: [
+						UIAction(title: "200 метров", handler: {_ in })
+					])
+				}
+				return distancesStadium[row].rawValue
+			}
 		} else {
-			return "00"
+			return component == 3 ? String(format: "%02d", miliseconds[row]) : String(format: "%02d", times[row])
 		}
 	}
+
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		
+
+		if pickerView == pickerDistans {
+			if !placeSwitch.isOn {
+				circleLengthButton.isEnabled = distancesStadium[row].isEnebledCircleLength
+				
+				circleLengthButton.layer.borderColor = distancesStadium[row].isEnebledCircleLength
+				? UIColor(
+					red: 185/255,
+					green: 122/255,
+					blue: 25/255,
+					alpha: 1
+				).cgColor
+				: UIColor(
+					red: 81/255,
+					green: 87/255,
+					blue: 91/255,
+					alpha: 1
+				).cgColor
+				
+				if distancesStadium[row].isOnlyManual {
+					timingButton.menu = UIMenu(children: [
+						UIAction(title: "Ручной", state: .on, handler: {_ in }),
+						UIAction(title: "Авто", handler: {_ in })
+					])
+				} else {
+					timingButton.menu = UIMenu(children: [
+						UIAction(title: "Ручной", state: .on, handler: {_ in }),
+					])
+				}
+				
+				if distancesStadium[row].isCircleLengthOnly200 {
+					circleLengthButton.menu = UIMenu(children: [
+						UIAction(title: "400 метров", state: .on, handler: {_ in }),
+						UIAction(title: "200 метров", handler: {_ in })
+					])
+				} else {
+					circleLengthButton.menu = UIMenu(children: [
+						UIAction(title: "200 метров", handler: {_ in })
+					])
+				}
+			}
+		}
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
 		if pickerView == pickerDistans {
-			return 150
+			return 280
 		} else {
 			return 50
 		}
@@ -205,7 +331,11 @@ extension SelectionViewController: UIPickerViewDataSource {
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		(1...10).count
+		if pickerView == pickerDistans {
+			return placeSwitch.isOn ? distancesHighway.count : distancesStadium.count
+		} else {
+			return component == 3 ? miliseconds.count : times.count
+		}
 	}
 }
 

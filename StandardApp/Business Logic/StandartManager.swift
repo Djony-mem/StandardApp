@@ -25,6 +25,8 @@ final class StandardManager {
 	func getHighway() -> Highway {
 		distance.highway
 	}
+	
+	
 }
 
 extension StandardManager: IStandardManager {

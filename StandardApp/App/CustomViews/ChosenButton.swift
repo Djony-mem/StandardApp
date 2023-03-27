@@ -24,8 +24,8 @@ final class ChosenButton: UIButton {
 		setTitleColor(bgColor, for: .normal)
 		setTitleColor(disabledColor, for: .disabled)
 		layer.cornerRadius = 10
-		layer.borderColor = bgColor.cgColor
 		layer.borderWidth = 2
+		layer.borderColor = bgColor.cgColor
 		
 		showsMenuAsPrimaryAction = true
 		changesSelectionAsPrimaryAction = true
