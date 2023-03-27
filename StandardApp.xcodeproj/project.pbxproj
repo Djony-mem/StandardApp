@@ -20,6 +20,7 @@
 		064C565329CE0B3200CA5D78 /* Extention + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C565229CE0B3200CA5D78 /* Extention + UIView.swift */; };
 		064C567529CE7B3500CA5D78 /* ChosenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567429CE7B3500CA5D78 /* ChosenButton.swift */; };
 		064C567A29D13B9200CA5D78 /* SelectEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567929D13B9200CA5D78 /* SelectEnumeration.swift */; };
+		064C567C29D1736700CA5D78 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567B29D1736700CA5D78 /* DescriptionLabel.swift */; };
 		068AA0F8295A6681000616D9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F7295A6681000616D9 /* RegisterViewController.swift */; };
 		068AA0FA295A7627000616D9 /* RegisterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F9295A7627000616D9 /* RegisterAssembly.swift */; };
 		06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A444D8294C3A5200F738B9 /* GenderButton.swift */; };
@@ -48,6 +49,7 @@
 		064C565229CE0B3200CA5D78 /* Extention + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention + UIView.swift"; sourceTree = "<group>"; };
 		064C567429CE7B3500CA5D78 /* ChosenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenButton.swift; sourceTree = "<group>"; };
 		064C567929D13B9200CA5D78 /* SelectEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEnumeration.swift; sourceTree = "<group>"; };
+		064C567B29D1736700CA5D78 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		068AA0F7295A6681000616D9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		068AA0F9295A7627000616D9 /* RegisterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembly.swift; sourceTree = "<group>"; };
 		06A444D8294C3A5200F738B9 /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				06A444D8294C3A5200F738B9 /* GenderButton.swift */,
 				064C567429CE7B3500CA5D78 /* ChosenButton.swift */,
+				064C567B29D1736700CA5D78 /* DescriptionLabel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				06A6A4F929CD4D4900EB2B10 /* Time.swift in Sources */,
 				06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */,
 				06DF3B952939BC940041A454 /* SelectionAssembly.swift in Sources */,
+				064C567C29D1736700CA5D78 /* DescriptionLabel.swift in Sources */,
 				064C567A29D13B9200CA5D78 /* SelectEnumeration.swift in Sources */,
 				06156B1D2936F37400CE05BA /* DataManager.swift in Sources */,
 				06DF3B8B293856090041A454 /* SelectionPresenter.swift in Sources */,

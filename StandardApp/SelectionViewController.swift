@@ -29,6 +29,8 @@ class SelectionViewController: UIViewController {
 	private let pickerDistans = UIPickerView()
 	private let pickerTime = UIPickerView()
 	
+	private let timingLabel = DescriptionLabel(title: "Хронометраж")
+	private let circleLengthLabel = DescriptionLabel(title: "Длинна круга")
 
 	private let timingButton = ChosenButton(
 		bgColor: UIColor(red: 185/255, green: 122/255, blue: 25/255, alpha: 1),
@@ -111,8 +113,8 @@ private extension SelectionViewController{
 //MARK: - Setting
 private extension SelectionViewController{
 	func addSubviews() {
-		[bgImageView, placeSwitch, placeLabel, pickerDistans, timingButton,
-		 circleLengthButton, pickerTime, resultButton].forEach { subView in
+		[bgImageView, placeSwitch, placeLabel, pickerDistans, timingLabel, timingButton,
+		 circleLengthLabel, circleLengthButton, pickerTime, resultButton].forEach { subView in
 			view.addSubview(subView)
 		}
 	}
@@ -170,8 +172,8 @@ private extension SelectionViewController{
 //MARK: - Layout
 private extension SelectionViewController{
 	func setupLayout() {
-		[bgImageView, placeSwitch, placeLabel, pickerDistans, timingButton,
-		 circleLengthButton, pickerTime, resultButton].forEach { subview in
+		[bgImageView, placeSwitch, placeLabel, pickerDistans,timingLabel, timingButton,
+		circleLengthLabel, circleLengthButton, pickerTime, resultButton].forEach { subview in
 			subview.translatesAutoresizingMaskIntoConstraints = false
 		}
 		
@@ -193,11 +195,19 @@ private extension SelectionViewController{
 			pickerDistans.heightAnchor.constraint(equalToConstant: 100),
 			pickerDistans.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1.1),
 			
-			timingButton.topAnchor.constraint(equalTo: pickerDistans.bottomAnchor, constant: 30),
+			timingLabel.topAnchor.constraint(equalTo: pickerDistans.bottomAnchor, constant: 30),
+			timingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			timingLabel.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
+			
+			timingButton.topAnchor.constraint(equalTo: timingLabel.bottomAnchor, constant: 8),
 			timingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			timingButton.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
 			
-			circleLengthButton.topAnchor.constraint(equalTo: timingButton.bottomAnchor, constant: 30),
+			circleLengthLabel.topAnchor.constraint(equalTo: timingButton.bottomAnchor, constant: 30),
+			circleLengthLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			circleLengthLabel.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
+			
+			circleLengthButton.topAnchor.constraint(equalTo: circleLengthLabel.bottomAnchor, constant: 8),
 			circleLengthButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			circleLengthButton.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
 
