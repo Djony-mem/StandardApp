@@ -15,18 +15,33 @@ protocol ISelectionView: AnyObject {
 class SelectionViewController: UIViewController {
 	var presenter: ISelectionPresenter!
 	
+	private let bgImageView = UIImageView()
+	
 	private let placeSwitch = UISwitch()
+	private let placeLabel = UILabel()
+
 	private let pickerDistans = UIPickerView()
 	private let pickerTime = UIPickerView()
 
-	private let timingButton = ChosenButton(bgColor: UIColor(red: 185/255, green: 122/255, blue: 25/255, alpha: 1), disabledColor: UIColor(red: 81/255, green: 87/255, blue: 91/255, alpha: 1))
-	private let circleLengthButton = ChosenButton(bgColor: UIColor(red: 185/255, green: 122/255, blue: 25/255, alpha: 1), disabledColor: UIColor(red: 81/255, green: 87/255, blue: 91/255, alpha: 1))
+	private let timingButton = ChosenButton(
+		bgColor: UIColor(red: 185/255, green: 122/255, blue: 25/255, alpha: 1),
+		disabledColor: UIColor(red: 81/255, green: 87/255, blue: 91/255, alpha: 1))
+	private let circleLengthButton = ChosenButton(
+		bgColor: UIColor(red: 185/255, green: 122/255, blue: 25/255, alpha: 1),
+		disabledColor: UIColor(red: 81/255, green: 87/255, blue: 91/255, alpha: 1))
 	
 	private let resultButton = UIButton()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
+	}
+	
+	//MARK: - Actions
+	@objc
+	private func switchAction() {
+		let text = placeSwitch.isOn ? "Шоссе" : "Стадион"
+		placeLabel.text = text
 	}
 }
 
@@ -38,6 +53,9 @@ private extension SelectionViewController{
 		addSubviews()
 		
 		addActions()
+		
+		setupBgImageView()
+		setupPlaceLabel()
 		setupPickerDistance()
 		setupPickerTime()
 		setupResultButton()
@@ -49,13 +67,25 @@ private extension SelectionViewController{
 //MARK: - SelectionViewProtocol
 private extension SelectionViewController{
 	func addSubviews() {
-		[pickerDistans, timingButton, circleLengthButton, pickerTime, resultButton].forEach { subView in
+		[bgImageView, placeSwitch, placeLabel, pickerDistans, timingButton,
+		 circleLengthButton, pickerTime, resultButton].forEach { subView in
 			view.addSubview(subView)
 		}
 	}
 	
 	func addActions() {
-		
+		placeSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
+	}
+	
+	func setupBgImageView() {
+		bgImageView.image = UIImage(named: "bgSelectV3")
+	}
+	
+	func setupPlaceLabel() {
+		let text = placeSwitch.isOn ? "Шоссе" : "Стадион"
+		placeLabel.text = text
+		placeLabel.font = .boldSystemFont(ofSize: 25)
+		placeLabel.textColor = UIColor(red: 185/255, green: 122/255, blue: 25/255, alpha: 1)
 	}
 	
 	func setupPickerDistance() {
@@ -70,7 +100,9 @@ private extension SelectionViewController{
 	
 	func setupResultButton() {
 		resultButton.setTitle("Проверить результат", for: .normal)
-		resultButton.setTitleColor(UIColor(red: 127/255, green: 193/255, blue: 154/255, alpha: 1), for: .normal)
+		resultButton.setTitleColor(
+			UIColor(red: 127/255, green: 193/255, blue: 154/255, alpha: 1), for: .normal
+		)
 		resultButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
 		resultButton.layer.cornerRadius = 10
 		resultButton.backgroundColor = #colorLiteral(red: 0.03404390812, green: 0.2152546346, blue: 0.0269466769, alpha: 1)
@@ -80,16 +112,28 @@ private extension SelectionViewController{
 //MARK: - SelectionViewProtocol
 private extension SelectionViewController{
 	func setupLayout() {
-		[pickerDistans, timingButton,
+		[bgImageView, placeSwitch, placeLabel, pickerDistans, timingButton,
 		 circleLengthButton, pickerTime, resultButton].forEach { subview in
 			subview.translatesAutoresizingMaskIntoConstraints = false
 		}
 		
 		NSLayoutConstraint.activate([
-			pickerDistans.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+			
+			bgImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+			bgImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+			bgImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
+			bgImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+			
+			placeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+			placeLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
+			
+			placeSwitch.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+			placeSwitch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50),
+
+			pickerDistans.topAnchor.constraint(equalTo: placeLabel.bottomAnchor, constant: 30),
 			pickerDistans.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			pickerDistans.heightAnchor.constraint(equalToConstant: 100),
-			pickerDistans.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
+			pickerDistans.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1.1),
 			
 			timingButton.topAnchor.constraint(equalTo: pickerDistans.bottomAnchor, constant: 30),
 			timingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -102,7 +146,7 @@ private extension SelectionViewController{
 			pickerTime.topAnchor.constraint(equalTo: circleLengthButton.bottomAnchor, constant: 30),
 			pickerTime.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			pickerTime.heightAnchor.constraint(equalToConstant: 100),
-			pickerTime.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
+			pickerTime.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1.1),
 			
 			resultButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
 			resultButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
@@ -132,13 +176,6 @@ extension SelectionViewController: UIPickerViewDelegate {
 			return 50
 		}
 	}
-//	
-//	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-//		let pickerLabel = UILabel()
-//		pickerLabel.text = "00"
-//		pickerLabel.font = .boldSystemFont(ofSize: 20)
-//		return pickerLabel
-//	}
 }
 
 //MARK: - UIPickerViewDataSource
