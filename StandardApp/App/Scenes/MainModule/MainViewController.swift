@@ -136,3 +136,8 @@ extension MainViewController: IMainView {
 	
 }
 
+struct ViewControllerProvider: PreviewProvider {
+	static var previews: some View {
+		MainViewController().preview()
+	}
+}

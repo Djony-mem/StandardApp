@@ -6,6 +6,7 @@
 	//
 
 import UIKit
+import SwiftUI
 
 protocol ISelectionView: AnyObject {
 	
@@ -352,4 +353,10 @@ extension SelectionViewController: UIPickerViewDataSource {
 	//MARK: - SelectionViewProtocol
 extension SelectionViewController: ISelectionView {
 
+}
+
+struct SelectionViewControllerProvider: PreviewProvider {
+	static var previews: some View {
+		SelectionViewController().preview()
+	}
 }

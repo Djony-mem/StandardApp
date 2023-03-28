@@ -38,6 +38,5 @@ final class ChosenButton: UIButton {
 private extension ChosenButton {
 	func setupLayout() {
 		heightAnchor.constraint(equalToConstant: 40).isActive = true
-		widthAnchor.constraint(equalToConstant: 200).isActive = true
 	}
 }
