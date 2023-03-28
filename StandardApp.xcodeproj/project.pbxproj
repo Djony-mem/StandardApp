@@ -22,6 +22,7 @@
 		064C567A29D13B9200CA5D78 /* SelectEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567929D13B9200CA5D78 /* SelectEnumeration.swift */; };
 		064C567C29D1736700CA5D78 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567B29D1736700CA5D78 /* DescriptionLabel.swift */; };
 		064C567E29D2A2DF00CA5D78 /* UIViewController + Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567D29D2A2DF00CA5D78 /* UIViewController + Preview.swift */; };
+		064C568029D345B300CA5D78 /* ColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567F29D345B300CA5D78 /* ColorSpace.swift */; };
 		068AA0F8295A6681000616D9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F7295A6681000616D9 /* RegisterViewController.swift */; };
 		068AA0FA295A7627000616D9 /* RegisterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F9295A7627000616D9 /* RegisterAssembly.swift */; };
 		06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A444D8294C3A5200F738B9 /* GenderButton.swift */; };
@@ -52,6 +53,7 @@
 		064C567929D13B9200CA5D78 /* SelectEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEnumeration.swift; sourceTree = "<group>"; };
 		064C567B29D1736700CA5D78 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		064C567D29D2A2DF00CA5D78 /* UIViewController + Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Preview.swift"; sourceTree = "<group>"; };
+		064C567F29D345B300CA5D78 /* ColorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpace.swift; sourceTree = "<group>"; };
 		068AA0F7295A6681000616D9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		068AA0F9295A7627000616D9 /* RegisterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembly.swift; sourceTree = "<group>"; };
 		06A444D8294C3A5200F738B9 /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				06156B1F29370B7A00CE05BA /* MainModule */,
 				06DF3B82293739170041A454 /* SelectionModule */,
 				068AA0F6295A664F000616D9 /* RegisterModule */,
+				064C567F29D345B300CA5D78 /* ColorSpace.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				06156B262937140300CE05BA /* Assemblying.swift in Sources */,
 				06156B2B2937333900CE05BA /* MainViewController.swift in Sources */,
 				068AA0FA295A7627000616D9 /* RegisterAssembly.swift in Sources */,
+				064C568029D345B300CA5D78 /* ColorSpace.swift in Sources */,
 				06A6A4F929CD4D4900EB2B10 /* Time.swift in Sources */,
 				06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */,
 				06DF3B952939BC940041A454 /* SelectionAssembly.swift in Sources */,

@@ -9,9 +9,9 @@ import UIKit
 
 final class ChosenButton: UIButton {
 	
-	init(bgColor: UIColor, disabledColor: UIColor) {
+	init(borderColor: UIColor, disabledColor: UIColor) {
 		super.init(frame: .zero)
-		setupChosenButton(bgColor: bgColor, disabledColor: disabledColor)
+		setupChosenButton(borderColor: borderColor, disabledColor: disabledColor)
 		setupLayout()
 	}
 	
@@ -20,12 +20,12 @@ final class ChosenButton: UIButton {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	private func setupChosenButton(bgColor: UIColor, disabledColor: UIColor) {
-		setTitleColor(bgColor, for: .normal)
+	private func setupChosenButton(borderColor: UIColor, disabledColor: UIColor) {
+		setTitleColor(borderColor, for: .normal)
 		setTitleColor(disabledColor, for: .disabled)
 		layer.cornerRadius = 10
 		layer.borderWidth = 2
-		layer.borderColor = bgColor.cgColor
+		layer.borderColor = borderColor.cgColor
 		
 		showsMenuAsPrimaryAction = true
 		changesSelectionAsPrimaryAction = true

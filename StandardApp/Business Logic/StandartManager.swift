@@ -8,7 +8,8 @@
 import Foundation
 
 protocol IStandardManager {
-	func getStadium() -> Stadium
+	func getHighwayDistans(_ highwayEnum: HighwayEnum, userTime: Time) -> TimeInfo?
+	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> TimeInfo?
 }
 
 final class StandardManager {
@@ -18,15 +19,42 @@ final class StandardManager {
 		self.distance = distance
 	}
 	
-	func getStadium() -> Stadium {
-		distance.stadium
+	func getHighwayDistans(_ highwayEnum: HighwayEnum, userTime: Time) -> TimeInfo? {
+		let highway = getHighway()
+		
+		switch highwayEnum {
+		case .oneHundredKM:
+			return getResult(discharge: highway.oneHundredKM, userTime: userTime)
+		case .marathon:
+			return getResult(discharge: highway.marathon, userTime: userTime)
+		case .halfMarathon:
+			return getResult(discharge: highway.halfMarathon, userTime: userTime)
+		case .fifteenKM:
+			return getResult(discharge: highway.fifteenKM, userTime: userTime)
+		}
 	}
 	
-	func getHighway() -> Highway {
-		distance.highway
+	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> TimeInfo? {
+		let chronom = getChronometer(chronometer, stadium: stadium)
+		
+		if let discharge = chronom.discharge {
+			return getResult(discharge: discharge, userTime: time)
+		} else if let circle = chronom.circle {
+			switch circleLength {
+			case .circleLength200:
+				let discharge200 = circle.circleLength200
+				return getResult(discharge: discharge200, userTime: time)
+			case .circleLength400:
+				let discharge400 = circle.circleLength400
+				return getResult(discharge: discharge400, userTime: time)
+			case .none:
+				return nil
+			}
+		}
+		return TimeInfo(title: "", time: "")
 	}
 	
-	func getStadiumDistans(stadiumEnum: StadiumEnum) -> (
+	private func getStadiumDistans(stadiumEnum: StadiumEnum) -> (
 		chronom: Chronometer?,
 		chronomCircle: ChronometerCircle?,
 		tyM: TyM?) {
@@ -67,7 +95,7 @@ final class StandardManager {
 			}
 		}
 	
-	func getChronometer(_ chronometer: ChronometerEnum, stadium: StadiumEnum) -> (discharge: Discharge?, circle: Circle?) {
+	private func getChronometer(_ chronometer: ChronometerEnum, stadium: StadiumEnum) -> (discharge: Discharge?, circle: Circle?) {
 		let chronom = getStadiumDistans(stadiumEnum: stadium)
 		
 		if let chronom = chronom.chronom {
@@ -95,24 +123,12 @@ final class StandardManager {
 		return (nil, nil)
 	}
 	
-	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> TimeInfo? {
-		let chronom = getChronometer(chronometer, stadium: stadium)
-		
-		if let discharge = chronom.discharge {
-			return getResult(discharge: discharge, userTime: time)
-		} else if let circle = chronom.circle {
-			switch circleLength {
-			case .circleLength200:
-				let discharge200 = circle.circleLength200
-				return getResult(discharge: discharge200, userTime: time)
-			case .circleLength400:
-				let discharge400 = circle.circleLength400
-				return getResult(discharge: discharge400, userTime: time)
-			case .none:
-				return nil
-			}
-		}
-		return TimeInfo(title: "", time: "")
+	private func getStadium() -> Stadium {
+		distance.stadium
+	}
+	
+	private func getHighway() -> Highway {
+		distance.highway
 	}
 	
 	private func getResult(discharge: Discharge, userTime: Time) -> TimeInfo? {

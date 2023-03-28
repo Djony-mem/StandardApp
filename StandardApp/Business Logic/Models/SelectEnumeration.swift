@@ -52,7 +52,7 @@ enum HighwayEnum: String, CaseIterable {
 	case fifteenKM = "15 км"
 }
 
-enum ChronometerEnum{
+enum ChronometerEnum {
 	case manual
 	case auto
 }
