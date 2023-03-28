@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum Place {
+	case stadium
+	case highway
+}
+
 enum StadiumEnum: String, CaseIterable {
 	case tenThousandM = "10000 м"
 	case fiveThousandM = "5000 м"
@@ -45,4 +50,27 @@ enum HighwayEnum: String, CaseIterable {
 	case marathon = "Марафон (42,195 км)"
 	case halfMarathon = "Полумарафон (21,0975)"
 	case fifteenKM = "15 км"
+}
+
+enum ChronometerEnum{
+	case manual
+	case auto
+}
+
+enum CircleEnum {
+	case circleLength200
+	case circleLength400
+	case none
+}
+
+enum DischargeEnum {
+	case msmk
+	case ms
+	case kms
+	case firstRank
+	case secondRank
+	case thirdRank
+	case firstJunior
+	case secondJunior
+	case thirdJunior
 }

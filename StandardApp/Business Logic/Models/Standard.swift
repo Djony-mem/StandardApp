@@ -12,11 +12,6 @@ enum Gender {
 	case fimale
 }
 
-//enum Place {
-//	case stadium
-//	case highway
-//}
-
 // MARK: - Standard
 struct Standard: Codable {
     let woman: Distance
@@ -58,22 +53,24 @@ struct ChronometerCircle: Codable {
     let auto: Circle
 }
 
+// MARK: - FiveThousandM
+struct Chronometer: Codable {
+	let manual: Discharge
+	let auto: Discharge
+}
+
+// MARK: - TyM
+struct TyM: Codable {
+	let manual: Discharge
+}
+
 // MARK: - Circle
 struct Circle: Codable {
     let circleLength200:  Discharge
     let circleLength400: Discharge
 }
 
-// MARK: - TyM
-struct TyM: Codable {
-    let manual: Discharge
-}
 
-// MARK: - FiveThousandM
-struct Chronometer: Codable {
-    let manual: Discharge
-    let auto: Discharge
-}
 
 // MARK: - Discharge
 struct Discharge: Codable {

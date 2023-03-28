@@ -16,12 +16,6 @@ protocol ISelectionView: AnyObject {
 class SelectionViewController: UIViewController {
 	var presenter: ISelectionPresenter!
 	
-	private let distancesStadium = StadiumEnum.allCases
-	private let distancesHighway = HighwayEnum.allCases
-	
-	private let times = Array(0...59)
-	private let miliseconds = Array(0...99)
-	
 	private let bgImageView = UIImageView()
 	
 	private let placeSwitch = UISwitch()
@@ -42,6 +36,14 @@ class SelectionViewController: UIViewController {
 	
 	private let resultButton = UIButton()
 	
+	private let distancesStadium = StadiumEnum.allCases
+	private let distancesHighway = HighwayEnum.allCases
+	
+	private let times = Array(0...59)
+	private let miliseconds = Array(0...99)
+	
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
@@ -51,6 +53,7 @@ class SelectionViewController: UIViewController {
 	@objc
 	private func switchAction() {
 		placeLabel.text = placeSwitch.isOn ? "Шоссе" : "Стадион"
+		
 		
 		timingButton.isEnabled = !placeSwitch.isOn
 		if !placeSwitch.isOn {
@@ -93,7 +96,7 @@ class SelectionViewController: UIViewController {
 //MARK: - Settings View
 private extension SelectionViewController{
 	func setupView() {
-		presenter.presentDistance()
+		
 		view.backgroundColor = UIColor(red: 23/255, green: 23/255, blue: 23/255, alpha: 1)
 		addSubviews()
 		
@@ -355,8 +358,8 @@ extension SelectionViewController: ISelectionView {
 
 }
 
-struct SelectionViewControllerProvider: PreviewProvider {
-	static var previews: some View {
-		SelectionViewController().preview()
-	}
-}
+//struct SelectionViewControllerProvider: PreviewProvider {
+//	static var previews: some View {
+//		SelectionViewController().preview()
+//	}
+//}
