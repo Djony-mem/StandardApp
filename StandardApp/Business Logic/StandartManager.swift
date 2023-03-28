@@ -95,22 +95,61 @@ final class StandardManager {
 		return (nil, nil)
 	}
 	
-	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> TimeInfo {
+	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> TimeInfo? {
 		let chronom = getChronometer(chronometer, stadium: stadium)
 		
 		if let discharge = chronom.discharge {
-			
+			return getResult(discharge: discharge, userTime: time)
 		} else if let circle = chronom.circle {
 			switch circleLength {
 			case .circleLength200:
 				let discharge200 = circle.circleLength200
-				
+				return getResult(discharge: discharge200, userTime: time)
 			case .circleLength400:
-				let discharge200 = circle.circleLength400
+				let discharge400 = circle.circleLength400
+				return getResult(discharge: discharge400, userTime: time)
 			case .none:
-				break
+				return nil
 			}
 		}
+		return TimeInfo(title: "", time: "")
+	}
+	
+	private func getResult(discharge: Discharge, userTime: Time) -> TimeInfo? {
+		
+		let msmk = Time(stringLiteral: discharge.msmk.time)
+		let ms = Time(stringLiteral: discharge.ms.time)
+		let kms = Time(stringLiteral: discharge.kms.time)
+		let firstRank = Time(stringLiteral: discharge.firstRank.time)
+		let secondRank = Time(stringLiteral: discharge.secondRank.time)
+		let thirdRank = Time(stringLiteral: discharge.thirdRank.time)
+		let firstJunior = Time(stringLiteral: discharge.firstJunior.time)
+		let secondJunior = Time(stringLiteral: discharge.secondJunior.time)
+		let thirdJunior = Time(stringLiteral: discharge.thirdJunior.time)
+	
+		
+		if userTime <= msmk {
+			return discharge.msmk
+		} else if userTime <= ms {
+			return discharge.ms
+		} else if userTime <= kms {
+			return discharge.kms
+		} else if userTime <= firstRank {
+			return discharge.firstRank
+		} else if userTime <= secondRank {
+			return discharge.secondRank
+		} else if userTime <= thirdRank {
+			return discharge.thirdRank
+		} else if userTime <= firstJunior {
+			return discharge.firstJunior
+		} else if userTime <= secondJunior {
+			return discharge.secondJunior
+		} else if userTime <= thirdJunior {
+			return discharge.thirdJunior
+		} else {
+			return nil
+		}
+		
 	}
 }
 
