@@ -54,6 +54,34 @@ final class StandardManager {
 		return TimeInfo(title: "", time: "")
 	}
 	
+	private func getChronometer(_ chronometer: ChronometerEnum, stadium: StadiumEnum) -> (discharge: Discharge?, circle: Circle?) {
+		let chronom = getStadiumDistans(stadiumEnum: stadium)
+		
+		if let chronom = chronom.chronom {
+			switch chronometer {
+			case .manual:
+				return (chronom.manual, nil)
+			case .auto:
+				return (chronom.auto, nil)
+			}
+		} else if  let circle = chronom.chronomCircle {
+			switch chronometer {
+			case .manual:
+				return (nil, circle.manual)
+			case .auto:
+				return (nil, circle.auto)
+			}
+		} else if let tym = chronom.tyM {
+			switch chronometer {
+			case .manual:
+				return (tym.manual, nil)
+			case .auto:
+				return (nil, nil)
+			}
+		}
+		return (nil, nil)
+	}
+	
 	private func getStadiumDistans(stadiumEnum: StadiumEnum) -> (
 		chronom: Chronometer?,
 		chronomCircle: ChronometerCircle?,
@@ -95,34 +123,6 @@ final class StandardManager {
 			}
 		}
 	
-	private func getChronometer(_ chronometer: ChronometerEnum, stadium: StadiumEnum) -> (discharge: Discharge?, circle: Circle?) {
-		let chronom = getStadiumDistans(stadiumEnum: stadium)
-		
-		if let chronom = chronom.chronom {
-			switch chronometer {
-			case .manual:
-				return (chronom.manual, nil)
-			case .auto:
-				return (chronom.auto, nil)
-			}
-		} else if  let circle = chronom.chronomCircle {
-			switch chronometer {
-			case .manual:
-				return (nil, circle.manual)
-			case .auto:
-				return (nil, circle.auto)
-			}
-		} else if let tym = chronom.tyM {
-			switch chronometer {
-			case .manual:
-				return (tym.manual, nil)
-			case .auto:
-				return (nil, nil)
-			}
-		}
-		return (nil, nil)
-	}
-	
 	private func getStadium() -> Stadium {
 		distance.stadium
 	}
@@ -142,7 +142,7 @@ final class StandardManager {
 		let firstJunior = Time(stringLiteral: discharge.firstJunior.time)
 		let secondJunior = Time(stringLiteral: discharge.secondJunior.time)
 		let thirdJunior = Time(stringLiteral: discharge.thirdJunior.time)
-	
+		
 		
 		if userTime <= msmk {
 			return discharge.msmk

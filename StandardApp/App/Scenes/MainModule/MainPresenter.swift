@@ -31,9 +31,9 @@ class MainPresenter: IMainPresenter {
 	func render(gender: Gender) {
 		switch gender {
 		case .male:
-			router?.route(.selection(distance: standard.woman))
-		case .fimale:
 			router?.route(.selection(distance: standard.man))
+		case .fimale:
+			router?.route(.selection(distance: standard.woman))
 		}
 	}
 	

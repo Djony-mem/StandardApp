@@ -50,12 +50,6 @@ class SelectionViewController: UIViewController {
 	private var second = "00"
 	private var millisecond = "00"
 	
-	private var studium: Place = .stadium
-	private var stadium: StadiumEnum = .tenThousandM
-	private var highway: HighwayEnum = .oneHundredKM
-	private var chronometer: ChronometerEnum = .manual
-	private var circleLength: CircleEnum = .none
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
@@ -65,6 +59,12 @@ class SelectionViewController: UIViewController {
 	@objc
 	private func switchAction() {
 		presenter.changedSwitchValue(placeSwitch.isOn)
+		presenter.changeSwitchValueForColor(placeSwitch.isOn)
+		presenter.changeSwithForPlace(placeSwitch.isOn)
+		
+		timingButton.isEnabled = !placeSwitch.isOn
+		circleLengthButton.isEnabled = !placeSwitch.isOn
+		
 		pickerDistans.reloadAllComponents()
 	}
 	
@@ -72,6 +72,8 @@ class SelectionViewController: UIViewController {
 	private func showResultVC() {
 		let timeString = "\(hour):\(minute):\(second):\(millisecond)"
 		let time = Time(stringLiteral: timeString)
+		
+		presenter.renderd(time: time)
 		
 		print(timeString)
 	}
@@ -215,6 +217,7 @@ extension SelectionViewController: UIPickerViewDelegate {
 				setupTimingButtonMenu(isOnlyManual: distancesStadium[row].isOnlyManual)
 				
 				setupCircleLengthButtonMenu(isOnly200: distancesStadium[row].isCircleLengthOnly200 )
+				presenter.changedPickerDistans(stadium: distancesStadium[row])
 				
 				return distancesStadium[row].rawValue
 			}
@@ -234,6 +237,10 @@ extension SelectionViewController: UIPickerViewDelegate {
 				setupTimingButtonMenu(isOnlyManual:  distancesStadium[row].isOnlyManual)
 				
 				setupCircleLengthButtonMenu(isOnly200: distancesStadium[row].isCircleLengthOnly200)
+				presenter.changedPickerDistans(stadium: distancesStadium[row])
+				
+			} else {
+				
 			}
 		} else {
 			
@@ -291,12 +298,18 @@ private extension SelectionViewController {
 	func setupCircleLengthButtonMenu(isOnly200: Bool) {
 		if isOnly200 {
 			circleLengthButton.menu = UIMenu(children: [
-				UIAction(title: "400 метров", state: .on, handler: {_ in }),
-				UIAction(title: "200 метров", handler: {_ in })
+				UIAction(title: "400 метров", state: .on, handler: { _ in
+					self.presenter.circleLengthMenuAction(circleEnum: .circleLength400)
+				}),
+				UIAction(title: "200 метров", handler: {_ in
+					self.presenter.circleLengthMenuAction(circleEnum: .circleLength200)
+				})
 			])
 		} else {
 			circleLengthButton.menu = UIMenu(children: [
-				UIAction(title: "200 метров", handler: {_ in })
+				UIAction(title: "200 метров", handler: {_ in
+					self.presenter.circleLengthMenuAction(circleEnum: .circleLength200)
+				})
 			])
 		}
 	}
@@ -304,12 +317,18 @@ private extension SelectionViewController {
 	func setupTimingButtonMenu(isOnlyManual: Bool) {
 		if isOnlyManual {
 			timingButton.menu = UIMenu(children: [
-				UIAction(title: "Ручной", state: .on, handler: {_ in }),
-				UIAction(title: "Авто", handler: {_ in })
+				UIAction(title: "Ручной", state: .on, handler: {_ in
+					self.presenter.timingMenuManualAction(cronometer: .manual)
+				}),
+				UIAction(title: "Авто", handler: {_ in
+					self.presenter.timingMenuManualAction(cronometer: .auto)
+				})
 			])
 		} else {
 			timingButton.menu = UIMenu(children: [
-				UIAction(title: "Ручной", state: .on, handler: {_ in }),
+				UIAction(title: "Ручной", state: .on, handler: {_ in
+					self.presenter.timingMenuManualAction(cronometer: .manual)
+				}),
 			])
 		}
 	}
@@ -327,7 +346,8 @@ extension SelectionViewController: ISelectionView {
 	}
 	
 	func changeColor(_ color: UIColor) {
-		
+		timingButton.layer.borderColor = color.cgColor
+		circleLengthButton.layer.borderColor = color.cgColor
 	}
 }
 
@@ -336,3 +356,4 @@ struct SelectionViewControllerProvider: PreviewProvider {
 		SelectionViewController().preview()
 	}
 }
+

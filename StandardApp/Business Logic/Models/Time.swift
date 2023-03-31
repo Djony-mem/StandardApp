@@ -37,6 +37,7 @@ extension Time: Comparable {
 				if lhs.second < rhs.second {
 					return true
 				} else if lhs.second == rhs.second {
+					print("\(lhs.millisecond) и \(rhs.millisecond)")
 					return lhs.millisecond < rhs.millisecond
 				}
 			}
