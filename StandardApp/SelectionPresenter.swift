@@ -9,11 +9,11 @@ import Foundation
 
 
 protocol ISelectionPresenter: AnyObject {
-	func presentDefaultDischarge()
+	func changedSwitchValue(_ isOn: Bool)
 }
 
 class SelectionPresenter: ISelectionPresenter {
-	weak var view: ISelectionView!
+	weak var viewController: ISelectionView!
 	let standardManager: IStandardManager?
 	
 	private var plase: Place = .stadium
@@ -23,13 +23,13 @@ class SelectionPresenter: ISelectionPresenter {
 	private var circleLength: CircleEnum = .none
 	
 	required init(view: ISelectionView, standardManager: IStandardManager) {
-		self.view = view
+		self.viewController = view
 		self.standardManager = standardManager
 	}
 	
-	func presentDefaultDischarge() {
-	
+	func changedSwitchValue(_ isOn: Bool) {
+		let text = isOn ? "Шоссе" : "Стадион"
+		viewController.changeSwitchLabel(text: text)
 	}
-	
 	
 }

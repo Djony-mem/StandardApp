@@ -9,7 +9,8 @@ import UIKit
 import SwiftUI
 
 protocol ISelectionView: AnyObject {
-	
+	func changeSwitchLabel(text: String)
+	func changeColor(_ color: UIColor)
 }
 
 	//MARK: - SelectionViewController
@@ -44,7 +45,16 @@ class SelectionViewController: UIViewController {
 	private let times = Array(0...59)
 	private let miliseconds = Array(0...99)
 	
+	private var hour = "00"
+	private var minute = "00"
+	private var second = "00"
+	private var millisecond = "00"
 	
+	private var studium: Place = .stadium
+	private var stadium: StadiumEnum = .tenThousandM
+	private var highway: HighwayEnum = .oneHundredKM
+	private var chronometer: ChronometerEnum = .manual
+	private var circleLength: CircleEnum = .none
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -54,24 +64,16 @@ class SelectionViewController: UIViewController {
 	//MARK: - Actions
 	@objc
 	private func switchAction() {
-		placeLabel.text = placeSwitch.isOn ? "Шоссе" : "Стадион"
-		
-		
-		timingButton.isEnabled = !placeSwitch.isOn
-		if !placeSwitch.isOn {
-			timingButton.layer.borderColor = ColorSpace.ActiveElement.enebled.cgColor
-		} else {
-			timingButton.layer.borderColor = ColorSpace.ActiveElement.notEnebled.cgColor
-		}
-		
-		circleLengthButton.isEnabled = !placeSwitch.isOn
-		if !placeSwitch.isOn {
-			circleLengthButton.layer.borderColor = ColorSpace.ActiveElement.enebled.cgColor
-		} else {
-			circleLengthButton.layer.borderColor = ColorSpace.ActiveElement.notEnebled.cgColor
-		}
-		
+		presenter.changedSwitchValue(placeSwitch.isOn)
 		pickerDistans.reloadAllComponents()
+	}
+	
+	@objc
+	private func showResultVC() {
+		let timeString = "\(hour):\(minute):\(second):\(millisecond)"
+		let time = Time(stringLiteral: timeString)
+		
+		print(timeString)
 	}
 }
 
@@ -108,6 +110,8 @@ private extension SelectionViewController{
 	
 	func addActions() {
 		placeSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
+		
+		resultButton.addTarget(self, action: #selector(showResultVC), for: .touchUpInside)
 	}
 	
 	func setupBgImageView() {
@@ -208,7 +212,6 @@ extension SelectionViewController: UIPickerViewDelegate {
 			} else {
 				setupCircleLengthButton(isEnebledLength: distancesStadium[row].isEnebledCircleLength)
 				
-				
 				setupTimingButtonMenu(isOnlyManual: distancesStadium[row].isOnlyManual)
 				
 				setupCircleLengthButtonMenu(isOnly200: distancesStadium[row].isCircleLengthOnly200 )
@@ -217,8 +220,8 @@ extension SelectionViewController: UIPickerViewDelegate {
 			}
 		} else {
 			return component == 3
-			? String(format: "%02d", miliseconds[row])
-			: String(format: "%02d", times[row])
+			? stringConvert(number: miliseconds[row])
+			: stringConvert(number: times[row])
 		}
 	}
 
@@ -231,6 +234,18 @@ extension SelectionViewController: UIPickerViewDelegate {
 				setupTimingButtonMenu(isOnlyManual:  distancesStadium[row].isOnlyManual)
 				
 				setupCircleLengthButtonMenu(isOnly200: distancesStadium[row].isCircleLengthOnly200)
+			}
+		} else {
+			
+			switch component {
+			case 0:
+				hour = stringConvert(number: times[row])
+			case 1:
+				minute = stringConvert(number: times[row])
+			case 2:
+				second = stringConvert(number: times[row])
+			default:
+				millisecond = stringConvert(number: miliseconds[row])
 			}
 		}
 	}
@@ -263,7 +278,7 @@ extension SelectionViewController: UIPickerViewDataSource {
 	}
 }
 
-//MARK: - Private func
+//MARK: - Private function
 private extension SelectionViewController {
 	func setupCircleLengthButton(isEnebledLength: Bool) {
 		circleLengthButton.isEnabled = isEnebledLength
@@ -298,12 +313,22 @@ private extension SelectionViewController {
 			])
 		}
 	}
+	
+	func stringConvert(number: Int) -> String {
+		String(format: "%02d", number)
+	}
 }
 
 
 //MARK: - SelectionViewProtocol
 extension SelectionViewController: ISelectionView {
-
+	func changeSwitchLabel(text: String) {
+		placeLabel.text = text
+	}
+	
+	func changeColor(_ color: UIColor) {
+		
+	}
 }
 
 struct SelectionViewControllerProvider: PreviewProvider {
