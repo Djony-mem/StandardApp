@@ -110,6 +110,10 @@
 			children = (
 				06A6A4FA29CD75C500EB2B10 /* Scenes */,
 				06A444D7294C3A3400F738B9 /* CustomViews */,
+				064C565129CE0B1B00CA5D78 /* Estentions */,
+				0638D4A229DE9F50005C2306 /* Theme */,
+				06156B1B2936F31000CE05BA /* Servicelayer */,
+				06156B28293723FC00CE05BA /* Common */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -143,9 +147,6 @@
 			children = (
 				061D0DF12934788E001A9935 /* Business Logic */,
 				06156B27293723E900CE05BA /* App */,
-				06156B1B2936F31000CE05BA /* Servicelayer */,
-				064C565129CE0B1B00CA5D78 /* Estentions */,
-				06156B28293723FC00CE05BA /* Common */,
 				06156B1E2936F38300CE05BA /* Default */,
 				061D0DBC29332278001A9935 /* Assets.xcassets */,
 				061D0DBE29332278001A9935 /* LaunchScreen.storyboard */,
@@ -162,6 +163,14 @@
 				06A6A4F629CD464600EB2B10 /* StandartManager.swift */,
 			);
 			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		0638D4A229DE9F50005C2306 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				064C567F29D345B300CA5D78 /* ColorSpace.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		064C565129CE0B1B00CA5D78 /* Estentions */ = {
@@ -206,10 +215,9 @@
 		06A6A4FA29CD75C500EB2B10 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				068AA0F6295A664F000616D9 /* RegisterModule */,
 				06156B1F29370B7A00CE05BA /* MainModule */,
 				06DF3B82293739170041A454 /* SelectionModule */,
-				068AA0F6295A664F000616D9 /* RegisterModule */,
-				064C567F29D345B300CA5D78 /* ColorSpace.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
