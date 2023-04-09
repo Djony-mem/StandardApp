@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum Gender {
-	case male
-	case fimale
+enum Gender: String, CaseIterable {
+	case male = "Мужчина"
+	case fimale = "Женщина"
 }
 
 // MARK: - Standard

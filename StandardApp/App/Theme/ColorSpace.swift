@@ -16,6 +16,13 @@ enum ColorSpace {
 			blue: 23/255,
 			alpha: 1
 		)
+		
+		static let navigation = UIColor(
+			red: 12/255,
+			green: 20/255,
+			blue: 27/255,
+			alpha: 1
+		)
 	}
 	
 	enum ActiveElement {
@@ -46,6 +53,16 @@ enum ColorSpace {
 			red: 9/255,
 			green: 55/255,
 			blue: 7/255,
-			alpha: 1)
+			alpha: 1
+		)
+	}
+	
+	enum Text {
+		static let main =  UIColor(
+			red: 173/255,
+			green: 181/255,
+			blue: 197/255,
+			alpha: 1
+		)
 	}
 }

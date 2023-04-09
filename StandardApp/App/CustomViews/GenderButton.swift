@@ -21,25 +21,11 @@ class GenderButton: UIButton {
     }
     
     private func setupGenderButton(normalStateImage: String, highlightStateImage: String) {
-        
         setBackgroundImage(UIImage(named: normalStateImage), for: .normal)
         setBackgroundImage(UIImage(named: highlightStateImage), for: .highlighted)
+		layer.borderColor = ColorSpace.ActiveElement.enebled.cgColor
+		layer.borderWidth = 2
+		layer.cornerRadius = 30
         sizeToFit()
-        layer.cornerRadius = 15
-        clipsToBounds = true
-        
-        createGradient()
-    }
-    
-    private func createGradient() {
-        
-        backgroundColor = .clear
-        let gradient = CAGradientLayer()
-        gradient.frame = bounds
-        gradient.colors = [#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).cgColor, #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 0, y: 0.1)
-        layer.insertSublayer(gradient, at: 0)
     }
 }

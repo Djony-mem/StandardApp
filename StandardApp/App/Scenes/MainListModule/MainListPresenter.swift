@@ -1,27 +1,30 @@
-	//
-	//  MainPresenter.swift
-	//  StandardApp
-	//
-	//  Created by brubru on 29.11.2022.
-	//
+//
+//  MainListPresenter.swift
+//  StandardApp
+//
+//  Created by brubru on 06.04.2023.
+//
 
 import Foundation
 
-
-
-protocol IMainPresenter: AnyObject {
-	var standard: Standard! { get }
-	func render(gender: Gender)
-	func showRegisterVC()
+struct ViewModel {
+	let nikName: String
+	let gender: Gender
 }
 
-class MainPresenter: IMainPresenter {
-	weak var view: IMainView?
+protocol IMainListPresenter: AnyObject {
+	var standard: Standard! { get }
+	func render(gender: Gender)
+	func showNewAthleteVC()
+}
+
+class MainListPresenter: IMainListPresenter {
+	weak var view: IMainListView?
 	let dataManager: IDataManager!
 	var standard: Standard!
-	var router: IMainRouter?
+	var router: IMainListRouter?
 	
-	required init(view: IMainView, dataManager: IDataManager, router: IMainRouter) {
+	required init(view: IMainListView, dataManager: IDataManager, router: IMainListRouter) {
 		self.view = view
 		self.dataManager = dataManager
 		self.router = router
@@ -37,8 +40,8 @@ class MainPresenter: IMainPresenter {
 		}
 	}
 	
-	func showRegisterVC() {
-		router?.route(.register)
+	func showNewAthleteVC() {
+		router?.route(.addNewAthlete)
 	}
 	
 	private func getStandard() {

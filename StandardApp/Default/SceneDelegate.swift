@@ -18,12 +18,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
     
-        let mainVC = MainViewController()
-        let navController = UINavigationController(rootViewController: mainVC)
-        MainAssembly(navigationController: navController).assembly(viewController: mainVC)
+        let mainListVC = assemblyMainList()
+        let navController = UINavigationController(rootViewController: mainListVC)
+		MainListAssembly(navigationController: navController).assembly(viewController: mainListVC)
+//        MainAssembly(navigationController: navController).assembly(viewController: mainVC)
         window?.rootViewController = navController
         window?.overrideUserInterfaceStyle = .dark
         window?.makeKeyAndVisible()
     }
+	
+	func assemblyMainList() -> UICollectionViewController {
+		let layout = UICollectionViewFlowLayout()
+		let mainListVC = MainListViewController(collectionViewLayout: layout)
+		return mainListVC
+	}
+	
+	func assemblyMain() -> UIViewController {
+		MainListViewController()
+	}
 }
 

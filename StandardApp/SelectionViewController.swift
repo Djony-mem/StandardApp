@@ -37,7 +37,7 @@ class SelectionViewController: UIViewController {
 		disabledColor: ColorSpace.ActiveElement.notEnebled
 	)
 	
-	private let resultButton = UIButton()
+	private let resultButton = ResultButton(title: "Показать результат")
 	
 	private let distancesStadium = StadiumEnum.allCases
 	private let distancesHighway = HighwayEnum.allCases
@@ -84,6 +84,7 @@ private extension SelectionViewController{
 	func setupView() {
 		
 		view.backgroundColor = ColorSpace.BgColor.mainVC
+		
 		addSubviews()
 		
 		addActions()
@@ -92,7 +93,7 @@ private extension SelectionViewController{
 		setupPlaceLabel()
 		setupPickerDistance()
 		setupPickerTime()
-		setupResultButton()
+//		setupResultButton()
 		
 		setupLayout()
 	}
@@ -137,15 +138,15 @@ private extension SelectionViewController{
 		pickerTime.dataSource = self
 	}
 	
-	func setupResultButton() {
-		resultButton.setTitle("Проверить результат", for: .normal)
-		resultButton.setTitleColor(
-			ColorSpace.ResultButton.titleColor, for: .normal
-		)
-		resultButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-		resultButton.layer.cornerRadius = 10
-		resultButton.backgroundColor = ColorSpace.ResultButton.bgEnebled
-	}
+//	func setupResultButton() {
+//		resultButton.setTitle("Проверить результат", for: .normal)
+//		resultButton.setTitleColor(
+//			ColorSpace.ResultButton.titleColor, for: .normal
+//		)
+//		resultButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+//		resultButton.layer.cornerRadius = 10
+//		resultButton.backgroundColor = ColorSpace.ResultButton.bgEnebled
+//	}
 }
 
 //MARK: - Layout
@@ -166,18 +167,18 @@ private extension SelectionViewController{
 			bgImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
 			bgImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
 			
-			placeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+			placeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
 			placeLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
 			
-			placeSwitch.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+			placeSwitch.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
 			placeSwitch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50),
 
-			pickerDistans.topAnchor.constraint(equalTo: placeLabel.bottomAnchor, constant: 30),
+			pickerDistans.topAnchor.constraint(equalTo: placeLabel.bottomAnchor, constant: 20),
 			pickerDistans.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			pickerDistans.heightAnchor.constraint(equalToConstant: 100),
 			pickerDistans.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1.1),
 			
-			timingLabel.topAnchor.constraint(equalTo: pickerDistans.bottomAnchor, constant: 30),
+			timingLabel.topAnchor.constraint(equalTo: pickerDistans.bottomAnchor, constant: 20),
 			timingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			timingLabel.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
 			
@@ -193,12 +194,12 @@ private extension SelectionViewController{
 			circleLengthButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			circleLengthButton.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1),
 
-			pickerTime.topAnchor.constraint(equalTo: circleLengthButton.bottomAnchor, constant: 30),
+			pickerTime.topAnchor.constraint(equalTo: circleLengthButton.bottomAnchor, constant: 20),
 			pickerTime.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			pickerTime.heightAnchor.constraint(equalToConstant: 100),
+			pickerTime.heightAnchor.constraint(equalToConstant: 80),
 			pickerTime.widthAnchor.constraint(equalTo: resultButton.widthAnchor, multiplier: 1.1),
 			
-			resultButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+			resultButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70),
 			resultButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
 			resultButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
 			resultButton.heightAnchor.constraint(equalToConstant: 50)
@@ -258,22 +259,14 @@ extension SelectionViewController: UIPickerViewDelegate {
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-		if pickerView == pickerDistans {
-			return 280
-		} else {
-			return 50
-		}
+		return pickerView == pickerDistans ? 280 : 50
 	}
 }
 
 //MARK: - UIPickerViewDataSource
 extension SelectionViewController: UIPickerViewDataSource {
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
-		if pickerView == pickerDistans {
-			return 1
-		} else {
-			return 4
-		}
+		return pickerView == pickerDistans ? 1 : 4
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
