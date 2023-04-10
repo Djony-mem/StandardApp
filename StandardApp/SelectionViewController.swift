@@ -19,6 +19,8 @@ class SelectionViewController: UIViewController {
 	
 	private let bgImageView = UIImageView()
 	
+	private let progressButton = CustomBarButton(image: "figure.run")
+	
 	private let placeSwitch = UISwitch()
 	private let placeLabel = UILabel()
 
@@ -89,11 +91,11 @@ private extension SelectionViewController{
 		
 		addActions()
 		
+		setupNavigationController()
 		setupBgImageView()
 		setupPlaceLabel()
 		setupPickerDistance()
 		setupPickerTime()
-//		setupResultButton()
 		
 		setupLayout()
 	}
@@ -117,6 +119,23 @@ private extension SelectionViewController{
 		resultButton.addTarget(self, action: #selector(showResultVC), for: .touchUpInside)
 	}
 	
+	func setupNavigationController() {
+		title = "Список Атлетов"
+
+		let navBarAppearance = UINavigationBarAppearance()
+		navBarAppearance.backgroundColor = ColorSpace.ResultButton.bgEnebled
+		navBarAppearance.titleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
+		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
+		
+		navigationController?.navigationBar.standardAppearance = navBarAppearance
+		navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+		
+		navigationController?.navigationBar.isTranslucent = false
+		navigationItem.rightBarButtonItem = UIBarButtonItem(customView: progressButton)
+		
+		navigationController?.navigationBar.tintColor = ColorSpace.ResultButton.titleColor
+	}
+	
 	func setupBgImageView() {
 		bgImageView.image = UIImage(named: "bgSelectV3")
 	}
@@ -137,16 +156,6 @@ private extension SelectionViewController{
 		pickerTime.delegate = self
 		pickerTime.dataSource = self
 	}
-	
-//	func setupResultButton() {
-//		resultButton.setTitle("Проверить результат", for: .normal)
-//		resultButton.setTitleColor(
-//			ColorSpace.ResultButton.titleColor, for: .normal
-//		)
-//		resultButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-//		resultButton.layer.cornerRadius = 10
-//		resultButton.backgroundColor = ColorSpace.ResultButton.bgEnebled
-//	}
 }
 
 //MARK: - Layout
