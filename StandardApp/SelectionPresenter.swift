@@ -20,7 +20,8 @@ protocol ISelectionPresenter: AnyObject {
 
 class SelectionPresenter: ISelectionPresenter {
 	weak var viewController: ISelectionView!
-	let standardManager: IStandardManager?
+	let standardManager: IStandardManager
+	let router: ISelectionRouter
 	
 	private var place: Place = .stadium
 	private var stadium: StadiumEnum = .tenThousandM
@@ -28,9 +29,10 @@ class SelectionPresenter: ISelectionPresenter {
 	private var chronometer: ChronometerEnum = .manual
 	private var circleLength: CircleEnum = .none
 	
-	required init(view: ISelectionView, standardManager: IStandardManager) {
+	required init(view: ISelectionView, standardManager: IStandardManager, router: ISelectionRouter) {
 		self.viewController = view
 		self.standardManager = standardManager
+		self.router = router
 	}
 	
 	func changedSwitchValue(_ isOn: Bool) {
@@ -63,14 +65,18 @@ class SelectionPresenter: ISelectionPresenter {
 	}
 	
 	func renderd(time: Time) {
+		let result: TimeInfo?
+		
 		switch place {
 		case .stadium:
-			let result = standardManager?.getDischarge(chronometer: chronometer, stadium: stadium, circleLength: circleLength, time: time)
-			print(result?.title)
+			result = standardManager.getDischarge(chronometer: chronometer, stadium: stadium, circleLength: circleLength, time: time)
+			print(result?.imageRank)
 		case .highway:
-			let result = standardManager?.getHighwayDistans(highway, userTime: time)
-			print(result?.title)
+			result = standardManager.getHighwayDistans(highway, userTime: time)
+			print(result?.imageRank)
 		}
+		
+		
 	}
 	
 }

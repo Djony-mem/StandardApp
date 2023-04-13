@@ -27,7 +27,8 @@ extension SelectionAssembly: Assemblying {
     func assembly(viewController: UIViewController) {
         guard let selectionVC = viewController as? SelectionViewController else { return }
 		let standardManager = StandardManager(distance: distance)
-        let presenter = SelectionPresenter(view: selectionVC, standardManager: standardManager)
+		let router = SelectionRouter(navigationController: navigationController)
+		let presenter = SelectionPresenter(view: selectionVC, standardManager: standardManager, router: router)
         selectionVC.presenter = presenter
     }
 }

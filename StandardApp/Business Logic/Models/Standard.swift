@@ -89,5 +89,5 @@ struct Discharge: Codable {
 struct TimeInfo: Codable {
     let title: String
     let time: String
-	let imageRank: String
+	let imageRank: String?
 }

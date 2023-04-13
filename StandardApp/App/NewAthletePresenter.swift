@@ -13,7 +13,7 @@ protocol INewAthletePresenter {
 
 final class NewAthletePresenter {
 	weak var view: INewAthleteView?
-	var router: INewAthleteRouter?
+	private var router: INewAthleteRouter?
 	
 	private var gender: Gender = .male
 	private var nikName = "Атлет"

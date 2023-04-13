@@ -51,7 +51,7 @@ final class StandardManager {
 				return nil
 			}
 		}
-		return TimeInfo(title: "", time: "")
+		return TimeInfo(title: "", time: "", imageRank: "")
 	}
 	
 	private func getChronometer(_ chronometer: ChronometerEnum, stadium: StadiumEnum) -> (discharge: Discharge?, circle: Circle?) {
