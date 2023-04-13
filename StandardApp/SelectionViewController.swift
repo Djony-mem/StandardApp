@@ -72,6 +72,22 @@ class SelectionViewController: UIViewController {
 	
 	@objc
 	private func showResultVC() {
+		if let elements = timingButton.menu?.selectedElements.first {
+			if elements.title == "Ручной" {
+				presenter.timingMenuManualAction(cronometer: .manual)
+			} else {
+				presenter.timingMenuManualAction(cronometer: .auto)
+			}
+		}
+
+		if let elements = circleLengthButton.menu?.selectedElements.first {
+			if elements.title == "400 метров" {
+				presenter.circleLengthMenuAction(circleEnum: .circleLength400)
+			} else {
+				presenter.circleLengthMenuAction(circleEnum: .circleLength200)
+			}
+		}
+		
 		let timeString = "\(hour):\(minute):\(second):\(millisecond)"
 		let time = Time(stringLiteral: timeString)
 		
@@ -220,13 +236,14 @@ extension SelectionViewController: UIPickerViewDelegate {
 	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 		if pickerView == pickerDistans {
 			if placeSwitch.isOn {
+				presenter.changedPickerDistans(highway: distancesHighway[row])
 				return distancesHighway[row].rawValue
 			} else {
 				setupCircleLengthButton(isEnebledLength: distancesStadium[row].isEnebledCircleLength)
 				
 				setupTimingButtonMenu(isOnlyManual: distancesStadium[row].isOnlyManual)
-				
 				setupCircleLengthButtonMenu(isOnly200: distancesStadium[row].isCircleLengthOnly200 )
+				
 				presenter.changedPickerDistans(stadium: distancesStadium[row])
 				
 				return distancesStadium[row].rawValue
@@ -250,7 +267,7 @@ extension SelectionViewController: UIPickerViewDelegate {
 				presenter.changedPickerDistans(stadium: distancesStadium[row])
 				
 			} else {
-				
+				presenter.changedPickerDistans(highway: distancesHighway[row])
 			}
 		} else {
 			

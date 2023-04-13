@@ -12,6 +12,7 @@ protocol ISelectionPresenter: AnyObject {
 	func changeSwitchValueForColor(_ isOn: Bool)
 	func changeSwithForPlace(_ isOn: Bool)
 	func changedPickerDistans(stadium: StadiumEnum)
+	func changedPickerDistans(highway: HighwayEnum)
 	func circleLengthMenuAction(circleEnum: CircleEnum)
 	func timingMenuManualAction(cronometer: ChronometerEnum)
 	func renderd(time: Time)
@@ -55,6 +56,10 @@ final class SelectionPresenter: ISelectionPresenter {
 		self.stadium = stadium
 	}
 	
+	func changedPickerDistans(highway: HighwayEnum) {
+		self.highway = highway
+	}
+	
 	func circleLengthMenuAction(circleEnum: CircleEnum) {
 		circleLength = circleEnum
 	}
@@ -70,6 +75,8 @@ final class SelectionPresenter: ISelectionPresenter {
 		case .stadium:
 			result = standardManager.getDischarge(chronometer: chronometer, stadium: stadium, circleLength: circleLength, time: time)
 			print("Hi\(result?.time)")
+			print(chronometer)
+			print(circleLength)
 		case .highway:
 			result = standardManager.getHighwayDistans(highway, userTime: time)
 			print(result?.time)

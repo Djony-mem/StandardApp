@@ -76,7 +76,7 @@ final class StandardManager {
 			case .manual:
 				return (tym.manual, nil)
 			case .auto:
-				return (nil, nil)
+				return (tym.manual, nil)
 			}
 		}
 		return (nil, nil)
@@ -143,7 +143,18 @@ final class StandardManager {
 		let secondJunior = Time(stringLiteral: discharge.secondJunior.time)
 		let thirdJunior = Time(stringLiteral: discharge.thirdJunior.time)
 		
+		let recordTime = Time(stringLiteral: discharge.recordHolder.time)
+		print("record \(discharge.recordHolder.time)")
 		let time = Time(hour: 0, minute: 0, second: 0, millisecond: 0)
+		
+		if userTime <= recordTime, userTime != time {
+			return TimeInfo(
+				title: "Вы побили рекорд \(discharge.recordHolder.fullName)",
+				time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
+				imageRank: "AppIcon"
+			)
+		}
+		
 		
 		if userTime <= msmk {
 			if msmk == time {
