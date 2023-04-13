@@ -83,6 +83,7 @@ struct Discharge: Codable {
     let firstJunior: TimeInfo
     let secondJunior: TimeInfo
     let thirdJunior: TimeInfo
+	let recordHolder: RecordHolder
 }
 
 // MARK: - TimeInfo
@@ -90,4 +91,10 @@ struct TimeInfo: Codable {
     let title: String
     let time: String
 	let imageRank: String?
+}
+
+struct RecordHolder: Codable {
+	let fullName: String
+	let time: String
+	let recordDate: String
 }

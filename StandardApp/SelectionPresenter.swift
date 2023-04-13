@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol ISelectionPresenter: AnyObject {
 	func changedSwitchValue(_ isOn: Bool)
 	func changeSwitchValueForColor(_ isOn: Bool)
@@ -18,10 +17,10 @@ protocol ISelectionPresenter: AnyObject {
 	func renderd(time: Time)
 }
 
-class SelectionPresenter: ISelectionPresenter {
-	weak var viewController: ISelectionView!
+final class SelectionPresenter: ISelectionPresenter {
+	private weak var viewController: ISelectionView!
+	private let router: ISelectionRouter
 	let standardManager: IStandardManager
-	let router: ISelectionRouter
 	
 	private var place: Place = .stadium
 	private var stadium: StadiumEnum = .tenThousandM
@@ -70,13 +69,12 @@ class SelectionPresenter: ISelectionPresenter {
 		switch place {
 		case .stadium:
 			result = standardManager.getDischarge(chronometer: chronometer, stadium: stadium, circleLength: circleLength, time: time)
-			print(result?.imageRank)
+			print("Hi\(result?.time)")
 		case .highway:
 			result = standardManager.getHighwayDistans(highway, userTime: time)
-			print(result?.imageRank)
+			print(result?.time)
 		}
-		
-		
+		router.route(.result(timeInfo: result ?? TimeInfo(title: "", time: "", imageRank: "")))
 	}
 	
 }

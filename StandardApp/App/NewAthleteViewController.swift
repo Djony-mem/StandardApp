@@ -15,7 +15,8 @@ protocol INewAthleteView: AnyObject {
 class NewAthleteViewController: UIViewController {
 	
 	var presenter: NewAthletePresenter!
-	var viewModel: ViewModel?
+	
+	private var viewModel: ViewModel?
 	
 	private let bgImageView = UIImageView()
 	private let nikNameTextField = CustomTextField(placeholder: "Введите ваш ник")

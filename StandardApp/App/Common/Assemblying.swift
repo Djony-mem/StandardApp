@@ -11,6 +11,6 @@ protocol Assemblying {
 
     /// Собрать MVP-модуль
     /// - Parameter viewController: UIVIewController компонуемого модуля
-    func assembly(viewController: UIViewController)
+    func configur(viewController: UIViewController)
 }
 

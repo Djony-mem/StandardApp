@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let layout = UICollectionViewFlowLayout()
 		let mainListVC = MainListViewController(collectionViewLayout: layout)
 		let navController = UINavigationController(rootViewController: mainListVC)
-		MainListAssembly(navigationController: navController).assembly(viewController: mainListVC)
+		MainListAssembly(navigationController: navController).configur(viewController: mainListVC)
 		return navController
 	}
 }

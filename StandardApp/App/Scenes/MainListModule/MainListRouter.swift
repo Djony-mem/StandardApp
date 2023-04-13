@@ -31,7 +31,7 @@ extension MainListRouter: IMainListRouter {
 		case .selection(let distance):
 			let selectionVC = SelectionViewController()
 			let assemblySelection = SelectionAssembly(distance: distance, navigationController: navigationController)
-			assemblySelection.assembly(viewController: selectionVC)
+			assemblySelection.configur(viewController: selectionVC)
 			
 			navigationController.pushViewController(selectionVC, animated: true)
 		case .addNewAthlete:

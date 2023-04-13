@@ -24,7 +24,7 @@ final class SelectionAssembly {
 
 //MARK: - Assemblying
 extension SelectionAssembly: Assemblying {
-    func assembly(viewController: UIViewController) {
+    func configur(viewController: UIViewController) {
         guard let selectionVC = viewController as? SelectionViewController else { return }
 		let standardManager = StandardManager(distance: distance)
 		let router = SelectionRouter(navigationController: navigationController)

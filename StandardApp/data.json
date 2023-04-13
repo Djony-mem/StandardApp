@@ -47,6 +47,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Алла Жиляева",
+						"time": "00:30:23:07",
+						"recordDate": "23.08.2003"
 					}
 				},
 				"auto": {
@@ -94,6 +99,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Алла Жиляева",
+						"time": "00:30:23:07",
+						"recordDate": "23.08.2003"
 					}
 				}
 			},
@@ -143,6 +153,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Лилия Шобухова",
+						"time": "00:14:23:75",
+						"recordDate": "19.07.2008"
 					}
 				},
 				"auto": {
@@ -191,6 +206,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Лилия Шобухова",
+						"time": "00:14:23:75",
+						"recordDate": "19.07.2008"
 					}
 				}
 			},
@@ -241,6 +261,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:16:12:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:08:22:62",
+							"recordDate": "26.08.1984"
 						}
 					},
 					"circleLength400": {
@@ -288,6 +313,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:16:10:00",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:08:22:62",
+							"recordDate": "26.08.1984"
 						}
 					}
 				},
@@ -337,6 +367,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:16:12:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:08:22:62",
+							"recordDate": "26.08.1984"
 						}
 					},
 					"circleLength400": {
@@ -384,6 +419,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:16:10:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:08:22:62",
+							"recordDate": "26.08.1984"
 						}
 					}
 				}
@@ -434,6 +474,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Светлана Мастеркова",
+						"time": "00:04:12:56",
+						"recordDate": "14.08.1996"
 					}
 				},
 				"auto": {
@@ -481,6 +526,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Светлана Мастеркова",
+						"time": "00:04:12:56",
+						"recordDate": "14.08.1996"
 					}
 				}
 			},
@@ -531,6 +581,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:07:32:00",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:03:52:47",
+							"recordDate": "13.08.1980"
 						}
 					},
 					"circleLength400": {
@@ -578,6 +633,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:07:30:00",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:03:52:47",
+							"recordDate": "13.08.1980"
 						}
 					}
 				},
@@ -627,6 +687,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:07:32:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:03:52:47",
+							"recordDate": "13.08.1980"
 						}
 					},
 					"circleLength400": {
@@ -674,6 +739,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:07:30:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Татьяна Казанкина",
+							"time": "00:03:52:47",
+							"recordDate": "13.08.1980"
 						}
 					}
 				}
@@ -725,6 +795,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:04:46:80",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Светлана Мастеркова",
+							"time": "00:02:28:98",
+							"recordDate": "23.08.1996"
 						}
 					},
 					"circleLength400": {
@@ -772,6 +847,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:04:45:00",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Светлана Мастеркова",
+							"time": "00:02:28:98",
+							"recordDate": "23.08.1996"
 						}
 					}
 				},
@@ -821,6 +901,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:04:47:04",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Светлана Мастеркова",
+							"time": "00:02:28:98",
+							"recordDate": "23.08.1996"
 						}
 					},
 					"circleLength400": {
@@ -868,6 +953,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:04:45:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Светлана Мастеркова",
+							"time": "00:02:28:98",
+							"recordDate": "23.08.1996"
 						}
 					}
 				}
@@ -919,6 +1009,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:36:60",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Минеева",
+							"time": "00:01:54:81",
+							"recordDate": "27.07.1980"
 						}
 					},
 					"circleLength400": {
@@ -966,6 +1061,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:35:00",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Минеева",
+							"time": "00:01:54:81",
+							"recordDate": "27.07.1980"
 						}
 					}
 				},
@@ -1015,6 +1115,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:36:84",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Минеева",
+							"time": "00:01:54:81",
+							"recordDate": "27.07.1980"
 						}
 					},
 					"circleLength400": {
@@ -1062,6 +1167,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:35:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Минеева",
+							"time": "00:01:54:81",
+							"recordDate": "27.07.1980"
 						}
 					}
 				}
@@ -1113,6 +1223,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:33:20",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					},
 					"circleLength400": {
@@ -1160,6 +1275,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:32:00",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					}
 				},
@@ -1209,6 +1329,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:33:44",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					},
 					"circleLength400": {
@@ -1256,6 +1381,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:32:24",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					}
 				}
@@ -1307,6 +1437,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:31:30",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Назарова",
+							"time": "00:00:49:11",
+							"recordDate": "25.09.1988"
 						}
 					},
 					"circleLength400": {
@@ -1354,6 +1489,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:30:50",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Назарова",
+							"time": "00:00:49:11",
+							"recordDate": "25.09.1988"
 						}
 					}
 				},
@@ -1403,6 +1543,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:31:54",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Назарова",
+							"time": "00:00:49:11",
+							"recordDate": "25.09.1988"
 						}
 					},
 					"circleLength400": {
@@ -1450,6 +1595,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:30:72",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ольга Назарова",
+							"time": "00:00:49:11",
+							"recordDate": "25.09.1988"
 						}
 					}
 				}
@@ -1500,6 +1650,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:01:03:00",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				},
 				"auto": {
@@ -1547,6 +1702,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:01:03:24",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			},
@@ -1597,6 +1757,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:39:90",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ирина Привалова",
+							"time": "00:00:21:87",
+							"recordDate": "25.07.1995"
 						}
 					},
 					"circleLength400": {
@@ -1644,6 +1809,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:39:70",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ирина Привалова",
+							"time": "00:00:21:87",
+							"recordDate": "25.07.1995"
 						}
 					}
 				},
@@ -1693,6 +1863,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:40:14",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ирина Привалова",
+							"time": "00:00:21:87",
+							"recordDate": "25.07.1995"
 						}
 					},
 					"circleLength400": {
@@ -1740,6 +1915,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:39:94",
 							"imageRank": "juniorW"
+						},
+						"recordHolder": {
+							"fullName": "Ирина Привалова",
+							"time": "00:00:21:87",
+							"recordDate": "25.07.1995"
 						}
 					}
 				}
@@ -1790,6 +1970,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:18:40",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Ирина Привалова",
+						"time": "00:00:10:77",
+						"recordDate": "06.07.1994"
 					}
 				},
 				"auto": {
@@ -1837,6 +2022,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:18:64",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Ирина Привалова",
+						"time": "00:00:10:77",
+						"recordDate": "06.07.1994"
 					}
 				}
 			},
@@ -1886,6 +2076,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:10:50",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				},
 				"auto": {
@@ -1933,6 +2128,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:10:74",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			},
@@ -1982,6 +2182,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:09:30",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			},
@@ -2031,6 +2236,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:05:60",
 						"imageRank": "juniorW"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			}
@@ -2081,6 +2291,11 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorW"
+				},
+				"recordHolder": {
+					"fullName": "Татьяна Жиркова",
+					"time": "07:10:33:00",
+					"recordDate": "11.09.2004"
 				}
 				
 			},
@@ -2129,6 +2344,11 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorW"
+				},
+				"recordHolder": {
+					"fullName": "Галина Богомолова",
+					"time": "02:20:47:00",
+					"recordDate": "22.10.2006"
 				}
 			},
 			"halfMarathon": {
@@ -2176,6 +2396,11 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorW"
+				},
+				"recordHolder": {
+					"fullName": "Любовь Моргунова",
+					"time": "01:08:45:00",
+					"recordDate": "12.06.2000"
 				}
 			},
 			"fifteenKM": {
@@ -2223,6 +2448,11 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorW"
+				},
+				"recordHolder": {
+					"fullName": "Unknow",
+					"time": "00:00:00:00",
+					"recordDate": "00.00.0000"
 				}
 			}
 		}
@@ -2275,6 +2505,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Сергей Иванов",
+						"time": "00:27:53:12",
+						"recordDate": "17.07.2008"
 					}
 				},
 				"auto": {
@@ -2322,6 +2557,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Сергей Иванов",
+						"time": "00:27:53:12",
+						"recordDate": "17.07.2008"
 					}
 				}
 			},
@@ -2371,6 +2611,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Валерий Абрамов",
+						"time": "00:13:11:99",
+						"recordDate": "09.09.1981"
 					}
 				},
 				"auto": {
@@ -2418,6 +2663,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Валерий Абрамов",
+						"time": "00:13:11:99",
+						"recordDate": "09.09.1981"
 					}
 				}
 			},
@@ -2468,6 +2718,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:13:22:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:07:39:24",
+							"recordDate": "12.07.1995"
 						}
 					},
 					"circleLength400": {
@@ -2515,6 +2770,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:13:20:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:07:39:24",
+							"recordDate": "12.07.1995"
 						}
 					}
 				},
@@ -2564,6 +2824,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:13:22:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:07:39:24",
+							"recordDate": "12.07.1995"
 						}
 					},
 					"circleLength400": {
@@ -2611,6 +2876,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:13:20:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:07:39:24",
+							"recordDate": "12.07.1995"
 						}
 					}
 				}
@@ -2661,6 +2931,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Вячеслав Шабунин",
+						"time": "00:03:49:83",
+						"recordDate": "29.06.2001"
 					}
 				},
 				"auto": {
@@ -2708,6 +2983,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:00:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Вячеслав Шабунин",
+						"time": "00:03:49:83",
+						"recordDate": "29.06.2001"
 					}
 				}
 			},
@@ -2758,6 +3038,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:06:12:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:03:32.28",
+							"recordDate": "30.06.2000"
 						}
 					},
 					"circleLength400": {
@@ -2805,6 +3090,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:06:10:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:03:32.28",
+							"recordDate": "30.06.2000"
 						}
 					}
 				},
@@ -2854,6 +3144,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:06:12:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:03:32.28",
+							"recordDate": "30.06.2000"
 						}
 					},
 					"circleLength400": {
@@ -2901,6 +3196,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:06:10:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Вячеслав Шабунин",
+							"time": "00:03:32.28",
+							"recordDate": "30.06.2000"
 						}
 					}
 				}
@@ -2952,6 +3252,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:55:80",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:02:15:50",
+							"recordDate": "22.07.2008"
 						}
 					},
 					"circleLength400": {
@@ -2999,6 +3304,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:54:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:02:15:50",
+							"recordDate": "22.07.2008"
 						}
 					}
 				},
@@ -3048,6 +3358,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:56:04",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:02:15:50",
+							"recordDate": "22.07.2008"
 						}
 					},
 					"circleLength400": {
@@ -3095,6 +3410,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:03:54:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:02:15:50",
+							"recordDate": "22.07.2008"
 						}
 					}
 				}
@@ -3146,6 +3466,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:59:60",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:01:42:47",
+							"recordDate": "24.08.2001"
 						}
 					},
 					"circleLength400": {
@@ -3193,6 +3518,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:58:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:01:42:47",
+							"recordDate": "24.08.2001"
 						}
 					}
 				},
@@ -3242,6 +3572,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:59:84",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:01:42:47",
+							"recordDate": "24.08.2001"
 						}
 					},
 					"circleLength400": {
@@ -3289,6 +3624,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:58:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Юрий Борзаковский",
+							"time": "00:01:42:47",
+							"recordDate": "24.08.2001"
 						}
 					}
 				}
@@ -3340,6 +3680,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:06:20",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					},
 					"circleLength400": {
@@ -3387,6 +3732,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:05:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					}
 				},
@@ -3436,6 +3786,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:06:44",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					},
 					"circleLength400": {
@@ -3483,6 +3838,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:02:05:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Unknown",
+							"time": "00:00:00:00",
+							"recordDate": "00.00.0000"
 						}
 					}
 				}
@@ -3534,6 +3894,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:17:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Виктор Маркин",
+							"time": "00:00:44:60",
+							"recordDate": "30.07.1980"
 						}
 					},
 					"circleLength400": {
@@ -3581,8 +3946,12 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:16:20",
 							"imageRank": "juniorM"
-						}
-					}
+						},
+						"recordHolder": {
+							"fullName": "Виктор Маркин",
+							"time": "00:00:44:60",
+							"recordDate": "30.07.1980"
+						}					}
 				},
 				"auto": {
 					"circleLength200": {
@@ -3630,6 +3999,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:17:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Виктор Маркин",
+							"time": "00:00:44:60",
+							"recordDate": "30.07.1980"
 						}
 					},
 					"circleLength400": {
@@ -3677,6 +4051,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:01:16:44",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Виктор Маркин",
+							"time": "00:00:44:60",
+							"recordDate": "30.07.1980"
 						}
 					}
 				}
@@ -3727,6 +4106,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:53:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Unkonwn",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				},
 				"auto": {
@@ -3773,6 +4157,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:53:24",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Unkonwn",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			},
@@ -3823,6 +4212,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:34:40",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Владимир Крылов",
+							"time": "00:00:20:23",
+							"recordDate": "03.09.1987"
 						}
 					},
 					"circleLength400": {
@@ -3870,6 +4264,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:34:00",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Владимир Крылов",
+							"time": "00:00:20:23",
+							"recordDate": "03.09.1987"
 						}
 					}
 				},
@@ -3919,6 +4318,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:34:64",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Владимир Крылов",
+							"time": "00:00:20:23",
+							"recordDate": "03.09.1987"
 						}
 					},
 					"circleLength400": {
@@ -3966,6 +4370,11 @@
 							"title": "Трейтий юнешеский",
 							"time": "00:00:34:24",
 							"imageRank": "juniorM"
+						},
+						"recordHolder": {
+							"fullName": "Владимир Крылов",
+							"time": "00:00:20:23",
+							"recordDate": "03.09.1987"
 						}
 					}
 				}
@@ -4016,6 +4425,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:15:40",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Андрей Епишин",
+						"time": "00:00:10:10",
+						"recordDate": "08.08.2006"
 					}
 				},
 				"auto": {
@@ -4063,6 +4477,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:15:64",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Андрей Епишин",
+						"time": "00:00:10:10",
+						"recordDate": "08.08.2006"
 					}
 				}
 			},
@@ -4112,6 +4531,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:09:30",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				},
 				"auto": {
@@ -4159,6 +4583,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:09:54",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			},
@@ -4208,6 +4637,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:08:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			},
@@ -4257,6 +4691,11 @@
 						"title": "Трейтий юнешеский",
 						"time": "00:00:05:00",
 						"imageRank": "juniorM"
+					},
+					"recordHolder": {
+						"fullName": "Unknown",
+						"time": "00:00:00:00",
+						"recordDate": "00.00.0000"
 					}
 				}
 			}
@@ -4307,8 +4746,12 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorM"
+				},
+				"recordHolder": {
+					"fullName": "Василий Ларкин",
+					"time": "06:18:26:00",
+					"recordDate": "07.09.2013"
 				}
-				
 			},
 			"marathon": {
 				"msmk": {
@@ -4355,6 +4798,11 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorM"
+				},
+				"recordHolder": {
+					"fullName": "Алексей Соколов",
+					"time": "02:09:07:00",
+					"recordDate": "29.10.2007"
 				}
 			},
 			"halfMarathon": {
@@ -4402,6 +4850,11 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorM"
+				},
+				"recordHolder": {
+					"fullName": "Дмитрий Капитонов",
+					"time": "01:01:15:00",
+					"recordDate": "29.09.1996"
 				}
 			},
 			"fifteenKM": {
@@ -4449,6 +4902,11 @@
 					"title": "Трейтий юнешеский",
 					"time": "00:00:00:00",
 					"imageRank": "juniorM"
+				},
+				"recordHolder": {
+					"fullName": "Unknown",
+					"time": "00:00:00:00",
+					"recordDate": "00.00.0000"
 				}
 			}
 		}

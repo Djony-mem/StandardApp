@@ -143,11 +143,15 @@ final class StandardManager {
 		let secondJunior = Time(stringLiteral: discharge.secondJunior.time)
 		let thirdJunior = Time(stringLiteral: discharge.thirdJunior.time)
 		
+		let time = Time(hour: 0, minute: 0, second: 0, millisecond: 0)
 		
 		if userTime <= msmk {
+			if msmk == time {
+				return getDefaultTimeInfo()
+			}
 			return discharge.msmk
-		} else if userTime <= ms {
-			return discharge.ms
+		} else if userTime <= ms && ms != time {
+			return  discharge.ms
 		} else if userTime <= kms {
 			return discharge.kms
 		} else if userTime <= firstRank {
@@ -163,9 +167,24 @@ final class StandardManager {
 		} else if userTime <= thirdJunior {
 			return discharge.thirdJunior
 		} else {
-			return nil
+			if ms == time {
+				return getDefaultTimeInfo()
+			} else {
+				return TimeInfo(
+					title: "Любитель",
+					time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
+					imageRank: "AppIcon"
+				)
+			}
 		}
-		
+	}
+	
+	private func getDefaultTimeInfo() -> TimeInfo {
+		return TimeInfo(
+			title: "Для внесенных параметров не предусмотрен разряд",
+			time: "00:00:00:00",
+			imageRank: "AppIcon"
+		)
 	}
 }
 

@@ -16,7 +16,7 @@ final class MainListAssembly {
 }
 
 extension MainListAssembly: Assemblying {
-	func assembly(viewController: UIViewController) {
+	func configur(viewController: UIViewController) {
 		guard let mainListVC = viewController as? MainListViewController else { return }
 		let router = MainListRouter(navigationController: navigationController)
 		let dataManager = DataManager()

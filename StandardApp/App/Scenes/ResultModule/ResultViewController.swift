@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol IResultViewController {
-	
+protocol IResultView: AnyObject {
+	func render(viewModel: ViewModelResult)
 }
 
 class ResultViewController: UIViewController {
 	
 	private let imageViewReward = UIImageView()
 	private let rankLabel = DescriptionLabel(title: "Ты можешь лучше")
-	
+	var presenter: IResultPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,8 @@ class ResultViewController: UIViewController {
 //MARK: - Setting View
 extension ResultViewController {
 	func setupView() {
+		view.backgroundColor = ColorSpace.BgColor.mainVC
+		presenter.render()
 		addSubviews()
 		
 		setupLayout()
@@ -52,12 +54,18 @@ extension ResultViewController {
 			imageViewReward.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
 			imageViewReward.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			imageViewReward.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-			imageViewReward.heightAnchor.constraint(equalTo: imageViewReward.widthAnchor, multiplier: 1)
+			imageViewReward.heightAnchor.constraint(equalTo: imageViewReward.widthAnchor, multiplier: 1),
+			
+			rankLabel.topAnchor.constraint(equalTo: imageViewReward.bottomAnchor, constant: 30),
+			rankLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		])
 	}
 }
 
 //MARK: - IResultViewController
-extension ResultViewController: IResultViewController {
-	
+extension ResultViewController: IResultView {
+	func render(viewModel: ViewModelResult) {
+		imageViewReward.image = UIImage(named: viewModel.image)
+		rankLabel.text = viewModel.rank
+	}
 }

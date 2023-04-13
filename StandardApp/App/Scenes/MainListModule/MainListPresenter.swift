@@ -19,11 +19,12 @@ protocol IMainListPresenter: AnyObject {
 }
 
 class MainListPresenter: IMainListPresenter {
-	weak var view: IMainListView?
+	private weak var view: IMainListView?
+	private let dataManager: IDataManager!
+	private let router: IMainListRouter?
+	
 	var standard: Standard!
 	
-	private let dataManager: IDataManager!
-	private var router: IMainListRouter?
 	
 	required init(view: IMainListView, dataManager: IDataManager, router: IMainListRouter) {
 		self.view = view
