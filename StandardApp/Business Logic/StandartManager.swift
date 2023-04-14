@@ -209,9 +209,9 @@ final class StandardManager {
 	
 	private func getDefaultTimeInfo() -> TimeInfo {
 		return TimeInfo(
-			title: "Для внесенных параметров не предусмотрен разряд",
+			title: "Не корректные данные",
 			time: "00:00:00:00",
-			imageRank: "AppIcon"
+			imageRank: "bothAmat"
 		)
 	}
 }
