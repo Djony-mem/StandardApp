@@ -64,5 +64,19 @@ enum ColorSpace {
 			blue: 197/255,
 			alpha: 1
 		)
+		
+		static let rank = UIColor(
+			red: 245/255,
+			green: 180/255,
+			blue: 51/255,
+			alpha: 1
+		)
+		
+		static let time = UIColor(
+			red: 250/255,
+			green: 128/255,
+			blue: 92/255,
+			alpha: 1
+		)
 	}
 }

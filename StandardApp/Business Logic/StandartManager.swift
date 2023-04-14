@@ -144,14 +144,13 @@ final class StandardManager {
 		let thirdJunior = Time(stringLiteral: discharge.thirdJunior.time)
 		
 		let recordTime = Time(stringLiteral: discharge.recordHolder.time)
-		print("record \(discharge.recordHolder.time)")
 		let time = Time(hour: 0, minute: 0, second: 0, millisecond: 0)
 		
-		if userTime <= recordTime, userTime != time {
+		if userTime <= recordTime && userTime != time {
 			return TimeInfo(
 				title: "Вы побили рекорд \(discharge.recordHolder.fullName)",
 				time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
-				imageRank: "AppIcon"
+				imageRank: "record"
 			)
 		}
 		
@@ -163,29 +162,47 @@ final class StandardManager {
 			return discharge.msmk
 		} else if userTime <= ms && ms != time {
 			return  discharge.ms
-		} else if userTime <= kms {
+		} else if userTime <= kms && kms != time {
 			return discharge.kms
-		} else if userTime <= firstRank {
+		} else if userTime <= firstRank && firstRank != time {
 			return discharge.firstRank
-		} else if userTime <= secondRank {
+		} else if userTime <= secondRank && secondRank != time {
 			return discharge.secondRank
-		} else if userTime <= thirdRank {
+		} else if userTime <= thirdRank && thirdRank != time {
 			return discharge.thirdRank
-		} else if userTime <= firstJunior {
+		} else if userTime <= firstJunior && firstJunior != time {
 			return discharge.firstJunior
-		} else if userTime <= secondJunior {
+		} else if userTime <= secondJunior && secondJunior != time {
 			return discharge.secondJunior
-		} else if userTime <= thirdJunior {
+		} else if userTime <= thirdJunior && thirdJunior != time {
 			return discharge.thirdJunior
+		} else if userTime > thirdJunior && thirdJunior != time {
+			return TimeInfo(
+				title: "Любитель",
+				time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
+				imageRank: "amateurM"
+			)
 		} else {
-			if ms == time {
-				return getDefaultTimeInfo()
-			} else {
+			if firstJunior == time && userTime > thirdRank {
 				return TimeInfo(
 					title: "Любитель",
 					time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
-					imageRank: "AppIcon"
+					imageRank: "amateurM"
 				)
+			} else if secondJunior == time && userTime > thirdRank {
+				return TimeInfo(
+					title: "Любитель",
+					time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
+					imageRank: "amateurM"
+				)
+			} else if thirdJunior == time && userTime > thirdRank {
+				return TimeInfo(
+					title: "Любитель",
+					time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
+					imageRank: "amateurM"
+				)
+			} else {
+				return getDefaultTimeInfo()
 			}
 		}
 	}

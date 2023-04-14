@@ -12,7 +12,7 @@ protocol INewAthleteView: AnyObject {
 }
 
 	//MARK: - NewAthleteViewController
-class NewAthleteViewController: UIViewController {
+final class NewAthleteViewController: UIViewController {
 	
 	var presenter: NewAthletePresenter!
 	

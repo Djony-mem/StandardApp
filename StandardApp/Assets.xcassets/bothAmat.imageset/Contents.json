@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "bothAmat.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "bgSelect.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }
