@@ -27,7 +27,10 @@ extension ResultRouter: IResultRouter {
 	func route(_ target: Target) {
 		switch target {
 		case .selection:
-			break
+			let neededVC = navigationController.viewControllers.filter { $0 is ISelectionView }.first
+			guard let selectionVC = neededVC as? ISelectionView else { return }
+			selectionVC.saveTimeResult()
+			neededVC?.dismiss(animated: true)
 		}
 	}
 }

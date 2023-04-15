@@ -9,6 +9,7 @@ import Foundation
 
 protocol ISelectionPresenter: AnyObject {
 	func sendTitle()
+	func sendBGImage()
 	func changedSwitchValue(_ isOn: Bool)
 	func changeSwitchValueForColor(_ isOn: Bool)
 	func changeSwithForPlace(_ isOn: Bool)
@@ -17,12 +18,15 @@ protocol ISelectionPresenter: AnyObject {
 	func circleLengthMenuAction(circleEnum: CircleEnum)
 	func timingMenuManualAction(cronometer: ChronometerEnum)
 	func renderd(time: Time)
+	
+	func saveTimeResult()
 }
 
 final class SelectionPresenter: ISelectionPresenter {
 	private weak var viewController: ISelectionView!
 	private let router: ISelectionRouter
 	let standardManager: IStandardManager
+	var timeResult: TimeResult!
 	var athlet: Athlete!
 	
 	private var place: Place = .stadium
@@ -31,14 +35,22 @@ final class SelectionPresenter: ISelectionPresenter {
 	private var chronometer: ChronometerEnum = .manual
 	private var circleLength: CircleEnum = .none
 	
-	required init(view: ISelectionView, standardManager: IStandardManager, router: ISelectionRouter) {
+	required init(athlet: Athlete, view: ISelectionView,
+				  standardManager: IStandardManager,
+				  router: ISelectionRouter) {
+		self.athlet = athlet
 		self.viewController = view
 		self.standardManager = standardManager
 		self.router = router
 	}
 	
 	func sendTitle() {
-		viewController.setuptitle("Бруйко Евгения")
+		viewController.setuptitle(athlet.nikName)
+	}
+	
+	func sendBGImage() {
+		let image = athlet.gender == .male ? "opacityM" : "opacityW"
+		viewController.setupBgGender(image: image)
 	}
 	
 	func changedSwitchValue(_ isOn: Bool) {
@@ -91,7 +103,7 @@ final class SelectionPresenter: ISelectionPresenter {
 			)
 		}
 		
-		let timeResult = TimeResult(
+		timeResult = TimeResult(
 			userTime: result.timeInfo?.time ?? "",
 			userRank: result.timeInfo?.title ?? "",
 			imageRank: result.timeInfo?.imageRank ?? "",
@@ -112,9 +124,10 @@ final class SelectionPresenter: ISelectionPresenter {
 				)
 			)
 		)
-		
-		print("Презентер \(timeResult.imageRank)")
 		router.route(.result(timeResult: timeResult))
 	}
 	
+	func saveTimeResult() {
+		athlet.timeResults?.append(timeResult)
+	}
 }

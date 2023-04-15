@@ -9,6 +9,7 @@ import UIKit
 
 protocol IResultView: AnyObject {
 	func render(viewModel: ViewModelResult)
+	
 }
 
 final class ResultViewController: UIViewController {
@@ -20,7 +21,7 @@ final class ResultViewController: UIViewController {
 	
 	private let descriptionRankLabel = DescriptionLabel(title: "Разряд:")
 	private let descriptionAllRankLabel = DescriptionLabel(title: "Другие разряды:")
-	private let descriptionRecordLabel = DescriptionLabel(title: "Рекордсмен России:")
+	private let descriptionRecordLabel = DescriptionLabel(title: "Установленный рекорд России:")
 	
 	private let rankLabel = UILabel()
 	private let userTimeLabel = UILabel()
@@ -39,6 +40,11 @@ final class ResultViewController: UIViewController {
         super.viewDidLoad()
 		setupView()
     }
+	
+	@objc
+	private func saveResultInfo() {
+		presenter.dismissActiion()
+	}
 }
 
 //MARK: - Setting View
@@ -59,6 +65,8 @@ private extension ResultViewController {
 		
 		setupStackRecordHolder()
 		
+		addActions()
+		
 		setupLayout()
 	}
 }
@@ -71,6 +79,14 @@ private extension ResultViewController {
 		 recordStackView, allRankLabel, saveButton].forEach { subview in
 			view.addSubview(subview)
 		}
+	}
+	
+	func addActions() {
+		saveButton.addTarget(
+			self,
+			action: #selector(saveResultInfo),
+			for: .touchUpInside
+		)
 	}
 	
 	func setupRankLabel() {

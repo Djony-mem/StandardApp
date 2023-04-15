@@ -13,7 +13,7 @@ protocol IMainListRouter {
 
 final class MainListRouter {
 	enum Target {
-		case selection(distance: Distance)
+		case selection(distance: Distance, athlete: Athlete)
 		case addNewAthlete
 	}
 	
@@ -28,9 +28,9 @@ extension MainListRouter: IMainListRouter {
 	
 	func route(_ target: Target) {
 		switch target {
-		case .selection(let distance):
+		case let .selection(distance, athlete):
 			let selectionVC = SelectionViewController()
-			let assemblySelection = SelectionAssembly(distance: distance, navigationController: navigationController)
+			let assemblySelection = SelectionAssembly(distance: distance, athlete: athlete, navigationController: navigationController)
 			assemblySelection.configur(viewController: selectionVC)
 			
 			navigationController.pushViewController(selectionVC, animated: true)

@@ -12,6 +12,9 @@ protocol ISelectionView: AnyObject {
 	func changeSwitchLabel(text: String)
 	func changeColor(_ color: UIColor)
 	func setuptitle(_ title: String)
+	func setupBgGender(image: String)
+	
+	func saveTimeResult()
 }
 
 	//MARK: - SelectionViewController
@@ -93,8 +96,6 @@ class SelectionViewController: UIViewController {
 		let time = Time(stringLiteral: timeString)
 		
 		presenter.renderd(time: time)
-		
-		print("hi \(timeString)")
 	}
 }
 
@@ -155,7 +156,8 @@ private extension SelectionViewController{
 	}
 	
 	func setupBgImageView() {
-		bgImageView.image = UIImage(named: "bgSelectV3")
+		bgImageView.contentMode = .scaleAspectFit
+		presenter.sendBGImage()
 	}
 	
 	func setupPlaceLabel() {
@@ -189,10 +191,10 @@ private extension SelectionViewController{
 		
 		NSLayoutConstraint.activate([
 			
-			bgImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+			bgImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
 			bgImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
 			bgImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
-			bgImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+			bgImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
 			
 			placeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
 			placeLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
@@ -362,6 +364,10 @@ private extension SelectionViewController {
 
 //MARK: - SelectionViewProtocol
 extension SelectionViewController: ISelectionView {
+	func setupBgGender(image: String) {
+		bgImageView.image = UIImage(named: image)
+	}
+
 	func setuptitle(_ title: String) {
 		navigationItem.title = title
 	}
@@ -373,6 +379,10 @@ extension SelectionViewController: ISelectionView {
 	func changeColor(_ color: UIColor) {
 		timingButton.layer.borderColor = color.cgColor
 		circleLengthButton.layer.borderColor = color.cgColor
+	}
+	
+	func saveTimeResult() {
+		presenter.saveTimeResult()
 	}
 }
 

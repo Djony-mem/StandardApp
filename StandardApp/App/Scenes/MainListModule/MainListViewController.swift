@@ -91,7 +91,7 @@ extension MainListViewController {
 extension MainListViewController {
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let gender = viewModels[indexPath.item].gender
-		presenter.render(gender: gender)
+		presenter.render(index: indexPath)
 	}
 }
 
@@ -113,6 +113,7 @@ extension MainListViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - IMainListView
 extension MainListViewController: IMainListView {
 	func replace(viewModel: ViewModel) {
+		presenter.transform(viewModel: viewModel)
 		viewModels.append(viewModel)
 		collectionView.reloadData()
 	}

@@ -23,6 +23,7 @@ struct RecordBreaker {
 
 protocol IResultPresenter {
 	func render()
+	func dismissActiion()
 }
 
 final class ResultPresenter {
@@ -37,7 +38,6 @@ final class ResultPresenter {
 	}
 	
 	func render() {
-		print("Ouch \(timeResult.userTime)")
 		let viewModel = ViewModelResult(
 			userTime: separatedString(value: timeResult.userTime),
 			imageRank: timeResult.imageRank,
@@ -59,8 +59,11 @@ final class ResultPresenter {
 				recordDate: timeResult.allRank.recordHolder.recordDate)
 		)
 
-		print("Презентер Result \(viewModel.imageRank)")
 		view.render(viewModel: viewModel)
+	}
+	
+	func dismissActiion() {
+		router.route(.selection)
 	}
 	
 	private func separatedString(value: String) -> String {

@@ -14,7 +14,9 @@ struct ViewModel {
 
 protocol IMainListPresenter: AnyObject {
 	var standard: Standard! { get }
-	func render(gender: Gender)
+	
+	func transform(viewModel: ViewModel)
+	func render(index: IndexPath)
 	func showNewAthleteVC()
 }
 
@@ -34,14 +36,18 @@ class MainListPresenter: IMainListPresenter {
 		getStandard()
 	}
 	
-	func render(gender: Gender) {
-		print("Gender \(gender.rawValue)")
-		switch gender {
+	func transform(viewModel: ViewModel) {
+		let athlete = Athlete(nikName: viewModel.nikName, gender: viewModel.gender, timeResults: [])
+		athlets.append(athlete)
+	}
+	
+	func render(index: IndexPath) {
+		let athlete = athlets[index.row]
+		switch athlete.gender {
 		case .male:
-//			let athlete = Athlete(nikName: <#T##String#>, gender: <#T##Gender#>, results: <#T##[TimeResult]?#>)
-			router?.route(.selection(distance: standard.man))
+			router?.route(.selection(distance: standard.man, athlete: athlete))
 		case .fimale:
-			router?.route(.selection(distance: standard.woman))
+			router?.route(.selection(distance: standard.woman,  athlete: athlete))
 		}
 	}
 	
