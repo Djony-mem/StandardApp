@@ -11,6 +11,7 @@ import SwiftUI
 protocol ISelectionView: AnyObject {
 	func changeSwitchLabel(text: String)
 	func changeColor(_ color: UIColor)
+	func setuptitle(_ title: String)
 }
 
 	//MARK: - SelectionViewController
@@ -93,7 +94,7 @@ class SelectionViewController: UIViewController {
 		
 		presenter.renderd(time: time)
 		
-		print(timeString)
+		print("hi \(timeString)")
 	}
 }
 
@@ -150,6 +151,7 @@ private extension SelectionViewController{
 		navigationItem.rightBarButtonItem = UIBarButtonItem(customView: progressButton)
 		
 		navigationController?.navigationBar.tintColor = ColorSpace.ResultButton.titleColor
+		presenter.sendTitle()
 	}
 	
 	func setupBgImageView() {
@@ -360,6 +362,10 @@ private extension SelectionViewController {
 
 //MARK: - SelectionViewProtocol
 extension SelectionViewController: ISelectionView {
+	func setuptitle(_ title: String) {
+		navigationItem.title = title
+	}
+	
 	func changeSwitchLabel(text: String) {
 		placeLabel.text = text
 	}
@@ -370,9 +376,4 @@ extension SelectionViewController: ISelectionView {
 	}
 }
 
-struct SelectionViewControllerProvider: PreviewProvider {
-	static var previews: some View {
-		SelectionViewController().preview()
-	}
-}
 

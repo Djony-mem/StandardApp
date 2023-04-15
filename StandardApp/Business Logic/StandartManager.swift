@@ -8,8 +8,8 @@
 import Foundation
 
 protocol IStandardManager {
-	func getHighwayDistans(_ highwayEnum: HighwayEnum, userTime: Time) -> TimeInfo?
-	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> TimeInfo?
+	func getHighwayDistans(_ highwayEnum: HighwayEnum, userTime: Time) -> (timeInfo: TimeInfo?, discharge: Discharge?)
+	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> (timeInfo: TimeInfo?, discharge: Discharge?)
 }
 
 final class StandardManager {
@@ -19,7 +19,7 @@ final class StandardManager {
 		self.distance = distance
 	}
 	
-	func getHighwayDistans(_ highwayEnum: HighwayEnum, userTime: Time) -> TimeInfo? {
+	func getHighwayDistans(_ highwayEnum: HighwayEnum, userTime: Time) -> (timeInfo: TimeInfo?, discharge: Discharge?)  {
 		let highway = getHighway()
 		
 		switch highwayEnum {
@@ -34,7 +34,7 @@ final class StandardManager {
 		}
 	}
 	
-	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> TimeInfo? {
+	func getDischarge(chronometer: ChronometerEnum, stadium: StadiumEnum, circleLength: CircleEnum, time: Time) -> (timeInfo: TimeInfo?, discharge: Discharge?) {
 		let chronom = getChronometer(chronometer, stadium: stadium)
 		
 		if let discharge = chronom.discharge {
@@ -48,10 +48,10 @@ final class StandardManager {
 				let discharge400 = circle.circleLength400
 				return getResult(discharge: discharge400, userTime: time)
 			case .none:
-				return nil
+				return (nil, nil)
 			}
 		}
-		return TimeInfo(title: "", time: "", imageRank: "")
+		return (nil, nil)
 	}
 	
 	private func getChronometer(_ chronometer: ChronometerEnum, stadium: StadiumEnum) -> (discharge: Discharge?, circle: Circle?) {
@@ -131,7 +131,7 @@ final class StandardManager {
 		distance.highway
 	}
 	
-	private func getResult(discharge: Discharge, userTime: Time) -> TimeInfo? {
+	private func getResult(discharge: Discharge, userTime: Time) -> (timeInfo: TimeInfo?, discharge: Discharge) {
 		
 		let msmk = Time(stringLiteral: discharge.msmk.time)
 		let ms = Time(stringLiteral: discharge.ms.time)
@@ -147,64 +147,121 @@ final class StandardManager {
 		let time = Time(hour: 0, minute: 0, second: 0, millisecond: 0)
 		
 		if userTime <= recordTime && userTime != time {
-			return TimeInfo(
+			let timeInfo = TimeInfo(
 				title: "Вы побили рекорд \(discharge.recordHolder.fullName)",
 				time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
 				imageRank: "record"
 			)
+			return (timeInfo, discharge)
 		}
 		
 		
-		if userTime <= msmk {
-			if msmk == time {
-				return getDefaultTimeInfo()
-			}
-			return discharge.msmk
+		if userTime <= msmk, ms != time {
+			let timeInfo = getUserTimeInfo(
+				title: discharge.msmk.title,
+				time: userTime,
+				image: discharge.msmk.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime <= ms && ms != time {
-			return  discharge.ms
+			let timeInfo = getUserTimeInfo(
+				title: discharge.ms.title,
+				time: userTime,
+				image: discharge.ms.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime <= kms && kms != time {
-			return discharge.kms
+			let timeInfo = getUserTimeInfo(
+				title: discharge.kms.title,
+				time: userTime,
+				image: discharge.kms.imageRank ?? ""
+			)
+			print("KMSW \(timeInfo.imageRank)")
+			return (timeInfo, discharge)
 		} else if userTime <= firstRank && firstRank != time {
-			return discharge.firstRank
+			let timeInfo = getUserTimeInfo(
+				title: discharge.firstRank.title,
+				time: userTime,
+				image: discharge.firstRank.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime <= secondRank && secondRank != time {
-			return discharge.secondRank
+			let timeInfo = getUserTimeInfo(
+				title: discharge.secondRank.title,
+				time: userTime,
+				image: discharge.secondRank.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime <= thirdRank && thirdRank != time {
-			return discharge.thirdRank
+			let timeInfo = getUserTimeInfo(
+				title: discharge.thirdRank.title,
+				time: userTime,
+				image: discharge.thirdRank.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime <= firstJunior && firstJunior != time {
-			return discharge.firstJunior
+			let timeInfo = getUserTimeInfo(
+				title: discharge.firstJunior.title,
+				time: userTime,
+				image: discharge.firstJunior.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime <= secondJunior && secondJunior != time {
-			return discharge.secondJunior
+			let timeInfo = getUserTimeInfo(
+				title: discharge.secondJunior.title,
+				time: userTime,
+				image: discharge.secondJunior.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime <= thirdJunior && thirdJunior != time {
-			return discharge.thirdJunior
+			let timeInfo = getUserTimeInfo(
+				title: discharge.thirdJunior.title,
+				time: userTime,
+				image: discharge.thirdJunior.imageRank ?? ""
+			)
+			return (timeInfo, discharge)
 		} else if userTime > thirdJunior && thirdJunior != time {
-			return TimeInfo(
+			let timeInfo = TimeInfo(
 				title: "Любитель",
 				time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
 				imageRank: "amateurM"
 			)
+			return (timeInfo, discharge)
 		} else {
 			if firstJunior == time && userTime > thirdRank {
-				return TimeInfo(
+				let timeInfo = TimeInfo(
 					title: "Любитель",
 					time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
 					imageRank: "amateurM"
 				)
+				return (timeInfo, discharge)
 			} else if secondJunior == time && userTime > thirdRank {
-				return TimeInfo(
+				let timeInfo = TimeInfo(
 					title: "Любитель",
 					time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
 					imageRank: "amateurM"
 				)
+				return (timeInfo, discharge)
 			} else if thirdJunior == time && userTime > thirdRank {
-				return TimeInfo(
+				let timeInfo = TimeInfo(
 					title: "Любитель",
 					time: "\(userTime.hour):\(userTime.minute):\(userTime.second):\(userTime.millisecond)",
 					imageRank: "amateurM"
 				)
+				return (timeInfo, discharge)
 			} else {
-				return getDefaultTimeInfo()
+				let timeInfo = getDefaultTimeInfo()
+				return (timeInfo, discharge)
 			}
 		}
+	}
+	
+	private func getUserTimeInfo(title: String, time: Time, image: String) -> TimeInfo {
+		TimeInfo(
+			title: title,
+			time: "\(time.hour):\(time.minute):\(time.second):\(time.millisecond)",
+			imageRank: image
+		)
 	}
 	
 	private func getDefaultTimeInfo() -> TimeInfo {

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ISelectionPresenter: AnyObject {
+	func sendTitle()
 	func changedSwitchValue(_ isOn: Bool)
 	func changeSwitchValueForColor(_ isOn: Bool)
 	func changeSwithForPlace(_ isOn: Bool)
@@ -22,6 +23,7 @@ final class SelectionPresenter: ISelectionPresenter {
 	private weak var viewController: ISelectionView!
 	private let router: ISelectionRouter
 	let standardManager: IStandardManager
+	var athlet: Athlete!
 	
 	private var place: Place = .stadium
 	private var stadium: StadiumEnum = .tenThousandM
@@ -33,6 +35,10 @@ final class SelectionPresenter: ISelectionPresenter {
 		self.viewController = view
 		self.standardManager = standardManager
 		self.router = router
+	}
+	
+	func sendTitle() {
+		viewController.setuptitle("Бруйко Евгения")
 	}
 	
 	func changedSwitchValue(_ isOn: Bool) {
@@ -69,19 +75,46 @@ final class SelectionPresenter: ISelectionPresenter {
 	}
 	
 	func renderd(time: Time) {
-		let result: TimeInfo?
+		let result: (timeInfo: TimeInfo?,discharge: Discharge?)
 		
 		switch place {
 		case .stadium:
-			result = standardManager.getDischarge(chronometer: chronometer, stadium: stadium, circleLength: circleLength, time: time)
-			print("Hi\(result?.time)")
-			print(chronometer)
-			print(circleLength)
+			result = standardManager.getDischarge(
+				chronometer: chronometer,
+				stadium: stadium,
+				circleLength: circleLength, time: time
+			)
 		case .highway:
-			result = standardManager.getHighwayDistans(highway, userTime: time)
-			print(result?.time)
+			result = standardManager.getHighwayDistans(
+				highway,
+				userTime: time
+			)
 		}
-		router.route(.result(timeInfo: result ?? TimeInfo(title: "", time: "", imageRank: "")))
+		
+		let timeResult = TimeResult(
+			userTime: result.timeInfo?.time ?? "",
+			userRank: result.timeInfo?.title ?? "",
+			imageRank: result.timeInfo?.imageRank ?? "",
+			allRank: Rank(
+				msmk: result.discharge?.msmk.time ?? "",
+				ms: result.discharge?.ms.time ?? "",
+				kms: result.discharge?.kms.time ?? "",
+				firstRank: result.discharge?.firstRank.time ?? "",
+				secondRank: result.discharge?.secondRank.time ?? "",
+				thirdRank: result.discharge?.thirdRank.time ?? "",
+				firstJunior: result.discharge?.firstJunior.time ?? "",
+				secondJunior: result.discharge?.secondJunior.time ?? "",
+				thirdJunior: result.discharge?.thirdJunior.time ?? "",
+				recordHolder: Record(
+					fullName: result.discharge?.recordHolder.fullName ?? "",
+					time: result.discharge?.recordHolder.time ?? "",
+					recordDate: result.discharge?.recordHolder.recordDate ?? ""
+				)
+			)
+		)
+		
+		print("Презентер \(timeResult.imageRank)")
+		router.route(.result(timeResult: timeResult))
 	}
 	
 }

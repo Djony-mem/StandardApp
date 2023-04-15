@@ -13,6 +13,9 @@ protocol IResultView: AnyObject {
 
 final class ResultViewController: UIViewController {
 	
+	var viewModelResult: ViewModelResult!
+	var presenter: IResultPresenter!
+	
 	private let rewardImageView = UIImageView()
 	
 	private let descriptionRankLabel = DescriptionLabel(title: "Разряд:")
@@ -30,9 +33,7 @@ final class ResultViewController: UIViewController {
 	
 	private let recordStackView = UIStackView()
 	
-	private let allRankView = UIView()
-	
-	var presenter: IResultPresenter!
+	private let saveButton = ResultButton(title: "Сохранить")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,6 @@ private extension ResultViewController {
 		setupUserTime()
 		
 		setupAllRankLabel()
-		setupAllRankView()
 		
 		setupNameRecordLabel()
 		setupTimeRecordLabel()
@@ -67,9 +67,8 @@ private extension ResultViewController {
 private extension ResultViewController {
 	func addSubviews() {
 		[rewardImageView, descriptionRankLabel,
-		 rankLabel, userTimeLabel, descriptionAllRankLabel,
-		 allRankView, descriptionRecordLabel,
-		 recordStackView, allRankLabel].forEach { subview in
+		 rankLabel, userTimeLabel, descriptionAllRankLabel, descriptionRecordLabel,
+		 recordStackView, allRankLabel, saveButton].forEach { subview in
 			view.addSubview(subview)
 		}
 	}
@@ -82,51 +81,27 @@ private extension ResultViewController {
 	}
 	
 	func setupUserTime() {
-		userTimeLabel.text = "00:00:00,00"
 		userTimeLabel.textColor = ColorSpace.Text.time
 		userTimeLabel.textAlignment = .center
 		userTimeLabel.font = .boldSystemFont(ofSize: 20)
 	}
 	
 	func setupAllRankLabel() {
-		allRankLabel.text = """
-	   let msmk:  "00:00:00,00"
-	   let ms:  "00:00:00,00"
-	   let kms:  "00:00:00,00"
-	   let firstRank: "00:00:00,00"
-	   let secondRank: "00:00:00,00"
-	   let thirdRank: "00:00:00,00"
-	   let firstJunior: "00:00:00,00"
-	   let secondJunior: "00:00:00,00"
-	   let thirdJunior: "00:00:00,00"
-	   """
+		allRankLabel.textColor = ColorSpace.Text.time
 		allRankLabel.numberOfLines = 0
 	}
 	
-	func setupAllRankView() {
-		allRankView.backgroundColor = .systemGray
-		allRankView.layer.cornerRadius = 15
-		
-		allRankView.layer.shadowColor = UIColor.black.cgColor
-		allRankView.layer.shadowRadius = 20
-		allRankView.layer.shadowOpacity = 1
-		allRankView.layer.shadowOffset = CGSize(width: 15, height: 15)
-	}
-	
 	func setupNameRecordLabel() {
-		nameRecordLabel.text = "Герой"
 		nameRecordLabel.textColor = ColorSpace.Text.rank
 		nameRecordLabel.font = .boldSystemFont(ofSize: 20)
 	}
 	
 	func setupTimeRecordLabel() {
-		timeRecordLabel.text = "00:00:00,00"
 		timeRecordLabel.textColor = ColorSpace.Text.time
 		timeRecordLabel.font = .boldSystemFont(ofSize: 18)
 	}
 	
 	func setupDateRecordLabel() {
-		dateRecordLabel.text = "02.06.2007"
 		dateRecordLabel.textColor = .white
 		dateRecordLabel.font = .boldSystemFont(ofSize: 15)
 	}
@@ -146,8 +121,8 @@ private extension ResultViewController {
 	func setupLayout() {
 		[rewardImageView, descriptionRankLabel,
 		 rankLabel, userTimeLabel, descriptionAllRankLabel,
-		 allRankView, descriptionRecordLabel, recordStackView, nameRecordLabel,
-		 timeRecordLabel, dateRecordLabel, allRankLabel].forEach { subview in
+		 descriptionRecordLabel, recordStackView, nameRecordLabel,
+		 timeRecordLabel, dateRecordLabel, allRankLabel, saveButton].forEach { subview in
 			subview.translatesAutoresizingMaskIntoConstraints = false
 		}
 		
@@ -160,7 +135,7 @@ private extension ResultViewController {
 			descriptionRankLabel.topAnchor.constraint(equalTo: rewardImageView.bottomAnchor, constant: 10),
 			descriptionRankLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			
-			rankLabel.topAnchor.constraint(equalTo: descriptionRankLabel.bottomAnchor, constant: 10),
+			rankLabel.topAnchor.constraint(equalTo: descriptionRankLabel.bottomAnchor, constant: 8),
 			rankLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			rankLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
 			
@@ -168,27 +143,25 @@ private extension ResultViewController {
 			userTimeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			userTimeLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
 			
-			descriptionAllRankLabel.topAnchor.constraint(equalTo: userTimeLabel.bottomAnchor, constant: 20),
+			descriptionAllRankLabel.topAnchor.constraint(equalTo: userTimeLabel.bottomAnchor, constant: 10),
 			descriptionAllRankLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			descriptionAllRankLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
 			
-			allRankView.topAnchor.constraint(equalTo: descriptionAllRankLabel.bottomAnchor, constant: 10),
-			allRankView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			allRankView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
-			allRankView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+			allRankLabel.topAnchor.constraint(equalTo: descriptionAllRankLabel.bottomAnchor, constant: 10),
+			allRankLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			allRankLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
 			
-			allRankLabel.topAnchor.constraint(equalTo: allRankView.topAnchor, constant: 0),
-			allRankLabel.leftAnchor.constraint(equalTo: allRankView.leftAnchor, constant: 5),
-			allRankLabel.rightAnchor.constraint(equalTo: allRankView.rightAnchor, constant: 0),
-			allRankLabel.bottomAnchor.constraint(equalTo: allRankView.bottomAnchor, constant: 0),
-			
-			descriptionRecordLabel.topAnchor.constraint(equalTo: allRankView.bottomAnchor, constant: 25),
+			descriptionRecordLabel.topAnchor.constraint(equalTo: allRankLabel.bottomAnchor, constant: 10),
 			descriptionRecordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			descriptionRecordLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
 			
 			recordStackView.topAnchor.constraint(equalTo: descriptionRecordLabel.bottomAnchor, constant: 10),
 			recordStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			recordStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+			
+			saveButton.topAnchor.constraint(equalTo: recordStackView.bottomAnchor, constant: 20),
+			saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			saveButton.widthAnchor.constraint(equalToConstant: 200)
 		])
 	}
 }
@@ -196,7 +169,13 @@ private extension ResultViewController {
 //MARK: - IResultViewController
 extension ResultViewController: IResultView {
 	func render(viewModel: ViewModelResult) {
-		rewardImageView.image = UIImage(named: viewModel.image)
-		rankLabel.text = viewModel.rank
+		rewardImageView.image = UIImage(named: viewModel.imageRank)
+		rankLabel.text = viewModel.userRank
+		userTimeLabel.text = viewModel.userTime
+		allRankLabel.text = viewModel.allRank
+		
+		nameRecordLabel.text = viewModel.record.fullName
+		timeRecordLabel.text = viewModel.record.time
+		dateRecordLabel.text = viewModel.record.recordDate
 	}
 }

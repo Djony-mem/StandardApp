@@ -22,6 +22,7 @@ class MainListPresenter: IMainListPresenter {
 	private weak var view: IMainListView?
 	private let dataManager: IDataManager!
 	private let router: IMainListRouter?
+	var athlets = [Athlete]()
 	
 	var standard: Standard!
 	
@@ -34,8 +35,10 @@ class MainListPresenter: IMainListPresenter {
 	}
 	
 	func render(gender: Gender) {
+		print("Gender \(gender.rawValue)")
 		switch gender {
 		case .male:
+//			let athlete = Athlete(nikName: <#T##String#>, gender: <#T##Gender#>, results: <#T##[TimeResult]?#>)
 			router?.route(.selection(distance: standard.man))
 		case .fimale:
 			router?.route(.selection(distance: standard.woman))
