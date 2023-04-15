@@ -15,7 +15,8 @@ struct ViewModel {
 protocol IMainListPresenter: AnyObject {
 	var standard: Standard! { get }
 	
-	func transform(viewModel: ViewModel)
+	func eddAthlete(viewModel: ViewModel)
+	func deleteAthlete(index: Int)
 	func render(index: IndexPath)
 	func showNewAthleteVC()
 }
@@ -36,9 +37,17 @@ class MainListPresenter: IMainListPresenter {
 		getStandard()
 	}
 	
-	func transform(viewModel: ViewModel) {
-		let athlete = Athlete(nikName: viewModel.nikName, gender: viewModel.gender, timeResults: [])
+	func eddAthlete(viewModel: ViewModel) {
+		let athlete = Athlete(
+			nikName: viewModel.nikName,
+			gender: viewModel.gender,
+			timeResults: []
+		)
 		athlets.append(athlete)
+	}
+	
+	func deleteAthlete(index: Int) {
+		athlets.remove(at: index)
 	}
 	
 	func render(index: IndexPath) {

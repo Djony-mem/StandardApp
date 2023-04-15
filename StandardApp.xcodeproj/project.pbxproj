@@ -32,6 +32,7 @@
 		0638D4C329E3EC74005C2306 /* ResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4C229E3EC74005C2306 /* ResultAssembly.swift */; };
 		0638D4C529E3EC82005C2306 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4C429E3EC82005C2306 /* ResultPresenter.swift */; };
 		0638D4C729E3EC92005C2306 /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4C629E3EC92005C2306 /* ResultRouter.swift */; };
+		0638D4ED29EA9AFA005C2306 /* AthleteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4EC29EA9AFA005C2306 /* AthleteManager.swift */; };
 		064C565329CE0B3200CA5D78 /* Extention + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C565229CE0B3200CA5D78 /* Extention + UIView.swift */; };
 		064C567529CE7B3500CA5D78 /* ChosenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567429CE7B3500CA5D78 /* ChosenButton.swift */; };
 		064C567A29D13B9200CA5D78 /* SelectEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567929D13B9200CA5D78 /* SelectEnumeration.swift */; };
@@ -76,6 +77,7 @@
 		0638D4C229E3EC74005C2306 /* ResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAssembly.swift; sourceTree = "<group>"; };
 		0638D4C429E3EC82005C2306 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		0638D4C629E3EC92005C2306 /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
+		0638D4EC29EA9AFA005C2306 /* AthleteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteManager.swift; sourceTree = "<group>"; };
 		064C565229CE0B3200CA5D78 /* Extention + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention + UIView.swift"; sourceTree = "<group>"; };
 		064C567429CE7B3500CA5D78 /* ChosenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenButton.swift; sourceTree = "<group>"; };
 		064C567929D13B9200CA5D78 /* SelectEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEnumeration.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				064C567629D0197A00CA5D78 /* Models */,
 				06A6A4F629CD464600EB2B10 /* StandartManager.swift */,
+				0638D4EC29EA9AFA005C2306 /* AthleteManager.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				06DF3B8B293856090041A454 /* SelectionPresenter.swift in Sources */,
 				061D0DB429332277001A9935 /* AppDelegate.swift in Sources */,
 				0638D4B529E28A53005C2306 /* CustomTextField.swift in Sources */,
+				0638D4ED29EA9AFA005C2306 /* AthleteManager.swift in Sources */,
 				0638D4A429DEA463005C2306 /* MainListViewController.swift in Sources */,
 				064C565329CE0B3200CA5D78 /* Extention + UIView.swift in Sources */,
 				0638D4B329E27AFF005C2306 /* MainListAssembly.swift in Sources */,

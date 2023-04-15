@@ -59,9 +59,7 @@ private extension MainListViewController {
 		let navBarAppearance = UINavigationBarAppearance()
 		navBarAppearance.backgroundColor = ColorSpace.ResultButton.bgEnebled
 		navBarAppearance.titleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
-		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
 		
-		navigationController?.navigationBar.standardAppearance = navBarAppearance
 		navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
 		
 		navigationController?.navigationBar.isTranslucent = false
@@ -93,6 +91,22 @@ extension MainListViewController {
 		let gender = viewModels[indexPath.item].gender
 		presenter.render(index: indexPath)
 	}
+	
+	override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+		let deleteItem = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), attributes: .destructive) { (_) in
+			self.presenter.deleteAthlete(index: indexPaths.first?.row ?? 0)
+			self.viewModels.remove(at: indexPaths.first?.row ?? 0)
+			collectionView.deleteItems(at: indexPaths)
+		 }
+		let editItem = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { (_) in
+					
+		 }
+
+		return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in
+		   return UIMenu(title: "Options", children: [editItem, deleteItem])
+		})
+
+	}
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -113,7 +127,7 @@ extension MainListViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - IMainListView
 extension MainListViewController: IMainListView {
 	func replace(viewModel: ViewModel) {
-		presenter.transform(viewModel: viewModel)
+		presenter.eddAthlete(viewModel: viewModel)
 		viewModels.append(viewModel)
 		collectionView.reloadData()
 	}
