@@ -57,8 +57,13 @@ private extension MainListViewController {
 		title = "Список Атлетов"
 
 		let navBarAppearance = UINavigationBarAppearance()
+		navBarAppearance.largeTitleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 10)]
+
+		navigationController?.navigationBar.standardAppearance = navBarAppearance
+		
 		navBarAppearance.backgroundColor = ColorSpace.ResultButton.bgEnebled
 		navBarAppearance.titleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
+		
 		
 		navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
 		

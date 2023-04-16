@@ -97,6 +97,11 @@ class SelectionViewController: UIViewController {
 		
 		presenter.renderd(time: time)
 	}
+	
+	@objc
+	private func didTapBarButton() {
+		presenter.didTapBarButton()
+	}
 }
 
 //MARK: - Settings View
@@ -132,9 +137,23 @@ private extension SelectionViewController{
 	}
 	
 	func addActions() {
-		placeSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
+		placeSwitch.addTarget(
+			self,
+			action: #selector(switchAction),
+			for: .valueChanged
+		)
 		
-		resultButton.addTarget(self, action: #selector(showResultVC), for: .touchUpInside)
+		resultButton.addTarget(
+			self,
+			action: #selector(showResultVC),
+			for: .touchUpInside
+		)
+		
+		progressButton.addTarget(
+			self,
+			action: #selector(didTapBarButton),
+			for: .touchUpInside
+		)
 	}
 	
 	func setupNavigationController() {
@@ -143,15 +162,12 @@ private extension SelectionViewController{
 		let navBarAppearance = UINavigationBarAppearance()
 		navBarAppearance.backgroundColor = ColorSpace.ResultButton.bgEnebled
 		navBarAppearance.titleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
-		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
-		
-		navigationController?.navigationBar.standardAppearance = navBarAppearance
 		navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
 		
 		navigationController?.navigationBar.isTranslucent = false
 		navigationItem.rightBarButtonItem = UIBarButtonItem(customView: progressButton)
-		
 		navigationController?.navigationBar.tintColor = ColorSpace.ResultButton.titleColor
+		
 		presenter.sendTitle()
 	}
 	

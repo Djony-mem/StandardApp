@@ -29,12 +29,21 @@ extension SelectionRouter: ISelectionRouter {
 		switch target {
 		case .result(let timeResult):
 			let resultVC = ResultViewController()
-			let resultAssembly = ResultAssembly(timeResult: timeResult, navigationViewController: navigationController)
+			let resultAssembly = ResultAssembly(
+				timeResult: timeResult,
+				navigationViewController: navigationController
+			)
 			resultAssembly.configur(viewController: resultVC)
 			let neededVC = navigationController.viewControllers.filter { $0 is ISelectionView }.first
 			neededVC?.present(resultVC, animated: true)
 		case .progressList(let timeResults):
-			break
+			let progressList = ProgressListViewController()
+			let progressAssembly = ProgressAssembly(
+				timeResults: timeResults,
+				navigationController: navigationController
+			)
+			progressAssembly.configur(viewController: progressList)
+			navigationController.pushViewController(progressList, animated: true)
 		}
 	}
 }

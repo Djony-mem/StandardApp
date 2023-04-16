@@ -18,6 +18,7 @@ protocol ISelectionPresenter: AnyObject {
 	func circleLengthMenuAction(circleEnum: CircleEnum)
 	func timingMenuManualAction(cronometer: ChronometerEnum)
 	func renderd(time: Time)
+	func didTapBarButton()
 	
 	func saveTimeResult()
 }
@@ -125,6 +126,10 @@ final class SelectionPresenter: ISelectionPresenter {
 			)
 		)
 		router.route(.result(timeResult: timeResult))
+	}
+	
+	func didTapBarButton() {
+		router.route(.progressList(timeResults: athlet.timeResults ?? []))
 	}
 	
 	func saveTimeResult() {

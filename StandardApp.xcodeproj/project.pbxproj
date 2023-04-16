@@ -33,6 +33,9 @@
 		0638D4C529E3EC82005C2306 /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4C429E3EC82005C2306 /* ResultPresenter.swift */; };
 		0638D4C729E3EC92005C2306 /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4C629E3EC92005C2306 /* ResultRouter.swift */; };
 		0638D4ED29EA9AFA005C2306 /* AthleteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4EC29EA9AFA005C2306 /* AthleteManager.swift */; };
+		0638D4F029EBA7C5005C2306 /* ProgressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4EF29EBA7C5005C2306 /* ProgressPresenter.swift */; };
+		0638D4F229EBA7E0005C2306 /* ProgressAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4F129EBA7E0005C2306 /* ProgressAssembly.swift */; };
+		0638D4F429EBA7F2005C2306 /* ProgressRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0638D4F329EBA7F2005C2306 /* ProgressRouter.swift */; };
 		064C565329CE0B3200CA5D78 /* Extention + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C565229CE0B3200CA5D78 /* Extention + UIView.swift */; };
 		064C567529CE7B3500CA5D78 /* ChosenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567429CE7B3500CA5D78 /* ChosenButton.swift */; };
 		064C567A29D13B9200CA5D78 /* SelectEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567929D13B9200CA5D78 /* SelectEnumeration.swift */; };
@@ -78,6 +81,9 @@
 		0638D4C429E3EC82005C2306 /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		0638D4C629E3EC92005C2306 /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
 		0638D4EC29EA9AFA005C2306 /* AthleteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteManager.swift; sourceTree = "<group>"; };
+		0638D4EF29EBA7C5005C2306 /* ProgressPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressPresenter.swift; sourceTree = "<group>"; };
+		0638D4F129EBA7E0005C2306 /* ProgressAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAssembly.swift; sourceTree = "<group>"; };
+		0638D4F329EBA7F2005C2306 /* ProgressRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRouter.swift; sourceTree = "<group>"; };
 		064C565229CE0B3200CA5D78 /* Extention + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention + UIView.swift"; sourceTree = "<group>"; };
 		064C567429CE7B3500CA5D78 /* ChosenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenButton.swift; sourceTree = "<group>"; };
 		064C567929D13B9200CA5D78 /* SelectEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEnumeration.swift; sourceTree = "<group>"; };
@@ -218,6 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				0638D4BB29E33E03005C2306 /* ProgressListViewController.swift */,
+				0638D4EF29EBA7C5005C2306 /* ProgressPresenter.swift */,
+				0638D4F129EBA7E0005C2306 /* ProgressAssembly.swift */,
+				0638D4F329EBA7F2005C2306 /* ProgressRouter.swift */,
 			);
 			path = PregressListModule;
 			sourceTree = "<group>";
@@ -376,11 +385,14 @@
 				0638D4C529E3EC82005C2306 /* ResultPresenter.swift in Sources */,
 				06A6A4F929CD4D4900EB2B10 /* Time.swift in Sources */,
 				06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */,
+				0638D4F229EBA7E0005C2306 /* ProgressAssembly.swift in Sources */,
 				06DF3B952939BC940041A454 /* SelectionAssembly.swift in Sources */,
 				0638D4C329E3EC74005C2306 /* ResultAssembly.swift in Sources */,
 				064C567C29D1736700CA5D78 /* DescriptionLabel.swift in Sources */,
+				0638D4F029EBA7C5005C2306 /* ProgressPresenter.swift in Sources */,
 				0638D4C129E34213005C2306 /* Athlete.swift in Sources */,
 				064C567A29D13B9200CA5D78 /* SelectEnumeration.swift in Sources */,
+				0638D4F429EBA7F2005C2306 /* ProgressRouter.swift in Sources */,
 				06156B1D2936F37400CE05BA /* DataManager.swift in Sources */,
 				06DF3B8B293856090041A454 /* SelectionPresenter.swift in Sources */,
 				061D0DB429332277001A9935 /* AppDelegate.swift in Sources */,

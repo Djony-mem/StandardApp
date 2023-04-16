@@ -7,18 +7,22 @@
 
 import UIKit
 
+protocol IProgressList: AnyObject {
+	
+}
+
 class ProgressListViewController: UITableViewController {
+	var presenter: IProgressPresenter!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
 	}
-	
 }
 	//MARK: - Setting View
 private extension ProgressListViewController {
 	func setupView() {
-		
+		tableView.backgroundColor = .cyan
 	}
 }
 
@@ -46,5 +50,9 @@ extension ProgressListViewController {
 
 	// MARK: - TableViewDelegate
 extension ProgressListViewController {
+	
+}
+
+extension ProgressListViewController: IProgressList {
 	
 }
