@@ -21,7 +21,7 @@ extension ProgressAssembly: Assemblying {
 	func configur(viewController: UIViewController) {
 		guard let progressList = viewController as? ProgressListViewController else { return }
 		let router = ProgressRouter(navigationController: navigationController)
-		let presenter = ProgressPresenter(viewList: progressList, router: router)
+		let presenter = ProgressPresenter(timeResults: timeResults, viewList: progressList, router: router)
 		
 		progressList.presenter = presenter
 	}

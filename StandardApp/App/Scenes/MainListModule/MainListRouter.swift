@@ -37,7 +37,7 @@ extension MainListRouter: IMainListRouter {
 		case .addNewAthlete:
 			let registerVC = NewAthleteViewController()
 			let assemblyNewAthlete = NewAthleteAssemply(navigationController: navigationController)
-			assemblyNewAthlete.assembly(viewController: registerVC)
+			assemblyNewAthlete.configur(viewController: registerVC)
 			navigationController.topViewController?.present(registerVC, animated: true)
 //			navigationController.pushViewController(registerVC, animated: true)
 		}

@@ -21,13 +21,13 @@ protocol IMainListPresenter: AnyObject {
 	func showNewAthleteVC()
 }
 
-class MainListPresenter: IMainListPresenter {
+final class MainListPresenter {
+	var athlets = [Athlete]()
+	var standard: Standard!
+	
 	private weak var view: IMainListView?
 	private let dataManager: IDataManager!
 	private let router: IMainListRouter?
-	var athlets = [Athlete]()
-	
-	var standard: Standard!
 	
 	
 	required init(view: IMainListView, dataManager: IDataManager, router: IMainListRouter) {
@@ -36,7 +36,9 @@ class MainListPresenter: IMainListPresenter {
 		self.router = router
 		getStandard()
 	}
-	
+}
+
+extension MainListPresenter: IMainListPresenter {
 	func eddAthlete(viewModel: ViewModel) {
 		let athlete = Athlete(
 			nikName: viewModel.nikName,

@@ -16,8 +16,8 @@ final class NewAthleteAssemply {
 	}
 }
 
-extension NewAthleteAssemply {
-	func assembly(viewController: UIViewController) {
+extension NewAthleteAssemply: Assemblying {
+	func configur(viewController: UIViewController) {
 		guard let newAthleteVC = viewController as? NewAthleteViewController else { return }
 		let router = NewAthleteRouter(navigationController: navigationController)
 		let presenter = NewAthletePresenter(view: newAthleteVC, router: router)

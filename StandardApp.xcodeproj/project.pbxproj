@@ -200,10 +200,10 @@
 		0638D4AF29DFE65D005C2306 /* MainListModule */ = {
 			isa = PBXGroup;
 			children = (
+				0638D4F529EBBA92005C2306 /* Views */,
 				0638D4A329DEA463005C2306 /* MainListViewController.swift */,
 				0638D4AB29DFDAD7005C2306 /* MainListPresenter.swift */,
 				0638D4AD29DFDBA1005C2306 /* MainListRouter.swift */,
-				0638D4A529DFBC8E005C2306 /* MainListViewCell.swift */,
 				0638D4B229E27AFF005C2306 /* MainListAssembly.swift */,
 			);
 			path = MainListModule;
@@ -229,6 +229,14 @@
 				0638D4F329EBA7F2005C2306 /* ProgressRouter.swift */,
 			);
 			path = PregressListModule;
+			sourceTree = "<group>";
+		};
+		0638D4F529EBBA92005C2306 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0638D4A529DFBC8E005C2306 /* MainListViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		064C565129CE0B1B00CA5D78 /* Estentions */ = {

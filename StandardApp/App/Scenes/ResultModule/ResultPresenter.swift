@@ -36,7 +36,9 @@ final class ResultPresenter {
 		self.router = router
 		self.timeResult = timeResult
 	}
-	
+}
+
+extension ResultPresenter: IResultPresenter {
 	func render() {
 		let viewModel = ViewModelResult(
 			userTime: separatedString(value: timeResult.userTime),
@@ -58,7 +60,7 @@ final class ResultPresenter {
 				time: separatedString(value: timeResult.allRank.recordHolder.time),
 				recordDate: timeResult.allRank.recordHolder.recordDate)
 		)
-
+		
 		view.render(viewModel: viewModel)
 	}
 	
@@ -77,8 +79,4 @@ final class ResultPresenter {
 		}
 		return "\(components[0]):\(String(format: "%02d", components[1])):\(String(format: "%02d", components[2])),\(String(format: "%02d", components[3]))"
 	}
-}
-
-extension ResultPresenter: IResultPresenter {
-	
 }

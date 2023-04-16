@@ -22,6 +22,9 @@ final class NewAthletePresenter {
 		self.view = view
 		self.router = router
 	}
+}
+
+extension NewAthletePresenter: INewAthletePresenter {
 	
 	func chooseGender(_ gender: Gender) {
 		self.gender = gender
@@ -35,8 +38,4 @@ final class NewAthletePresenter {
 		let viewModel = ViewModel(nikName: nikName, gender: gender)
 		router?.route(.mainList(viewModel: viewModel))
 	}
-}
-
-extension NewAthletePresenter: INewAthletePresenter {
-	
 }

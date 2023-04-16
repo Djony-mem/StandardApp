@@ -23,12 +23,13 @@ protocol ISelectionPresenter: AnyObject {
 	func saveTimeResult()
 }
 
-final class SelectionPresenter: ISelectionPresenter {
-	private weak var viewController: ISelectionView!
-	private let router: ISelectionRouter
+final class SelectionPresenter {
 	let standardManager: IStandardManager
 	var timeResult: TimeResult!
 	var athlet: Athlete!
+	
+	private weak var viewController: ISelectionView!
+	private let router: ISelectionRouter
 	
 	private var place: Place = .stadium
 	private var stadium: StadiumEnum = .tenThousandM
@@ -45,6 +46,9 @@ final class SelectionPresenter: ISelectionPresenter {
 		self.router = router
 	}
 	
+}
+
+extension SelectionPresenter: ISelectionPresenter {
 	func sendTitle() {
 		viewController.setuptitle(athlet.nikName)
 	}
@@ -135,4 +139,5 @@ final class SelectionPresenter: ISelectionPresenter {
 	func saveTimeResult() {
 		athlet.timeResults?.append(timeResult)
 	}
+	
 }
