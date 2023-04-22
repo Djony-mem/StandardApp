@@ -10,7 +10,7 @@ import Foundation
 struct Athlete {
 	let nikName: String
 	let gender: Gender
-	var timeResults: [TimeResult]?
+	var timeResults: [TimeResult]
 }
 
 struct TimeResult {

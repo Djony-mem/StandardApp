@@ -15,28 +15,38 @@ struct ViewModelProgress {
 }
 
 protocol IProgressPresenter {
+	func sendTitle()
 	func fetchData()
+	func didSelecterRow(indexPath: IndexPath)
 }
 
 final class ProgressPresenter {
 	var router: IProgressRouter
 	
 	private weak var viewList: IProgressList!
-	private let timeResults: [TimeResult]
+	private let athlete: Athlete
 	
 	
-	init(timeResults: [TimeResult], viewList: IProgressList, router: IProgressRouter) {
-		self.timeResults = timeResults
+	init(athlete: Athlete, viewList: IProgressList, router: IProgressRouter) {
+		self.athlete = athlete
 		self.viewList = viewList
 		self.router = router
 	}
 }
 
 extension ProgressPresenter: IProgressPresenter {
+	func didSelecterRow(indexPath: IndexPath) {
+		router.route(.result(timeResult: athlete.timeResults[indexPath.row]))
+	}
+	
+	func sendTitle() {
+		viewList.setuptitle(athlete.nikName)
+	}
+	
 	func fetchData() {
 		var progressViewModels = [ViewModelProgress]()
 		
-		timeResults.forEach { timeResult in
+		athlete.timeResults.forEach { timeResult in
 			let viewModel = ViewModelProgress(
 				date: timeResult.date,
 				userTime: timeResult.userTime,

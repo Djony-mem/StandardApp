@@ -13,7 +13,7 @@ protocol IProgressRouter {
 
 final class ProgressRouter {
 	enum Target {
-		case result
+		case result(timeResult: TimeResult)
 		case selection
 	}
 	
@@ -27,8 +27,15 @@ final class ProgressRouter {
 extension ProgressRouter: IProgressRouter {
 	func route(_ target: Target) {
 		switch target {
-		case .result:
-			break
+		case .result(let timeResult):
+			let resultVC = ResultViewController()
+			let resultAssembly = ResultAssembly(
+				timeResult: timeResult,
+				navigationViewController: navigationController
+			)
+			resultAssembly.configur(viewController: resultVC)
+			let neededVC = navigationController.viewControllers.filter { $0 is ISelectionView }.first
+			neededVC?.present(resultVC, animated: true)
 		case .selection:
 			break
 		}

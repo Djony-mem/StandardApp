@@ -26,7 +26,7 @@ protocol ISelectionPresenter: AnyObject {
 final class SelectionPresenter {
 	let standardManager: IStandardManager
 	var timeResult: TimeResult!
-	var athlet: Athlete!
+	var athlete: Athlete!
 	
 	private weak var viewController: ISelectionView!
 	private let router: ISelectionRouter
@@ -40,7 +40,7 @@ final class SelectionPresenter {
 	required init(athlet: Athlete, view: ISelectionView,
 				  standardManager: IStandardManager,
 				  router: ISelectionRouter) {
-		self.athlet = athlet
+		self.athlete = athlet
 		self.viewController = view
 		self.standardManager = standardManager
 		self.router = router
@@ -50,11 +50,11 @@ final class SelectionPresenter {
 
 extension SelectionPresenter: ISelectionPresenter {
 	func sendTitle() {
-		viewController.setuptitle(athlet.nikName)
+		viewController.setuptitle(athlete.nikName)
 	}
 	
 	func sendBGImage() {
-		let image = athlet.gender == .male ? "opacityM" : "opacityW"
+		let image = athlete.gender == .male ? "opacityM" : "opacityW"
 		viewController.setupBgGender(image: image)
 	}
 	
@@ -133,11 +133,11 @@ extension SelectionPresenter: ISelectionPresenter {
 	}
 	
 	func didTapBarButton() {
-		router.route(.progressList(timeResults: athlet.timeResults ?? []))
+		router.route(.progressList(athlete: athlete))
 	}
 	
 	func saveTimeResult() {
-		athlet.timeResults?.append(timeResult)
+		athlete.timeResults.append(timeResult)
 	}
 	
 }
