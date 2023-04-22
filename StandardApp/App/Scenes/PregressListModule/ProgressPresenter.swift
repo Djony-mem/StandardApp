@@ -37,7 +37,7 @@ final class ProgressPresenter {
 
 extension ProgressPresenter: IProgressPresenter {
 	func didSelecterRow(indexPath: IndexPath) {
-		router.route(.result(timeResult: athlete.timeResults[indexPath.row]))
+		router.route(.result(timeResult: athlete.timeResults[indexPath.row], isHidden: true))
 	}
 	
 	func sendTitle() {

@@ -9,7 +9,7 @@ import UIKit
 
 protocol IResultView: AnyObject {
 	func render(viewModel: ViewModelResult)
-	
+	func isHeaderButton(_ isHidden: Bool)
 }
 
 final class ResultViewController: UIViewController {
@@ -52,6 +52,7 @@ private extension ResultViewController {
 	func setupView() {
 		view.backgroundColor = ColorSpace.BgColor.mainVC
 		presenter.render()
+		presenter.isHiddenButton()
 		addSubviews()
 		
 		setupRankLabel()
@@ -184,6 +185,10 @@ private extension ResultViewController {
 
 //MARK: - IResultViewController
 extension ResultViewController: IResultView {
+	func isHeaderButton(_ isHidden: Bool) {
+		saveButton.isHidden = isHidden
+	}
+	
 	func render(viewModel: ViewModelResult) {
 		rewardImageView.image = UIImage(named: viewModel.imageRank)
 		descriptionRankLabel.text = "Дистанция \(viewModel.distance)"

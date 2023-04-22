@@ -133,7 +133,7 @@ extension SelectionPresenter: ISelectionPresenter {
 				)
 			)
 		)
-		router.route(.result(timeResult: timeResult))
+		router.route(.result(timeResult: timeResult, isHidden: false))
 	}
 	
 	func didTapBarButton() {

@@ -10,10 +10,12 @@ import UIKit
 final class ResultAssembly {
 	private let navigationViewController: UINavigationController
 	private let timeResult: TimeResult
+	private let isHidden: Bool
 	
-	init(timeResult: TimeResult, navigationViewController: UINavigationController) {
+	init(timeResult: TimeResult, navigationViewController: UINavigationController, isHidden: Bool) {
 		self.timeResult = timeResult
 		self.navigationViewController = navigationViewController
+		self.isHidden = isHidden
 	}
 }
 
@@ -21,7 +23,7 @@ extension ResultAssembly: Assemblying {
 	func configur(viewController: UIViewController) {
 		let resultVC = viewController as? ResultViewController
 		let router = ResultRouter(navigationController: navigationViewController)
-		let presenter = ResultPresenter(view: resultVC, router: router, timeResult: timeResult)
+		let presenter = ResultPresenter(view: resultVC, router: router, timeResult: timeResult, isHidden: isHidden)
 		
 		resultVC?.presenter = presenter
 	}

@@ -13,7 +13,7 @@ protocol ISelectionRouter {
 
 final class SelectionRouter {
 	enum Target {
-		case result(timeResult: TimeResult)
+		case result(timeResult: TimeResult, isHidden: Bool)
 		case progressList(athlete: Athlete)
 	}
 	
@@ -27,11 +27,12 @@ final class SelectionRouter {
 extension SelectionRouter: ISelectionRouter {
 	func route(_ target: Target) {
 		switch target {
-		case .result(let timeResult):
+		case let .result(timeResult, isHidden):
 			let resultVC = ResultViewController()
 			let resultAssembly = ResultAssembly(
 				timeResult: timeResult,
-				navigationViewController: navigationController
+				navigationViewController: navigationController,
+				isHidden: isHidden
 			)
 			resultAssembly.configur(viewController: resultVC)
 			let neededVC = navigationController.viewControllers.filter { $0 is ISelectionView }.first

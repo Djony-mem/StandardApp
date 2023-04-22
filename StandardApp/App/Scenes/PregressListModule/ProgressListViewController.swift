@@ -25,7 +25,7 @@ class ProgressListViewController: UITableViewController {
 	//MARK: - Setting View
 private extension ProgressListViewController {
 	func setupView() {
-		tableView.backgroundColor = .cyan
+		tableView.backgroundColor = ColorSpace.BgColor.mainVC
 		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 		presenter.fetchData()
 		presenter.sendTitle()
@@ -66,7 +66,15 @@ extension ProgressListViewController {
 	// MARK: - TableViewDelegate
 extension ProgressListViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 		presenter.didSelecterRow(indexPath: indexPath)
+	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			progressViewModels.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

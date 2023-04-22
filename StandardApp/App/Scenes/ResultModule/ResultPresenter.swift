@@ -23,6 +23,7 @@ struct RecordBreaker {
 }
 
 protocol IResultPresenter {
+	func isHiddenButton()
 	func render()
 	func dismissActiion()
 }
@@ -31,15 +32,21 @@ final class ResultPresenter {
 	private weak var view: IResultView!
 	private let router: IResultRouter
 	private let timeResult: TimeResult
+	private let isHidden: Bool
 	
-	init(view: IResultView!, router: IResultRouter, timeResult: TimeResult) {
+	init(view: IResultView!, router: IResultRouter, timeResult: TimeResult, isHidden: Bool) {
 		self.view = view
 		self.router = router
 		self.timeResult = timeResult
+		self.isHidden = isHidden
 	}
 }
 
 extension ResultPresenter: IResultPresenter {
+	func isHiddenButton() {
+		view.isHeaderButton(isHidden)
+	}
+	
 	func render() {
 		let viewModel = ViewModelResult(
 			distance: timeResult.distance,
