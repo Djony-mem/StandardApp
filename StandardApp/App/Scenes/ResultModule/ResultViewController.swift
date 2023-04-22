@@ -186,6 +186,7 @@ private extension ResultViewController {
 extension ResultViewController: IResultView {
 	func render(viewModel: ViewModelResult) {
 		rewardImageView.image = UIImage(named: viewModel.imageRank)
+		descriptionRankLabel.text = "Дистанция \(viewModel.distance)"
 		rankLabel.text = viewModel.userRank
 		userTimeLabel.text = viewModel.userTime
 		allRankLabel.text = viewModel.allRank

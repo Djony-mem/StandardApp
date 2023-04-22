@@ -42,6 +42,7 @@
 		064C567C29D1736700CA5D78 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567B29D1736700CA5D78 /* DescriptionLabel.swift */; };
 		064C567E29D2A2DF00CA5D78 /* UIViewController + Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567D29D2A2DF00CA5D78 /* UIViewController + Preview.swift */; };
 		064C568029D345B300CA5D78 /* ColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567F29D345B300CA5D78 /* ColorSpace.swift */; };
+		0667F43829F3AD92008DD9A6 /* String + Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667F43729F3AD92008DD9A6 /* String + Converter.swift */; };
 		068AA0F8295A6681000616D9 /* NewAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F7295A6681000616D9 /* NewAthleteViewController.swift */; };
 		068AA0FA295A7627000616D9 /* NewAthleteAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F9295A7627000616D9 /* NewAthleteAssembly.swift */; };
 		06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A444D8294C3A5200F738B9 /* GenderButton.swift */; };
@@ -90,6 +91,7 @@
 		064C567B29D1736700CA5D78 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		064C567D29D2A2DF00CA5D78 /* UIViewController + Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Preview.swift"; sourceTree = "<group>"; };
 		064C567F29D345B300CA5D78 /* ColorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpace.swift; sourceTree = "<group>"; };
+		0667F43729F3AD92008DD9A6 /* String + Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Converter.swift"; sourceTree = "<group>"; };
 		068AA0F7295A6681000616D9 /* NewAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteViewController.swift; sourceTree = "<group>"; };
 		068AA0F9295A7627000616D9 /* NewAthleteAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteAssembly.swift; sourceTree = "<group>"; };
 		06A444D8294C3A5200F738B9 /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				064C565229CE0B3200CA5D78 /* Extention + UIView.swift */,
 				064C567D29D2A2DF00CA5D78 /* UIViewController + Preview.swift */,
+				0667F43729F3AD92008DD9A6 /* String + Converter.swift */,
 			);
 			path = Estentions;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				064C567A29D13B9200CA5D78 /* SelectEnumeration.swift in Sources */,
 				0638D4F429EBA7F2005C2306 /* ProgressRouter.swift in Sources */,
 				06156B1D2936F37400CE05BA /* DataManager.swift in Sources */,
+				0667F43829F3AD92008DD9A6 /* String + Converter.swift in Sources */,
 				06DF3B8B293856090041A454 /* SelectionPresenter.swift in Sources */,
 				061D0DB429332277001A9935 /* AppDelegate.swift in Sources */,
 				0638D4B529E28A53005C2306 /* CustomTextField.swift in Sources */,

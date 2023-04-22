@@ -8,6 +8,7 @@
 import Foundation
 
 struct ViewModelProgress {
+	let distance: String
 	let date: Date
 	let userTime: String
 	let userRank: String
@@ -48,8 +49,9 @@ extension ProgressPresenter: IProgressPresenter {
 		
 		athlete.timeResults.forEach { timeResult in
 			let viewModel = ViewModelProgress(
+				distance: timeResult.distance,
 				date: timeResult.date,
-				userTime: timeResult.userTime,
+				userTime: timeResult.userTime.separatedString(),
 				userRank: timeResult.userRank,
 				imageRank: timeResult.imageRank
 			)

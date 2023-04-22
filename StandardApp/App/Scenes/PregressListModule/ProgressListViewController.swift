@@ -55,7 +55,7 @@ extension ProgressListViewController {
 		
 		var content = cell.defaultContentConfiguration()
 		content.image = UIImage(named: viewModel.imageRank)
-		content.text = viewModel.userRank
+		content.text = "\(viewModel.distance)    \(viewModel.userRank)"
 		content.secondaryText = "\(viewModel.userTime)        \(formattedDate)"
 		
 		cell.contentConfiguration = content

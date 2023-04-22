@@ -93,6 +93,7 @@ extension SelectionPresenter: ISelectionPresenter {
 	
 	func renderd(time: Time) {
 		let result: (timeInfo: TimeInfo?,discharge: Discharge?)
+		let distance: String
 		
 		switch place {
 		case .stadium:
@@ -101,14 +102,17 @@ extension SelectionPresenter: ISelectionPresenter {
 				stadium: stadium,
 				circleLength: circleLength, time: time
 			)
+			distance = stadium.rawValue
 		case .highway:
 			result = standardManager.getHighwayDistans(
 				highway,
 				userTime: time
 			)
+			distance = highway.rawValue
 		}
 		
 		timeResult = TimeResult(
+			distance: distance,
 			userTime: result.timeInfo?.time ?? "",
 			userRank: result.timeInfo?.title ?? "",
 			imageRank: result.timeInfo?.imageRank ?? "",

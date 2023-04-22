@@ -15,6 +15,7 @@ struct Athlete {
 
 struct TimeResult {
 	let date = Date()
+	let distance: String
 	let userTime: String
 	let userRank: String
 	let imageRank: String
