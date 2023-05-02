@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum Gender: String, CaseIterable {
-	case male = "Мужчина"
-	case fimale = "Женщина"
-}
-
 // MARK: - Standard
 struct Standard: Codable {
     let woman: Distance

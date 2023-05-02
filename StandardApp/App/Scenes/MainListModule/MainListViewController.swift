@@ -10,6 +10,7 @@ import SwiftUI
 
 
 protocol IMainListView: AnyObject {
+	func render(viewModels: [ViewModel])
 	func replace(viewModel: ViewModel)
 }
 
@@ -24,9 +25,9 @@ final class MainListViewController: UICollectionViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
-		collectionView.register(MainListViewCell.self, forCellWithReuseIdentifier: MainListViewCell.identifier)
-		collectionView.dataSource = self
-		collectionView.delegate = self
+		setupSubView()
+		
+		presenter.viewDidLoad()
 	}
 	
 	//MARK: - Actions
@@ -39,8 +40,13 @@ final class MainListViewController: UICollectionViewController {
 //MARK: - Setting View
 private extension MainListViewController {
 	func setupView() {
-		collectionView.backgroundView = UIImageView(image: UIImage(named: "bgMainList"))
-		
+		collectionView.backgroundColor = ColorSpace.BgColor.mainVC
+		collectionView.register(MainListViewCell.self, forCellWithReuseIdentifier: MainListViewCell.identifier)
+		collectionView.dataSource = self
+		collectionView.delegate = self
+	}
+	
+	func setupSubView() {
 		addActions()
 		
 		setupNavigationController()
@@ -93,7 +99,6 @@ extension MainListViewController {
 // MARK: - UICollectionViewDelegate
 extension MainListViewController {
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let gender = viewModels[indexPath.item].gender
 		presenter.render(index: indexPath)
 	}
 	
@@ -131,8 +136,12 @@ extension MainListViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: - IMainListView
 extension MainListViewController: IMainListView {
+	func render(viewModels: [ViewModel]) {
+		self.viewModels = viewModels
+	}
+	
 	func replace(viewModel: ViewModel) {
-		presenter.eddAthlete(viewModel: viewModel)
+		presenter.addNewAthlete(viewModel: viewModel)
 		viewModels.append(viewModel)
 		collectionView.reloadData()
 	}

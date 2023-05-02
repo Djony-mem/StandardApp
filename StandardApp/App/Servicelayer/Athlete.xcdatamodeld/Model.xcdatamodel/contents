@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Athlete" representedClassName=".Athlete" syncable="YES" codeGenerationType="class">
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="nikName" optional="YES" attributeType="String"/>
+        <relationship name="timeResults" toMany="YES" deletionRule="Cascade" destinationEntity="TimeResult" inverseName="athlete" inverseEntity="TimeResult"/>
+    </entity>
+    <entity name="Rank" representedClassName=".Rank" syncable="YES" codeGenerationType="class">
+        <attribute name="firstJunior" optional="YES" attributeType="String"/>
+        <attribute name="firstRank" optional="YES" attributeType="String"/>
+        <attribute name="kms" optional="YES" attributeType="String"/>
+        <attribute name="ms" optional="YES" attributeType="String"/>
+        <attribute name="msmk" optional="YES" attributeType="String"/>
+        <attribute name="secondJunior" optional="YES" attributeType="String"/>
+        <attribute name="secondRank" optional="YES" attributeType="String"/>
+        <attribute name="thirdJunior" optional="YES" attributeType="String"/>
+        <attribute name="thirdRank" optional="YES" attributeType="String"/>
+        <relationship name="recordHolder" maxCount="1" deletionRule="Nullify" destinationEntity="Record" inverseName="rank" inverseEntity="Record"/>
+        <relationship name="timeResult" maxCount="1" deletionRule="Nullify" destinationEntity="TimeResult" inverseName="allRank" inverseEntity="TimeResult"/>
+    </entity>
+    <entity name="Record" representedClassName=".Record" syncable="YES" codeGenerationType="class">
+        <attribute name="fullName" optional="YES" attributeType="String"/>
+        <attribute name="recordDate" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <relationship name="rank" maxCount="1" deletionRule="Nullify" destinationEntity="Rank" inverseName="recordHolder" inverseEntity="Rank"/>
+    </entity>
+    <entity name="TimeResult" representedClassName=".TimeResult" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="distance" optional="YES" attributeType="String"/>
+        <attribute name="imageRank" optional="YES" attributeType="String"/>
+        <attribute name="userRank" optional="YES" attributeType="String"/>
+        <attribute name="userTime" optional="YES" attributeType="String"/>
+        <relationship name="allRank" maxCount="1" deletionRule="Nullify" destinationEntity="Rank" inverseName="timeResult" inverseEntity="Rank"/>
+        <relationship name="athlete" maxCount="1" deletionRule="Nullify" destinationEntity="Athlete" inverseName="timeResults" inverseEntity="Athlete"/>
+    </entity>
+</model>

@@ -13,14 +13,17 @@ protocol IMainListRouter {
 
 final class MainListRouter {
 	enum Target {
-		case selection(distance: Distance, athlete: Athlete)
+		case selection(distance: Distance,
+					   athlete: Athlete)
 		case addNewAthlete
 	}
 	
 	private let navigationController: UINavigationController
+	private let storage: IStorageManager
 	
-	init(navigationController: UINavigationController) {
+	init(navigationController: UINavigationController, storage: IStorageManager) {
 		self.navigationController = navigationController
+		self.storage = storage
 	}
 }
 
@@ -30,7 +33,7 @@ extension MainListRouter: IMainListRouter {
 		switch target {
 		case let .selection(distance, athlete):
 			let selectionVC = SelectionViewController()
-			let assemblySelection = SelectionAssembly(distance: distance, athlete: athlete, navigationController: navigationController)
+			let assemblySelection = SelectionAssembly(distance: distance, athlete: athlete, navigationController: navigationController, storageManager: storage)
 			assemblySelection.configur(viewController: selectionVC)
 			
 			navigationController.pushViewController(selectionVC, animated: true)

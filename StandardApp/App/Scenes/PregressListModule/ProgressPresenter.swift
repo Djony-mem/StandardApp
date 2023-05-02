@@ -25,11 +25,11 @@ final class ProgressPresenter {
 	var router: IProgressRouter
 	
 	private weak var viewList: IProgressList!
-	private let athlete: Athlete
+	private let timeResults: Set<TimeResult>
 	
 	
-	init(athlete: Athlete, viewList: IProgressList, router: IProgressRouter) {
-		self.athlete = athlete
+	init(timeResults: Set<TimeResult>, viewList: IProgressList, router: IProgressRouter) {
+		self.timeResults = timeResults
 		self.viewList = viewList
 		self.router = router
 	}
@@ -37,23 +37,25 @@ final class ProgressPresenter {
 
 extension ProgressPresenter: IProgressPresenter {
 	func didSelecterRow(indexPath: IndexPath) {
-		router.route(.result(timeResult: athlete.timeResults[indexPath.row], isHidden: true))
+		let sortedResult = timeResults.sorted(by: { $0.date ?? Date() > $1.date ?? Date() })
+		router.route(.result(timeResult: sortedResult[indexPath.row], isHidden: true))
 	}
 	
 	func sendTitle() {
-		viewList.setuptitle(athlete.nikName)
+//		viewList.setuptitle(athlete.nikName)
 	}
 	
 	func fetchData() {
 		var progressViewModels = [ViewModelProgress]()
+		let sortedResult = timeResults.sorted(by: { $0.date ?? Date() > $1.date ?? Date() })
 		
-		athlete.timeResults.forEach { timeResult in
+		sortedResult.forEach { timeResult in
 			let viewModel = ViewModelProgress(
-				distance: timeResult.distance,
-				date: timeResult.date,
-				userTime: timeResult.userTime.separatedString(),
-				userRank: timeResult.userRank,
-				imageRank: timeResult.imageRank
+				distance: timeResult.distance ?? "",
+				date: timeResult.date ?? Date(),
+				userTime: timeResult.userTime?.separatedString() ?? "",
+				userRank: timeResult.userRank ?? "",
+				imageRank: timeResult.imageRank ?? ""
 			)
 			progressViewModels.append(viewModel)
 		}

@@ -43,6 +43,8 @@
 		064C567E29D2A2DF00CA5D78 /* UIViewController + Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567D29D2A2DF00CA5D78 /* UIViewController + Preview.swift */; };
 		064C568029D345B300CA5D78 /* ColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064C567F29D345B300CA5D78 /* ColorSpace.swift */; };
 		0667F43829F3AD92008DD9A6 /* String + Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667F43729F3AD92008DD9A6 /* String + Converter.swift */; };
+		0667F43B29F50B77008DD9A6 /* Athlete.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0667F43929F50B77008DD9A6 /* Athlete.xcdatamodeld */; };
+		0667F43D29F50BA9008DD9A6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667F43C29F50BA9008DD9A6 /* StorageManager.swift */; };
 		068AA0F8295A6681000616D9 /* NewAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F7295A6681000616D9 /* NewAthleteViewController.swift */; };
 		068AA0FA295A7627000616D9 /* NewAthleteAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068AA0F9295A7627000616D9 /* NewAthleteAssembly.swift */; };
 		06A444D9294C3A5200F738B9 /* GenderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A444D8294C3A5200F738B9 /* GenderButton.swift */; };
@@ -92,6 +94,8 @@
 		064C567D29D2A2DF00CA5D78 /* UIViewController + Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Preview.swift"; sourceTree = "<group>"; };
 		064C567F29D345B300CA5D78 /* ColorSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpace.swift; sourceTree = "<group>"; };
 		0667F43729F3AD92008DD9A6 /* String + Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Converter.swift"; sourceTree = "<group>"; };
+		0667F43A29F50B77008DD9A6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0667F43C29F50BA9008DD9A6 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		068AA0F7295A6681000616D9 /* NewAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteViewController.swift; sourceTree = "<group>"; };
 		068AA0F9295A7627000616D9 /* NewAthleteAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAthleteAssembly.swift; sourceTree = "<group>"; };
 		06A444D8294C3A5200F738B9 /* GenderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderButton.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				06156B1C2936F37400CE05BA /* DataManager.swift */,
+				0667F43C29F50BA9008DD9A6 /* StorageManager.swift */,
+				0667F43929F50B77008DD9A6 /* Athlete.xcdatamodeld */,
 			);
 			path = Servicelayer;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				0638D4F229EBA7E0005C2306 /* ProgressAssembly.swift in Sources */,
 				06DF3B952939BC940041A454 /* SelectionAssembly.swift in Sources */,
 				0638D4C329E3EC74005C2306 /* ResultAssembly.swift in Sources */,
+				0667F43B29F50B77008DD9A6 /* Athlete.xcdatamodeld in Sources */,
 				064C567C29D1736700CA5D78 /* DescriptionLabel.swift in Sources */,
 				0638D4F029EBA7C5005C2306 /* ProgressPresenter.swift in Sources */,
 				0638D4C129E34213005C2306 /* Athlete.swift in Sources */,
@@ -413,6 +420,7 @@
 				0638D4A429DEA463005C2306 /* MainListViewController.swift in Sources */,
 				064C565329CE0B3200CA5D78 /* Extention + UIView.swift in Sources */,
 				0638D4B329E27AFF005C2306 /* MainListAssembly.swift in Sources */,
+				0667F43D29F50BA9008DD9A6 /* StorageManager.swift in Sources */,
 				0638D4BF29E33E27005C2306 /* SelectionRouter.swift in Sources */,
 				068AA0F8295A6681000616D9 /* NewAthleteViewController.swift in Sources */,
 				064C567E29D2A2DF00CA5D78 /* UIViewController + Preview.swift in Sources */,
@@ -632,6 +640,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0667F43929F50B77008DD9A6 /* Athlete.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0667F43A29F50B77008DD9A6 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0667F43A29F50B77008DD9A6 /* Model.xcdatamodel */;
+			path = Athlete.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 061D0DA829332277001A9935 /* Project object */;
 }

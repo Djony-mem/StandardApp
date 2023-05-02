@@ -25,6 +25,7 @@ protocol ISelectionPresenter: AnyObject {
 
 final class SelectionPresenter {
 	let standardManager: IStandardManager
+	let storageManager: IStorageManager
 	var timeResult: TimeResult!
 	var athlete: Athlete!
 	
@@ -37,12 +38,15 @@ final class SelectionPresenter {
 	private var chronometer: ChronometerEnum = .manual
 	private var circleLength: CircleEnum = .none
 	
-	required init(athlet: Athlete, view: ISelectionView,
+	required init(athlet: Athlete,
+				  view: ISelectionView,
 				  standardManager: IStandardManager,
-				  router: ISelectionRouter) {
+				  router: ISelectionRouter,
+				  storage: IStorageManager) {
 		self.athlete = athlet
 		self.viewController = view
 		self.standardManager = standardManager
+		self.storageManager = storage
 		self.router = router
 	}
 	
@@ -50,11 +54,11 @@ final class SelectionPresenter {
 
 extension SelectionPresenter: ISelectionPresenter {
 	func sendTitle() {
-		viewController.setuptitle(athlete.nikName)
+		viewController.setuptitle(athlete.nikName ?? "")
 	}
 	
 	func sendBGImage() {
-		let image = athlete.gender == .male ? "opacityM" : "opacityW"
+		let image = athlete.gender == Gender.male.rawValue ? "opacityM" : "opacityW"
 		viewController.setupBgGender(image: image)
 	}
 	
@@ -111,37 +115,22 @@ extension SelectionPresenter: ISelectionPresenter {
 			distance = highway.rawValue
 		}
 		
-		timeResult = TimeResult(
-			distance: distance,
-			userTime: result.timeInfo?.time ?? "",
-			userRank: result.timeInfo?.title ?? "",
-			imageRank: result.timeInfo?.imageRank ?? "",
-			allRank: Rank(
-				msmk: result.discharge?.msmk.time ?? "",
-				ms: result.discharge?.ms.time ?? "",
-				kms: result.discharge?.kms.time ?? "",
-				firstRank: result.discharge?.firstRank.time ?? "",
-				secondRank: result.discharge?.secondRank.time ?? "",
-				thirdRank: result.discharge?.thirdRank.time ?? "",
-				firstJunior: result.discharge?.firstJunior.time ?? "",
-				secondJunior: result.discharge?.secondJunior.time ?? "",
-				thirdJunior: result.discharge?.thirdJunior.time ?? "",
-				recordHolder: Record(
-					fullName: result.discharge?.recordHolder.fullName ?? "",
-					time: result.discharge?.recordHolder.time ?? "",
-					recordDate: result.discharge?.recordHolder.recordDate ?? ""
-				)
-			)
-		)
+		storageManager.createTimeResult(distance: distance,
+										timeInfo: result.timeInfo,
+										discharge: result.discharge) { timeResult in
+			self.timeResult = timeResult
+		}
+		
 		router.route(.result(timeResult: timeResult, isHidden: false))
 	}
 	
 	func didTapBarButton() {
-		router.route(.progressList(athlete: athlete))
+		guard let timeRrsults = athlete.timeResults as? Set<TimeResult> else { return }
+		router.route(.progressList(timeResults: timeRrsults))
 	}
 	
 	func saveTimeResult() {
-		athlete.timeResults.append(timeResult)
+		storageManager.saveTimeResult(athlete: athlete, timeResult: timeResult)
 	}
 	
 }

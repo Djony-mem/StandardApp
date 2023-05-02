@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum Gender: String, CaseIterable {
+	case male = "Мужчина"
+	case fimale = "Женщина"
+}
+
 enum Place {
 	case stadium
 	case highway

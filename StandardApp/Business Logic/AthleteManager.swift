@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol IAthleteManager {
-	func addAthlete(_ athlete: Athlete)
-}
-
-final class AthleteManager {
-	
-}
+//protocol IAthleteManager {
+//	func addAthlete(_ athlete: Athlete)
+//}
+//
+//final class AthleteManager {
+//	
+//}

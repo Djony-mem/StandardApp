@@ -12,14 +12,16 @@ final class SelectionAssembly {
 
     //MARK: - Private Property
     private let navigationController: UINavigationController
+	private let storageManager: IStorageManager
     private let distance: Distance
 	private let athlete: Athlete
     
     //MARK: - Initializer
-    init(distance: Distance, athlete: Athlete, navigationController: UINavigationController) {
+    init(distance: Distance, athlete: Athlete, navigationController: UINavigationController, storageManager: IStorageManager) {
         self.distance = distance
 		self.athlete = athlete
         self.navigationController = navigationController
+		self.storageManager = storageManager
     }
 }
 
@@ -30,7 +32,7 @@ extension SelectionAssembly: Assemblying {
         guard let selectionVC = viewController as? SelectionViewController else { return }
 		let standardManager = StandardManager(distance: distance)
 		let router = SelectionRouter(navigationController: navigationController)
-		let presenter = SelectionPresenter(athlet: athlete, view: selectionVC, standardManager: standardManager, router: router)
+		let presenter = SelectionPresenter(athlet: athlete, view: selectionVC, standardManager: standardManager, router: router, storage: storageManager)
         selectionVC.presenter = presenter
     }
 }

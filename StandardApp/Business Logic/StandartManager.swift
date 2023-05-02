@@ -176,7 +176,6 @@ final class StandardManager {
 				time: userTime,
 				image: discharge.kms.imageRank ?? ""
 			)
-			print("KMSW \(timeInfo.imageRank)")
 			return (timeInfo, discharge)
 		} else if userTime <= firstRank && firstRank != time {
 			let timeInfo = getUserTimeInfo(

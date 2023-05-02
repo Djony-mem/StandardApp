@@ -23,6 +23,7 @@ extension ResultAssembly: Assemblying {
 	func configur(viewController: UIViewController) {
 		let resultVC = viewController as? ResultViewController
 		let router = ResultRouter(navigationController: navigationViewController)
+		print("Hi Assembly \(timeResult.date)")
 		let presenter = ResultPresenter(view: resultVC, router: router, timeResult: timeResult, isHidden: isHidden)
 		
 		resultVC?.presenter = presenter

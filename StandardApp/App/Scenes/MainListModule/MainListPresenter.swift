@@ -15,49 +15,78 @@ struct ViewModel {
 protocol IMainListPresenter: AnyObject {
 	var standard: Standard! { get }
 	
-	func eddAthlete(viewModel: ViewModel)
+	func viewDidLoad() 
+	func addNewAthlete(viewModel: ViewModel)
 	func deleteAthlete(index: Int)
 	func render(index: IndexPath)
 	func showNewAthleteVC()
 }
 
 final class MainListPresenter {
-	var athlets = [Athlete]()
+	var athletes = [Athlete]()
 	var standard: Standard!
 	
 	private weak var view: IMainListView?
 	private let dataManager: IDataManager!
 	private let router: IMainListRouter?
+	private let storageManager: IStorageManager
 	
 	
-	required init(view: IMainListView, dataManager: IDataManager, router: IMainListRouter) {
+	required init(view: IMainListView,
+				  dataManager: IDataManager,
+				  router: IMainListRouter,
+				  storage: IStorageManager) {
 		self.view = view
 		self.dataManager = dataManager
 		self.router = router
+		self.storageManager = storage
 		getStandard()
 	}
 }
 
 extension MainListPresenter: IMainListPresenter {
-	func eddAthlete(viewModel: ViewModel) {
-		let athlete = Athlete(
-			nikName: viewModel.nikName,
-			gender: viewModel.gender,
-			timeResults: []
-		)
-		athlets.append(athlete)
+	func viewDidLoad() {
+		storageManager.getAthletes { result in
+			switch result {
+			case .success(let athletes):
+				self.athletes = athletes
+				var viewModels = [ViewModel]()
+				
+				athletes.forEach { athlete in
+					let viewModel = ViewModel(
+						nikName: athlete.nikName ?? "",
+						gender: athlete.gender == Gender.male.rawValue
+						? Gender.male
+						: Gender.fimale
+					)
+					viewModels.append(viewModel)
+				}
+				
+				view?.render(viewModels: viewModels)
+			case .failure(let error):
+				print(error.localizedDescription)
+			}
+		}
+	}
+	
+	func addNewAthlete(viewModel: ViewModel) {
+		storageManager.createAthlet(
+			name: viewModel.nikName,
+			gender: viewModel.gender.rawValue) { athlete in
+				athletes.append(athlete)
+			}
 	}
 	
 	func deleteAthlete(index: Int) {
-		athlets.remove(at: index)
+		athletes.remove(at: index)
 	}
 	
 	func render(index: IndexPath) {
-		let athlete = athlets[index.row]
+		let athlete = athletes[index.row]
 		switch athlete.gender {
-		case .male:
+		case Gender.male.rawValue:
 			router?.route(.selection(distance: standard.man, athlete: athlete))
-		case .fimale:
+		default:
 			router?.route(.selection(distance: standard.woman,  athlete: athlete))
 		}
 	}

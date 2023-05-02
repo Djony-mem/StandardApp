@@ -49,25 +49,25 @@ extension ResultPresenter: IResultPresenter {
 	
 	func render() {
 		let viewModel = ViewModelResult(
-			distance: timeResult.distance,
-			userTime: timeResult.userTime.separatedString(),
-			imageRank: timeResult.imageRank,
-			userRank: timeResult.userRank,
+			distance: timeResult.distance ?? "",
+			userTime: timeResult.userTime?.separatedString() ?? "",
+			imageRank: timeResult.imageRank ?? "",
+			userRank: timeResult.userRank ?? "",
 			allRank: """
- МСМК:					\(timeResult.allRank.msmk.separatedString())
- МС:						\(timeResult.allRank.ms.separatedString())
- КМС:						\(timeResult.allRank.kms.separatedString())
- Первый разряд:			\(timeResult.allRank.firstRank.separatedString())
- Второй разряд:			\(timeResult.allRank.secondRank.separatedString())
- Третий разряд:			\(timeResult.allRank.thirdRank.separatedString())
- Первый юношеский:		\(timeResult.allRank.firstJunior.separatedString())
- Второй юнешеский: 		\(timeResult.allRank.secondJunior.separatedString())
- Третий юнешеский: 		\(timeResult.allRank.thirdJunior.separatedString())
+ МСМК:					\(timeResult.allRank?.msmk?.separatedString() ?? "")
+ МС:						\(timeResult.allRank?.ms?.separatedString() ?? "")
+ КМС:						\(timeResult.allRank?.kms?.separatedString() ?? "")
+ Первый разряд:			\(timeResult.allRank?.firstRank?.separatedString() ?? "")
+ Второй разряд:			\(timeResult.allRank?.secondRank?.separatedString() ?? "")
+ Третий разряд:			\(timeResult.allRank?.thirdRank?.separatedString() ?? "")
+ Первый юношеский:		\(timeResult.allRank?.firstJunior?.separatedString() ?? "")
+ Второй юнешеский: 		\(timeResult.allRank?.secondJunior?.separatedString() ?? "")
+ Третий юнешеский: 		\(timeResult.allRank?.thirdJunior?.separatedString() ?? "")
  """,
 			record: RecordBreaker(
-				fullName: timeResult.allRank.recordHolder.fullName,
-				time: timeResult.allRank.recordHolder.time.separatedString(),
-				recordDate: timeResult.allRank.recordHolder.recordDate)
+				fullName: timeResult.allRank?.recordHolder?.fullName ?? "",
+				time: timeResult.allRank?.recordHolder?.time?.separatedString() ?? "",
+				recordDate: timeResult.allRank?.recordHolder?.recordDate ?? "")
 		)
 		
 		view.render(viewModel: viewModel)
