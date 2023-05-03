@@ -58,17 +58,25 @@ final class StorageManager {
 }
 
 extension StorageManager: IStorageManager {
-	
+		//MARK: - Athlete
+		/// Сохраняет в CoreDate новое имя у объекта Athlete
+		/// - Parameters:
+		///   - athlete: Объект типа Athlete
+		///   - newName: Новое имя объекта
 	func updateAthlete(_ athlete: Athlete, newName: String) {
 		athlete.nikName = newName
 		saveContext()
 	}
-	
+
+		/// Удаляет объект из CoreData
+		/// - Parameter athlete: Объект типа Athlete
 	func deleteAthlete(_ athlete: Athlete) {
 		viewContext.delete(athlete)
 		saveContext()
 	}
-
+	
+		/// Загружает массив типа Athlete из Core Data
+		/// - Parameter completion: блок замыкания, который возвращает загруженный массив
 	func getAthletes(completion: (Result<[Athlete], StorageError>) -> Void) {
 		let fetchRequest = Athlete.fetchRequest()
 		
@@ -80,6 +88,11 @@ extension StorageManager: IStorageManager {
 		}
 	}
 	
+		/// Создает объект Athlete и сохраняет его в CoreData
+		/// - Parameters:
+		///   - name: имя ателта
+		///   - gender: половая принадлежность
+		///   - completion: блок замыкания, возвращающий созданного атлета типа Athlete
 	func createAthlet(name: String, gender: String, completion: (Athlete) -> Void) {
 		let athlete = Athlete(context: viewContext)
 		athlete.nikName = name
@@ -88,6 +101,7 @@ extension StorageManager: IStorageManager {
 		saveContext()
 	}
 	
+	// MARK: - TimeResult
 	func createTimeResult(distance: String,
 						  timeInfo: TimeInfo?,
 						  discharge: Discharge?, completion: (TimeResult) -> Void) {
@@ -121,7 +135,6 @@ extension StorageManager: IStorageManager {
 		rank.recordHolder = record
 		
 		completion(timeResult)
-//		saveContext()
 	}
 	
 	func saveTimeResult(athlete: Athlete, timeResult: TimeResult) {

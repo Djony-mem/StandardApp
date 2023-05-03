@@ -30,16 +30,11 @@ private extension ProgressListViewController {
 		
 		presenter.fetchData()
 		presenter.sendTitle()
-		
-		setupBackButton()
 	}
 }
 
 	//MARK: - Setting
 private extension ProgressListViewController {
-	func setupBackButton() {
-		navigationItem.backButtonTitle = "Back"
-	}
 }
 
 	// MARK: - TableViewDataSource
