@@ -14,7 +14,7 @@ protocol ISelectionRouter {
 final class SelectionRouter {
 	enum Target {
 		case result(timeResult: TimeResult, isHidden: Bool)
-		case progressList(timeResults: Set<TimeResult>)
+		case progressList(athlete: Athlete, storage: IStorageManager)
 	}
 	
 	private let navigationController: UINavigationController
@@ -37,10 +37,11 @@ extension SelectionRouter: ISelectionRouter {
 			resultAssembly.configur(viewController: resultVC)
 			let neededVC = navigationController.viewControllers.filter { $0 is ISelectionView }.first
 			neededVC?.present(resultVC, animated: true)
-		case .progressList(let timeResults):
+		case .progressList(let athlete, let storage):
 			let progressList = ProgressListViewController()
 			let progressAssembly = ProgressAssembly(
-				timeResults: timeResults,
+				athlete: athlete,
+				storage: storage,
 				navigationController: navigationController
 			)
 			progressAssembly.configur(viewController: progressList)

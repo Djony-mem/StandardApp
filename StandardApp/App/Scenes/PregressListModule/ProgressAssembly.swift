@@ -8,11 +8,13 @@
 import UIKit
 
 final class ProgressAssembly {
-	private let timeResults: Set<TimeResult>
+	private let athlete: Athlete
+	private let storage: IStorageManager
 	private let navigationController: UINavigationController
 	
-	init(timeResults: Set<TimeResult>, navigationController: UINavigationController) {
-		self.timeResults = timeResults
+	init(athlete: Athlete, storage: IStorageManager, navigationController: UINavigationController) {
+		self.athlete = athlete
+		self.storage = storage
 		self.navigationController = navigationController
 	}
 }
@@ -21,7 +23,12 @@ extension ProgressAssembly: Assemblying {
 	func configur(viewController: UIViewController) {
 		guard let progressList = viewController as? ProgressListViewController else { return }
 		let router = ProgressRouter(navigationController: navigationController)
-		let presenter = ProgressPresenter(timeResults: timeResults, viewList: progressList, router: router)
+		let presenter = ProgressPresenter(
+			athlete: athlete,
+			storageManager: storage,
+			viewList: progressList,
+			router: router
+		)
 		
 		progressList.presenter = presenter
 	}

@@ -74,6 +74,7 @@ extension ProgressListViewController {
 		if editingStyle == .delete {
 			progressViewModels.remove(at: indexPath.row)
 			tableView.deleteRows(at: [indexPath], with: .fade)
+			presenter.deleteTiemResulet(index: indexPath.row)
 		}
 	}
 	

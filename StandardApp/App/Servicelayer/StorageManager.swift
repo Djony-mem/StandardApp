@@ -13,15 +13,15 @@ enum StorageError: Error {
 
 protocol IStorageManager {
 	func getAthletes(completion: (Result<[Athlete], StorageError>) -> Void)
-	
 	func createAthlet(name: String, gender: String, completion: (Athlete) -> Void)
-
+	func deleteAthlete(_ athlete: Athlete)
+	func updateAthlete(_ athlete: Athlete, newName: String)
+	
 	func createTimeResult(distance: String,
 						  timeInfo: TimeInfo?,
 						  discharge: Discharge?, completion: (TimeResult) -> Void)
 	func saveTimeResult(athlete: Athlete, timeResult: TimeResult)
-	func deleteAthlete(_ athlete: Athlete)
-	func updateAthlete(_ athlete: Athlete, newName: String)
+	func deleteTiemResult(athlete: Athlete, timeResult: TimeResult)
 }
 
 final class StorageManager {
@@ -58,6 +58,7 @@ final class StorageManager {
 }
 
 extension StorageManager: IStorageManager {
+	
 	func updateAthlete(_ athlete: Athlete, newName: String) {
 		athlete.nikName = newName
 		saveContext()
@@ -125,6 +126,11 @@ extension StorageManager: IStorageManager {
 	
 	func saveTimeResult(athlete: Athlete, timeResult: TimeResult) {
 		athlete.addToTimeResults(timeResult)
+		saveContext()
+	}
+	
+	func deleteTiemResult(athlete: Athlete, timeResult: TimeResult) {
+		athlete.removeFromTimeResults(timeResult)
 		saveContext()
 	}
 }

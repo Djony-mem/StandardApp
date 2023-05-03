@@ -125,8 +125,7 @@ extension SelectionPresenter: ISelectionPresenter {
 	}
 	
 	func didTapBarButton() {
-		guard let timeRrsults = athlete.timeResults as? Set<TimeResult> else { return }
-		router.route(.progressList(timeResults: timeRrsults))
+		router.route(.progressList(athlete: athlete, storage: storageManager))
 	}
 	
 	func saveTimeResult() {
