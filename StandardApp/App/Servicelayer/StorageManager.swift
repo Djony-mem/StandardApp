@@ -113,18 +113,8 @@ extension StorageManager: IStorageManager {
 	}
 	
 	func saveTimeResult(athlete: Athlete, timeResult: TimeResult) {
-//		print("Nil \(athlete.nikName)")
 		athlete.addToTimeResults(timeResult)
+
 		saveContext()
-		
-//		getAthletes { result in
-//			switch result {
-//			case .success(let athlets):
-//				print(" Nik \(athlets[0].timeResults?.count)")
-//			case .failure(let error):
-//				print(error)
-//			}
-//		}
-//
 	}
 }

@@ -45,6 +45,10 @@ final class ResultViewController: UIViewController {
 	private func saveResultInfo() {
 		presenter.dismissActiion()
 	}
+	
+	deinit {
+		print("Выгрузился из памяти ResultViewController")
+	}
 }
 
 //MARK: - Setting View

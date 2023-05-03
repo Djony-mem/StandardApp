@@ -102,6 +102,10 @@ class SelectionViewController: UIViewController {
 	private func didTapBarButton() {
 		presenter.didTapBarButton()
 	}
+	
+	deinit {
+		print("SelectionController выгружен из памяти.")
+	}
 }
 
 //MARK: - Settings View
