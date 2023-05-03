@@ -35,6 +35,23 @@ final class MainListViewController: UICollectionViewController {
 	private func addNewAthlete() {
 		presenter.showNewAthleteVC()
 	}
+	
+	// MARK: - Private Func
+	private func showAlert(nikName: String, completion: @escaping(String) -> Void) {
+		let alert = UIAlertController(title: "Редактировать", message: "Ваше имя", preferredStyle: .alert)
+		
+		let action = UIAlertAction(title: "Сохранить", style: .default) { _ in
+			guard let newValue = alert.textFields?.first?.text else { return }
+			completion(newValue)
+		}
+		
+		alert.addAction(action)
+		alert.addTextField { textField in
+			textField.placeholder = "Внесите ваш ник"
+			textField.text = nikName
+		}
+		present(alert, animated: true)
+	}
 }
 
 //MARK: - Setting View
@@ -103,13 +120,20 @@ extension MainListViewController {
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
-		let deleteItem = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), attributes: .destructive) { (_) in
+		let deleteItem = UIAction(title: "Удалить", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
 			self.presenter.deleteAthlete(index: indexPaths.first?.row ?? 0)
 			self.viewModels.remove(at: indexPaths.first?.row ?? 0)
 			collectionView.deleteItems(at: indexPaths)
 		}
-		let editItem = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { (_) in
+		let editItem = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { _ in
 			
+			let viewModel = self.viewModels[indexPaths.first?.row ?? 0]
+			
+			self.showAlert(nikName: viewModel.nikName) { newName in
+				self.viewModels[indexPaths.first?.row ?? 0].nikName = newName
+				collectionView.reloadItems(at: indexPaths)
+				self.presenter.updateAthlete(index: indexPaths.first?.row ?? 0, newName: newName)
+			}
 		}
 		
 		return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in

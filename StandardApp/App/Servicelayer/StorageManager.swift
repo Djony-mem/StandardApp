@@ -21,6 +21,7 @@ protocol IStorageManager {
 						  discharge: Discharge?, completion: (TimeResult) -> Void)
 	func saveTimeResult(athlete: Athlete, timeResult: TimeResult)
 	func deleteAthlete(_ athlete: Athlete)
+	func updateAthlete(_ athlete: Athlete, newName: String)
 }
 
 final class StorageManager {
@@ -57,6 +58,11 @@ final class StorageManager {
 }
 
 extension StorageManager: IStorageManager {
+	func updateAthlete(_ athlete: Athlete, newName: String) {
+		athlete.nikName = newName
+		saveContext()
+	}
+	
 	func deleteAthlete(_ athlete: Athlete) {
 		viewContext.delete(athlete)
 		saveContext()
@@ -119,7 +125,6 @@ extension StorageManager: IStorageManager {
 	
 	func saveTimeResult(athlete: Athlete, timeResult: TimeResult) {
 		athlete.addToTimeResults(timeResult)
-
 		saveContext()
 	}
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct ViewModel {
-	let nikName: String
+	var nikName: String
 	let gender: Gender
 }
 
@@ -18,6 +18,7 @@ protocol IMainListPresenter: AnyObject {
 	func viewDidLoad() 
 	func addNewAthlete(viewModel: ViewModel)
 	func deleteAthlete(index: Int)
+	func updateAthlete(index: Int, newName: String)
 	func render(index: IndexPath)
 	func showNewAthleteVC()
 }
@@ -45,6 +46,11 @@ final class MainListPresenter {
 }
 
 extension MainListPresenter: IMainListPresenter {
+	func updateAthlete(index: Int, newName: String) {
+		let athlete = athletes[index]
+		storageManager.updateAthlete(athlete, newName: newName)
+	}
+	
 	func viewDidLoad() {
 		storageManager.getAthletes { result in
 			switch result {
