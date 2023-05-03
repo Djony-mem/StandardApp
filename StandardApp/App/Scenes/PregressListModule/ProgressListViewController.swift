@@ -27,14 +27,19 @@ private extension ProgressListViewController {
 	func setupView() {
 		tableView.backgroundColor = ColorSpace.BgColor.mainVC
 		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+		
 		presenter.fetchData()
 		presenter.sendTitle()
+		
+		setupBackButton()
 	}
 }
 
 	//MARK: - Setting
 private extension ProgressListViewController {
-	
+	func setupBackButton() {
+		navigationItem.backButtonTitle = "Back"
+	}
 }
 
 	// MARK: - TableViewDataSource

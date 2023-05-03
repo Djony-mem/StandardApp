@@ -172,6 +172,8 @@ private extension SelectionViewController{
 		navigationItem.rightBarButtonItem = UIBarButtonItem(customView: progressButton)
 		navigationController?.navigationBar.tintColor = ColorSpace.ResultButton.titleColor
 		
+		navigationItem.backButtonTitle = "Back"
+		
 		presenter.sendTitle()
 	}
 	
