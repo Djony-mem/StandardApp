@@ -107,15 +107,15 @@ extension MainListViewController {
 			self.presenter.deleteAthlete(index: indexPaths.first?.row ?? 0)
 			self.viewModels.remove(at: indexPaths.first?.row ?? 0)
 			collectionView.deleteItems(at: indexPaths)
-		 }
+		}
 		let editItem = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { (_) in
-					
-		 }
-
+			
+		}
+		
 		return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { _ in
-		   return UIMenu(title: "Options", children: [editItem, deleteItem])
+			UIMenu(title: "Options", children: [editItem, deleteItem])
 		})
-
+		
 	}
 }
 

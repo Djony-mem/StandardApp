@@ -78,7 +78,8 @@ extension MainListPresenter: IMainListPresenter {
 	}
 	
 	func deleteAthlete(index: Int) {
-		athletes.remove(at: index)
+		let athlete = athletes[index]
+		storageManager.deleteAthlete(athlete)
 	}
 	
 	func render(index: IndexPath) {
