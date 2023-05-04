@@ -58,10 +58,10 @@ class MainListViewCell: UICollectionViewCell {
 private extension MainListViewCell {
 	func setupCollectionView() {
 		contentView.layer.cornerRadius = 20
-//		contentView.backgroundColor = ColorSpace.BgColor.navigation
-		contentView.layer.borderColor = ColorSpace.ActiveElement.enebled.cgColor
+		contentView.backgroundColor = ColorSpace.gray
+//		contentView.layer.borderColor = ColorSpace.ActiveElement.enebled.cgColor
 		
-		contentView.layer.borderWidth = 2
+//		contentView.layer.borderWidth = 2
 		
 		addSubviews()
 		

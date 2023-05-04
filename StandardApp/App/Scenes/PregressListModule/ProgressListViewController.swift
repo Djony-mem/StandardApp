@@ -59,6 +59,7 @@ extension ProgressListViewController {
 		content.secondaryText = "\(viewModel.userTime)        \(formattedDate)"
 		
 		cell.contentConfiguration = content
+		cell.backgroundColor = ColorSpace.BgColor.mainVC
 		return cell
 	}
 }

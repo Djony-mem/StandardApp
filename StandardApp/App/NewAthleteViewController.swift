@@ -40,7 +40,7 @@ final class NewAthleteViewController: UIViewController {
 	//MARK: - Settings View
 private extension NewAthleteViewController {
 	func setupView() {
-		view.backgroundColor = ColorSpace.BgColor.navigation
+		view.backgroundColor = ColorSpace.BgColor.mainVC
 
 		addSubViews()
 		addActions()
@@ -88,7 +88,7 @@ private extension NewAthleteViewController {
 	}
 	
 	func setupBgImageView() {
-		bgImageView.image = UIImage(named: "bgSelectV3")
+		bgImageView.image = UIImage(named: "bgMW")
 	}
 }
 

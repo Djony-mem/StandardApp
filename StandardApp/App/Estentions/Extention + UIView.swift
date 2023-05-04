@@ -9,19 +9,10 @@ import UIKit
 
 extension UIView {
 	func addGradient() {
-		let primaryColor = UIColor(
-			red: 210/255,
-			green: 109/255,
-			blue: 128/255,
-			alpha: 1
-		)
+		let primaryColor = UIColor(red: 210, green: 109, blue: 128)
 		
-		let secondaryColor = UIColor(
-			red: 107/255,
-			green: 148/255,
-			blue: 230/255,
-			alpha: 1
-		)
+		let secondaryColor = UIColor(red: 107, green: 148, blue: 230)
+
 		backgroundColor = .clear
 		let gradient = CAGradientLayer()
 		gradient.frame = bounds
