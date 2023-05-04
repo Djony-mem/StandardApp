@@ -95,6 +95,10 @@ class SelectionViewController: UIViewController {
 		let timeString = "\(hour):\(minute):\(second):\(millisecond)"
 		let time = Time(stringLiteral: timeString)
 		
+		if timeString  == "00:00:00:00" {
+			showAlert()
+		}
+		
 		presenter.renderd(time: time)
 	}
 	
@@ -103,8 +107,17 @@ class SelectionViewController: UIViewController {
 		presenter.didTapBarButton()
 	}
 	
-	deinit {
-		print("SelectionController выгружен из памяти.")
+	private func showAlert() {
+		let alert = UIAlertController(
+			title: "00:00:00:00",
+			message: "Найди в себе силы сделать хотябы шаг",
+			preferredStyle: .alert
+		)
+		let action = UIAlertAction(title: "ОК", style: .default)
+		
+		alert.addAction(action)
+		
+		present(alert, animated: true)
 	}
 }
 
@@ -272,12 +285,21 @@ extension SelectionViewController: UIPickerViewDelegate {
 				
 				presenter.changedPickerDistans(stadium: distancesStadium[row])
 				
+				print(distancesStadium[row].rawValue)
+				
 				return distancesStadium[row].rawValue
 			}
 		} else {
-			return component == 3
-			? stringConvert(number: miliseconds[row])
-			: stringConvert(number: times[row])
+			switch component {
+			case 0:
+				return stringConvert(number: times[row]) + " ч"
+			case 1:
+				return stringConvert(number: times[row]) + " м"
+			case 2:
+				return stringConvert(number: times[row]) + " с"
+			default:
+				return stringConvert(number: miliseconds[row])
+			}
 		}
 	}
 
@@ -311,7 +333,7 @@ extension SelectionViewController: UIPickerViewDelegate {
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-		return pickerView == pickerDistans ? 280 : 50
+		pickerView == pickerDistans ? 280 : 70
 	}
 }
 

@@ -37,8 +37,8 @@ class CustomTextField: UITextField {
 	
 	//MARK: - Private Methods
 	private func setupTextField(placeholder: String) {
-		textColor = .white
-		tintColor = .white
+		textColor = ColorSpace.dark
+		tintColor = ColorSpace.dark
 		
 		layer.cornerRadius = 10
 		layer.borderColor = ColorSpace.ActiveElement.enebled.cgColor

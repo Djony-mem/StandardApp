@@ -69,6 +69,7 @@ fileprivate enum Colors { // swiftlint:disable:this private_over_fileprivate
 let color = #colorLiteral(red: 0.3176470588, green: 0.3411764706, blue: 0.3568627451, alpha: 1)
 enum ColorSpace {
 	static let gray = Colors.lightRow
+	static let dark = Colors.dark
 	
 	enum BgColor {
 		static let mainVC = Colors.light
