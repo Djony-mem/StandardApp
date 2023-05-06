@@ -285,8 +285,6 @@ extension SelectionViewController: UIPickerViewDelegate {
 				
 				presenter.changedPickerDistans(stadium: distancesStadium[row])
 				
-				print(distancesStadium[row].rawValue)
-				
 				return distancesStadium[row].rawValue
 			}
 		} else {
