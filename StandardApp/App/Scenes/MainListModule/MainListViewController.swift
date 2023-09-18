@@ -87,7 +87,6 @@ private extension MainListViewController {
 		navBarAppearance.backgroundColor = ColorSpace.ResultButton.bgEnebled
 		navBarAppearance.titleTextAttributes = [.foregroundColor: ColorSpace.ResultButton.titleColor]
 		
-		
 		navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
 		
 		navigationController?.navigationBar.isTranslucent = false
